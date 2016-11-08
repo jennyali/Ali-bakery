@@ -21,10 +21,10 @@
     <button name="burgerMenu"></button>
     <div name="dropdownMenu">
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+      <a name="aboutUsLink">About</a>
       <button name="subMenu-access"></button>
       <div name="burgerMenu__subMenu">
-        <a href="">Books</a>
+        <a name="bookAdsLink">Books</a>
       </div>
       <a href="menu.html">Menu</a>
       <a href="order.html">Order Online</a>
@@ -34,12 +34,12 @@
     <nav> <!-- inline navbar -->
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a name="aboutUsLink">About</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="order.html">Order Online</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div name="aboutMenu">
+      <div name="bookAdsLink">
         Books
       </div>
     </nav>
@@ -58,77 +58,26 @@
         </p>
     </section>
     <section data-id="aboutUsGallery">
-        <!--<figure>            
-            <figcaption>
-                <h4>Img Title</h4>
-                <p>Img description here.</p>
-            </figcaption>
-        </figure>-->
 
     </section>
 </main>
-<main>      <!-- main content for BOOKS drop down menu choice -->
+<main data-id="bookAdsContent">      <!-- main content for BOOKS drop down menu choice -->
     <section>
         <h3>Books</h3>
     </section>
-    <section>
-        <article>
-            <figure>
-                <img src="">
-                <figcaption>
-                    <p>
-                        Donec mollis, purus eget placerat convallis, ipsum ex vulputate nibh, 
-                        quis ornare dolor sem ac neque. Vivamus diam ante, egestas in magna sed, 
-                        efficitur sagittis ipsum. Phasellus sit amet erat a dolor varius 
-                        ultricies ut vel elit.
-                    </p>
-                </figcaption>
-            </figure>
-        </article>
-        <article>
-            <figure>
-                <img src="">
-                <figcaption>
-                    <p>
-                        Donec mollis, purus eget placerat convallis, ipsum ex vulputate nibh, 
-                        quis ornare dolor sem ac neque. Vivamus diam ante, egestas in magna sed, 
-                        efficitur sagittis ipsum. Phasellus sit amet erat a dolor varius 
-                        ultricies ut vel elit.
-                    </p>
-                </figcaption>
-            </figure>
-        </article>
-        <article>
-            <figure>
-                <img src="">
-                <figcaption>
-                    <p>
-                        Donec mollis, purus eget placerat convallis, ipsum ex vulputate nibh, 
-                        quis ornare dolor sem ac neque. Vivamus diam ante, egestas in magna sed, 
-                        efficitur sagittis ipsum. Phasellus sit amet erat a dolor varius 
-                        ultricies ut vel elit.
-                    </p>
-                </figcaption>
-            </figure>
-        </article>
+    <section data-id="bookAdsSection">
+
     </section>
 </main>
-<main>      <!-- main content for GALLERY carrossel -->
+<main data-id="aboutUsGalleryCarrossel">      <!-- main content for GALLERY carrossel -->
     <div>
-        <span>[X icon]</span>
+        <span data-id="cancelBtn">[X icon]</span>
     </div>
     <section>
         <div>
-            <span>[left arrow]</span>
+            <span data-id="carrosselLeftArrow">[left arrow]</span>
         </div>
         <article data-id="carrosselImgArticle">
-            <!--<figure>
-                <img src="">
-                <figcaption>
-                    <p>Img Title</p>
-                    <p>Img description here.</p>
-                </figcaption>-->
-            </figure>
         </article>
         <div>
             <span data-id="carrosselRightArrow">[right arrow]</span>
