@@ -57,62 +57,14 @@
             litora torquent per conubia nostra, per inceptos himenaeos.
         </p>
     </section>
-    <section>
-        <figure>            <!-- to replicate with jquery -->
+    <section data-id="aboutUsGallery">
+        <!--<figure>            
             <figcaption>
                 <h4>Img Title</h4>
                 <p>Img description here.</p>
             </figcaption>
-        </figure>
+        </figure>-->
 
-        <figure>
-            <figcaption>
-                <h4>Img Title</h4>
-                <p>Img description here.</p>
-            </figcaption>
-        </figure>
-                <figure>
-            <figcaption>
-                <h4>Img Title</h4>
-                <p>Img description here.</p>
-            </figcaption>
-        </figure>
-        <figure>
-            <figcaption>
-                <h4>Img Title</h4>
-                <p>Img description here.</p>
-            </figcaption>
-        </figure>
-        <figure>
-            <figcaption>
-                <h4>Img Title</h4>
-                <p>Img description here.</p>
-            </figcaption>
-        </figure>
-        <figure>
-            <figcaption>
-                <h4>Img Title</h4>
-                <p>Img description here.</p>
-            </figcaption>
-        </figure>
-        <figure>
-            <figcaption>
-                <h4>Img Title</h4>
-                <p>Img description here.</p>
-            </figcaption>
-        </figure>
-        <figure>
-            <figcaption>
-                <h4>Img Title</h4>
-                <p>Img description here.</p>
-            </figcaption>
-        </figure>
-        <figure>
-            <figcaption>
-                <h4>Img Title</h4>
-                <p>Img description here.</p>
-            </figcaption>
-        </figure>
     </section>
 </main>
 <main>      <!-- main content for BOOKS drop down menu choice -->
@@ -161,7 +113,7 @@
         </article>
     </section>
 </main>
-<main>      <!-- main content for GALLERY carosel -->
+<main>      <!-- main content for GALLERY carrossel -->
     <div>
         <span>[X icon]</span>
     </div>
@@ -169,17 +121,17 @@
         <div>
             <span>[left arrow]</span>
         </div>
-        <article>
-            <figure>
+        <article data-id="carrosselImgArticle">
+            <!--<figure>
                 <img src="">
                 <figcaption>
                     <p>Img Title</p>
                     <p>Img description here.</p>
-                </figcaption>
+                </figcaption>-->
             </figure>
         </article>
         <div>
-            <span>[right arrow]</span>
+            <span data-id="carrosselRightArrow">[right arrow]</span>
         </div>
     </section>
 
@@ -218,6 +170,7 @@
 
   
   <script src="../node_modules/jquery/dist/jquery.js"></script>
+  <script src="scripts/lodash.js"></script>
   <script src="scripts/main.js"></script>      
 </body>
 
