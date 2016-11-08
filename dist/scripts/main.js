@@ -22,16 +22,17 @@ var $bookAdsSection = $('section[data-id="bookAdsSection"]');
 
 
 //-- global
+var $preFooterEl = $('main:last');
 var aboutCurrentIndex = 0;
 
-// Arrays
-//-------------------
+//               Arrays
+//=======================================
 
 var bakeryFoods = [];
 var booksForSale = [];
 
-// Object Contructors
-//-------------------
+//    Object Contructors/Array builders
+//========================================
 
 // foodItems 'data-base'
 
@@ -73,9 +74,8 @@ bakeryFoods.push(new foodItem('Blueberry Muffin', 'images/blueberry-muffin.png',
 bakeryFoods.push(new foodItem('Vanilla Lattice ', 'images/vanilla-lattice', 'cake', 4, 
 'Delicious home baked projects, made from the finest ingriedents and prepared fresh in-store by our series of star bakers'));
 
-//console.log(bakeryFoods);
 var bakeryFoodsAboutSample = _.slice(bakeryFoods, [0], [8]);    // new array 9 items
-//console.log(bakeryFoodsAboutSample);
+
 
 // books mini-database
 
@@ -107,6 +107,10 @@ function foodChecker(callback){
 function aboutGalleryImg(callback){
     $(callback()).appendTo($carrosselImg);
 }
+
+
+//              HTML templates
+//--------------------------------------------
 
 function aboutGalleryConstruct(foodItem, index){
     return `
@@ -147,12 +151,50 @@ function aboutBooks(bookItem, index){
         </article>
     `
 }
+
+var footerCode = function footerHtml(){
+    return `
+        <footer>
+            <section>
+                <article>
+                    <h4>Address</h4>
+                    <p>[insert address]</p>
+                </article>
+                <article>
+                    <h4>Hours</h4>
+                    <p>Mon - Fri: 6am - 7pm</p>
+                    <p>Sat - Sun: 8am - 8pm</p>
+                </article>
+                <article>
+                    <h4>Contact</h4>
+                    <p>123-456-7890</p>
+                    <p>info@mysite.com</p>
+                </article>
+                <article>
+                    <h4>Follow</h4>
+                    <ul>
+                        <li>[icon]</li>
+                        <li>[icon]</li>
+                        <li>[icon]</li>
+                        <li>[icon]</li>
+                    </ul>
+                </article>
+            </section>
+            <p>
+                Ali's Bakery 2016, created by Jen
+            </p>
+        </footer>
+    `
+};
 //          Functions Calls
 //===================================
 
 foodChecker(aboutGalleryConstruct);
 aboutGalleryImg(aboutGalleryCarrosselConstruct);
 aboutBookAds(aboutBooks);
+
+$preFooterEl.after(footerCode());
+
 
 //      After Functions Varibles
 //===================================
@@ -168,20 +210,16 @@ $bookAdsContent.hide();
 //         on.(EVENTS)
 //====================================
 
-console.log($aboutUsLink);
 
 $aboutUsLink.on({
     "click" : function(){
-        console.log('i clicked');
         $bookAdsContent.fadeOut('fast');
         $aboutUsContent.fadeIn('fast');
     }
 })
 
 $bookAdpage.on({
-    "click" : function(event){
-        event.preventDefault();
-        console.log('i clicked');
+    "click" : function(){
         $aboutUsContent.fadeOut('fast');
         $bookAdsContent.fadeIn('fast');
     }
