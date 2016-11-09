@@ -27,6 +27,12 @@ var $bookAdsSection = $('section[data-id="bookAdsSection"]');
 var $breadList = $('section[name="breadMenuList"]');
 var $cakeList = $('section[name="cakeMenuList"]');
 
+//--- Contact page
+var $contactForm = $('form[name="contactForm"]');
+var $nameInput = $('input[name="nameInput"]');
+var $alertMsg = $('p[name="alertMsg"]');
+var $formBtn = $('button[name="formBtn"]');
+
 //-- global
 var $preFooterEl = $('main:last');
 var aboutCurrentIndex = 0;
@@ -146,12 +152,15 @@ function menuBuilder(menuList, arrayCategory, callback){
 
 // form validation
 
-var $contactForm = $('form[name="contactForm"]');
-var $nameInput = $('input[name="nameInput"]');
-
-console.log($('input[name="nameInput"]'));
 function validateForm() {
-    var input = ''
+    var x = $nameInput.val();
+    console.log(x);
+
+    if (x == null || x == ""){
+        $alertMsg.show();
+    } else {
+        $alertMsg.hide();
+    }
 }
 
 //              HTML templates
@@ -283,10 +292,18 @@ var $galleryImg = $('figure[data-id="galleryImg"]');
 
 $aboutUsGalleryCarrossel.hide();
 $bookAdsContent.hide();
+$alertMsg.hide();
 
 //         on.(EVENTS)
 //====================================
 
+$formBtn.on({
+    "click" : function(event){
+        event.preventDefault();
+        console.log('i clicked');
+        validateForm();
+    }
+})
 
 $aboutUsLink.on({
     "click" : function(){
