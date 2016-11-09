@@ -51,11 +51,12 @@
     </section>
     <section>
         <p>Planning a special event? Write us here:</p>
-        <form>
-            <input placeholder="Name"/>
-            <input placeholder="Email"/>
-            <input placeholder="Subject"/>
-            <textarea placeholder="Message"></textarea>
+        <form name="contactForm">
+            <input name="nameInput" placeholder="Name"/>
+            <p name="alertMsg">*Name must be filled in</p>
+            <input name="emailInput" placeholder="Email"/>
+            <input name="subjectInput" placeholder="Subject"/>
+            <textarea name="msgInput" placeholder="Message"></textarea>
             <button>Send</button>
         </form>
     </section>

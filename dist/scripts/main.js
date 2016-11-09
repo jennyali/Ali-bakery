@@ -4,6 +4,9 @@ $(document).ready(function(){
 //             Varibles 
 //===================================
 
+//---- Index page
+var $indexContent = $('main[name="indexPageContent"]');
+
 //---- About page inc gallery + carrossel 
 var $aboutUsContent = $('main[name="aboutUsContent"]');
 var $aboutUsGallery = $('section[data-id="aboutUsGallery"]');
@@ -20,6 +23,9 @@ var $bookAdpage = $('[name="bookAdsLink"]');
 var $bookAdsContent = $('main[data-id="bookAdsContent"]');
 var $bookAdsSection = $('section[data-id="bookAdsSection"]');
 
+//--- Menu page
+var $breadList = $('section[name="breadMenuList"]');
+var $cakeList = $('section[name="cakeMenuList"]');
 
 //-- global
 var $preFooterEl = $('main:last');
@@ -30,6 +36,8 @@ var aboutCurrentIndex = 0;
 
 var bakeryFoods = [];
 var booksForSale = [];
+var breadCatergory = [];
+var cakeCatergory = [];
 
 //    Object Contructors/Array builders
 //========================================
@@ -92,22 +100,59 @@ booksForSale.push(new bookItem('Sallys Baking Addiction', "images/sallys-cookboo
 //             Functions
 //===================================
 
+function indexImgPicker(image){
+    var sampleImg =  _.sample(bakeryFoods);
+
+    $indexContent.find(image).attr({
+        "data-img" : sampleImg["img"],
+    });
+}
+
 function aboutBookAds(callback){
+    var template = "";
     _.each(booksForSale, function(bookItem, index){
-        $(callback(bookItem, index)).appendTo($bookAdsSection);
+        template += callback(bookItem, index);
     })
+    $(template).appendTo($bookAdsSection);
 }
 
 function foodChecker(callback){
+    var template = "";
     _.each(bakeryFoodsAboutSample, function(foodItem, index){
-        $(callback(foodItem, index)).appendTo($aboutUsGallery);
+        template += callback(foodItem, index);
     })
+    $(template).appendTo($aboutUsGallery);
 }
 
 function aboutGalleryImg(callback){
     $(callback()).appendTo($carrosselImg);
 }
 
+function foodSorter(catergory, catergoryArray){
+    _.each(bakeryFoods, function(foodItem){
+        if(foodItem["catergory"] == catergory){
+            catergoryArray.push(foodItem);
+        }
+    });
+}
+
+function menuBuilder(menuList, arrayCategory, callback){
+    var template = "";
+    _.each(arrayCategory, function(foodItem, index){
+        template += callback(foodItem, index);
+    });
+    $(template).appendTo(menuList);
+}
+
+// form validation
+
+var $contactForm = $('form[name="contactForm"]');
+var $nameInput = $('input[name="nameInput"]');
+
+console.log($('input[name="nameInput"]'));
+function validateForm() {
+    var input = ''
+}
 
 //              HTML templates
 //--------------------------------------------
@@ -186,12 +231,44 @@ var footerCode = function footerHtml(){
         </footer>
     `
 };
+
+function menuTemplate(foodItem, index){
+    return `
+        <article data-id="menuItem"
+                 name="${foodItem["name"]}"
+                 index="${index}">
+            <figure data-img="${foodItem["img"]}">
+                <figcaption>
+                    <h4>${foodItem["name"]}</h4>
+                    <p>$${foodItem["price"]}</p>
+                </figcaption>
+            </figure>
+            <section>
+                <h4>${foodItem["name"]}</h4>
+                <p>${foodItem["info"]}</p>
+                <div></div>
+                <p>$${foodItem["price"]}</p>
+            </section>
+        </article>
+    `
+}
+
+//           Lodash Functions
+//===================================
+
 //          Functions Calls
 //===================================
 
+indexImgPicker('figure[name="primaryIndexImg"]');
+indexImgPicker('figure[name="secondaryIndexImg"]');
+indexImgPicker('figure[name="thirdIndexImg"]');
 foodChecker(aboutGalleryConstruct);
 aboutGalleryImg(aboutGalleryCarrosselConstruct);
 aboutBookAds(aboutBooks);
+foodSorter("bread", breadCatergory);
+foodSorter("cake", cakeCatergory);
+menuBuilder($breadList, breadCatergory, menuTemplate);
+menuBuilder($cakeList, cakeCatergory, menuTemplate);
 
 $preFooterEl.after(footerCode());
 
@@ -267,5 +344,6 @@ $carrosselCancelBtn.on({
         $aboutUsGalleryCarrossel.fadeOut('fast');
     }
 })
+
 
 });
