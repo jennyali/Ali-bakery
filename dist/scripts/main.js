@@ -30,8 +30,24 @@ var $cakeList = $('section[name="cakeMenuList"]');
 //--- Contact page
 var $contactForm = $('form[name="contactForm"]');
 var $nameInput = $('input[name="nameInput"]');
-var $alertMsg = $('p[name="alertMsg"]');
+var $emailInput = $('input[name="emailInput"]');
+var $subjectInput = $('input[name="subjectInput"]');
+var $msgInput =$('textarea[name="msgInput"]');
+var $nameAlert = $('p[name="nameAlert"]');
+var $emailAlert = $('p[name="emailAlert"]');
+var $subjectAlert = $('p[name="subjectAlert"]');
+var $msgAlert = $('p[name="msgAlert"]');
 var $formBtn = $('button[name="formBtn"]');
+var $formFailMsg = $('p[name="failFormMsg"]');
+var $formSuccessMsg = $('p[name="successFormMsg"]');
+
+// online Order page
+var $leftAsideMenu = $('section[name="leftAsideMenu"]');
+var $categoryInfo = $('p[name="categoryInfo"]');
+var $categoryTitle = $('h3[name="categoryTitle"]');
+var $cakeOrderMenu = $('a[name="cakeOrderMenu"]');
+var $breadOrderMenu = $('a[name="breadOrderMenu"]');
+var $itemsForSale = $('div[name="itemsForSale"]');
 
 //-- global
 var $preFooterEl = $('main:last');
@@ -103,6 +119,7 @@ booksForSale.push(new bookItem('Magnolia Bakery Cookbook', "images/magnolia-cook
 booksForSale.push(new bookItem('Baked', "images/baked-cookbook.jpg", "Nulla finibus sem eget enim tempor, at elementum urna mollis. Integer dignissim tellus vitae felis vehicula, vel fringilla metus rhoncus"))
 booksForSale.push(new bookItem('Sallys Baking Addiction', "images/sallys-cookbook.jpg", " Nam in massa at dui feugiat venenatis. Ut placerat tortor ut eros pharetra, ut molestie nisi euismod."))
 
+
 //             Functions
 //===================================
 
@@ -152,15 +169,42 @@ function menuBuilder(menuList, arrayCategory, callback){
 
 // form validation
 
-function validateForm() {
+function validateForm(callback) {
     var x = $nameInput.val();
-    console.log(x);
+    var y = $emailInput.val();
+    var z = $subjectInput.val();
+    var i = $msgInput.val();
 
-    if (x == null || x == ""){
-        $alertMsg.show();
+    var xResult = callback(x, $nameAlert);
+    var yResult = callback(y, $emailAlert);
+    var zResult = callback(z, $subjectAlert);
+    var iResult = callback(i, $msgAlert);
+
+    if(xResult || yResult || zResult || iResult){
+        $formFailMsg.hide();
+        $formSuccessMsg.show();
     } else {
-        $alertMsg.hide();
+        $formSuccessMsg.hide();
+        $formFailMsg.show();
     }
+}
+
+function validateInput(inputVar, alertSelector){
+    if (inputVar == null || inputVar == ""){
+        alertSelector.show();
+        return false
+    } else {
+        alertSelector.hide();
+        return true
+    }
+}
+
+function onlineOrderFoodItemBuilder(foodObj, callback){
+    var template = "";
+    _.each(foodObj, function(foodItem, index){
+        template += callback(foodItem, index);
+    })
+    $(template).appendTo($itemsForSale);
 }
 
 //              HTML templates
@@ -262,6 +306,20 @@ function menuTemplate(foodItem, index){
     `
 }
 
+function onlineOrderFoodItemTemplate(foodItem, index){
+    return `
+        <article data-id="${foodItem["name"]}" index="${index}">   
+            <figure>[img]</figure>
+            <figcaption>
+              <p>${foodItem["name"]}</p>
+              <p>${foodItem["price"]}</p>
+              <p>${foodItem["info"]}</p>
+            </figcaption>
+            <button>[ + icon]</button>
+        </article>
+      `
+}
+
 //           Lodash Functions
 //===================================
 
@@ -279,29 +337,73 @@ foodSorter("cake", cakeCatergory);
 menuBuilder($breadList, breadCatergory, menuTemplate);
 menuBuilder($cakeList, cakeCatergory, menuTemplate);
 
+
 $preFooterEl.after(footerCode());
 
 
-//      After Functions Varibles
+//      After Functions Varibles/more Functions
 //===================================
 
 var $galleryImg = $('figure[data-id="galleryImg"]');
+
+// Online Food Order data
+
+var breadCatergorySample = _.slice(breadCatergory, [0], [4]);
+var cakeCatergorySample = _.slice(cakeCatergory, [0], [4]);
+
+function orderObj(title, info, sample){
+    this.title = title;
+    this.info = info;
+    this.sample = sample;
+};
+
+var breadOrder = new orderObj("Bread selection", "Delicious home baked projects, made from the finest ingriedents and prepared fresh in-store by our series of star bakers", breadCatergorySample);
+var cakeOrder = new orderObj("Cakes and Desserts", "Delicious home baked projects, made from the finest ingriedents and prepared fresh in-store by our series of star bakers", cakeCatergorySample);
+
+onlineOrderFoodItemBuilder(breadOrder["sample"], onlineOrderFoodItemTemplate);
+$categoryTitle.text(breadOrder["title"]);
+$categoryInfo.text(breadOrder["info"]);
+
+
 
 //         .hide(EVENTS)
 //====================================
 
 $aboutUsGalleryCarrossel.hide();
 $bookAdsContent.hide();
-$alertMsg.hide();
+$nameAlert.hide();
+$emailAlert.hide();
+$subjectAlert.hide();
+$msgAlert.hide();
+$formFailMsg.hide();
+$formSuccessMsg.hide();
 
 //         on.(EVENTS)
 //====================================
+
+$breadOrderMenu.on({
+    "click" : function(){
+        $categoryTitle.text(breadOrder["title"]);
+        $categoryInfo.text(breadOrder["info"]);
+        $itemsForSale.empty();
+        onlineOrderFoodItemBuilder(breadOrder["sample"], onlineOrderFoodItemTemplate);
+    }
+})
+
+$cakeOrderMenu.on({
+    "click" : function(){
+        $categoryTitle.text(cakeOrder["title"]);
+        $categoryInfo.text(cakeOrder["info"]);
+        $itemsForSale.empty();
+        onlineOrderFoodItemBuilder(cakeOrder["sample"], onlineOrderFoodItemTemplate);
+    }
+})
 
 $formBtn.on({
     "click" : function(event){
         event.preventDefault();
         console.log('i clicked');
-        validateForm();
+        validateForm(validateInput);
     }
 })
 
