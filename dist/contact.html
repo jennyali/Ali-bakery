@@ -53,11 +53,16 @@
         <p>Planning a special event? Write us here:</p>
         <form name="contactForm">
             <input name="nameInput" placeholder="Name"/>
-            <p name="alertMsg">*Name must be filled in</p>
+            <p name="nameAlert">*Name must be filled in</p>
             <input name="emailInput" placeholder="Email"/>
+            <p name="emailAlert">*Please provide an email address</p>
             <input name="subjectInput" placeholder="Subject"/>
+            <p name="subjectAlert">*A subject needs to be listed</p>
             <textarea name="msgInput" placeholder="Message"></textarea>
+            <p name="msgAlert">*A message needs to be written</p>
             <button name="formBtn">Send</button>
+            <p name="failFormMsg">Failed to Send! please check all boxes are filled in.</p>
+            <p name="successFormMsg">Success! we have recieved your response and will report back to you shorty.</p>
         </form>
     </section>
     <section>
