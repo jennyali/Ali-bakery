@@ -49,6 +49,8 @@ var $cakeOrderMenu = $('a[name="cakeOrderMenu"]');
 var $breadOrderMenu = $('a[name="breadOrderMenu"]');
 var $itemsForSale = $('div[name="itemsForSale"]');
 var $myOrderTitle = $('div[name="myOrderTitle"]');
+var $myOrderAmount =$('p[name="myOrderAmount"]');
+var $itemWord = $('p[name="itemWord"]');
 
 
 // online Order Modal
@@ -70,6 +72,7 @@ var $addOrderBtn = $('button[name="addOrderBtn"]');
 //-- global
 var $preFooterEl = $('main:last');
 var aboutCurrentIndex = 0;
+var numberOfItems = 0;
 
 //               Arrays
 //=======================================
@@ -150,6 +153,16 @@ booksForSale.push(new bookItem('Sallys Baking Addiction', "images/sallys-cookboo
 
 //             Functions
 //===================================
+
+function wordChecker(){
+    if(numberOfItems > 1){
+        $itemWord.text("items")
+    } else if (numberOfItems == 1){
+        $itemWord.text("item")
+    } else {
+        $itemWord.text("items")
+    }
+}
 
 function orderModalBuilder(callback){
     $(callback).appendTo($foodOrderModalContainer);
@@ -246,11 +259,13 @@ function myOrderItemBuilder(callback){
 //              HTML templates
 //--------------------------------------------
 
-function myOrderItemTemplate(index, name, price){
+function myOrderItemTemplate(listItem){
     return `
-    <div name="myOrderItem" index="${index}">
-        <div name="nameOfItem">${name}</div>
-        <div name="priceOfItem">${price}</div>
+    <div name="myOrderItem" index="${listItem["index"]}">
+        <div name="nameOfItem">${listItem["name"]}</div>
+        <div name="priceOfItem">${listItem["price"]}
+        <button name="cancelOrderItem" index="${listItem["index"]}">X</button>
+        </div>
     </div>
     `
 }
@@ -413,7 +428,7 @@ menuBuilder($cakeList, cakeCatergory, menuTemplate);
 
 
 $preFooterEl.after(footerCode());
-
+$myOrderAmount.text(numberOfItems);
 
 //      After Functions Varibles/more Functions
 //===================================
@@ -459,7 +474,13 @@ $foodOrderModal.hide();
 //         on.(EVENTS)
 //====================================
 
-
+$myOrderTitle.on("click", "button", function(event){
+    event.preventDefault();
+    numberOfItems--;
+    $myOrderAmount.text(numberOfItems);
+    wordChecker();
+    $(this).closest("div[name='myOrderItem']").remove();
+})
 
 $orderFoodItemBtn.on({
     "click" : function(event){
@@ -471,12 +492,10 @@ $orderFoodItemBtn.on({
         var dataPrice = $(this).attr("data-price");
         $foodOrderModalContainer.empty();
         orderModalBuilder(orderModalTemplate(index, dataId, dataImg, dataInfo, dataPrice));
-        
         $foodOrderModal.find("input").hide();
         $foodOrderModal.fadeIn('fast');
     }
 })
-
 
 $foodOrderModal.on("click", "button[name='cancelModalBtn']", function(event){
     event.preventDefault();
@@ -504,11 +523,12 @@ $foodOrderModal.on("click", "button[name='addOrderBtn']", function(event){
     var dataPrice = $("button[name='addOrderBtn']").attr("data-price");
 
     var listItem = new shoppingItem(index, dataId, dataPrice);
-    myOrderItemBuilder(myOrderItemTemplate(index, dataId, dataPrice)); // pass in the object! and alter template to take in object values instead!
+    myOrderItemBuilder(myOrderItemTemplate(listItem)); 
     shoppingList.push(listItem);
-
+    numberOfItems++;
+    $myOrderAmount.text(numberOfItems);
+    wordChecker();
     $foodOrderModal.fadeOut('fast');
-    console.log(shoppingList);
 })
 
 $breadOrderMenu.on({
