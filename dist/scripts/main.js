@@ -49,6 +49,23 @@ var $cakeOrderMenu = $('a[name="cakeOrderMenu"]');
 var $breadOrderMenu = $('a[name="breadOrderMenu"]');
 var $itemsForSale = $('div[name="itemsForSale"]');
 
+
+// online Order Modal
+
+var $foodOrderModal = $('section[name="foodOrderModal"]');
+var $foodOrderModalContainer =$('article[name="foodOrderModalContainer"]');
+//var $cancelModalBtn = $('button[name="cancelModalBtn"]');
+
+var $modalImg = $('figure[name="modalImg"]');
+var $modalFigCap = $('figcaption[name="modalFigCap"]');
+var $modalTitle = $('h4[name="modalTitle"]');
+var $modalPrice = $('p[name="modalPrice"]');
+var $modalInfo = $('p[name="modalInfo"]');
+var $userRequestbtn = $('p[name="userRequestbtn"]');
+var $userRequestInput = $('input[name=userRequestInput]');
+var $addOrderBtn = $('button[name="addOrderBtn"]');
+
+
 //-- global
 var $preFooterEl = $('main:last');
 var aboutCurrentIndex = 0;
@@ -122,6 +139,10 @@ booksForSale.push(new bookItem('Sallys Baking Addiction', "images/sallys-cookboo
 
 //             Functions
 //===================================
+
+function orderModalBuilder(callback){
+    $(callback).appendTo($foodOrderModalContainer);
+}
 
 function indexImgPicker(image){
     var sampleImg =  _.sample(bakeryFoods);
@@ -309,15 +330,43 @@ function menuTemplate(foodItem, index){
 function onlineOrderFoodItemTemplate(foodItem, index){
     return `
         <article data-id="${foodItem["name"]}" index="${index}">   
-            <figure>[img]</figure>
+            <figure data-img="${foodItem["img"]}">[img]</figure>
             <figcaption>
               <p>${foodItem["name"]}</p>
               <p>${foodItem["price"]}</p>
               <p>${foodItem["info"]}</p>
             </figcaption>
-            <button>[ + icon]</button>
+            <button name="orderFoodItemBtn"
+                    index="${index}"
+                    data-id="${foodItem["name"]}"
+                    data-img="${foodItem["img"]}"
+                    data-info="${foodItem["info"]}"
+                    data-price="${foodItem["price"]}"
+            >[ + icon]</button>
         </article>
       `
+}
+
+function orderModalTemplate(index, name, img, info, price){
+    return `
+        <figure name="modalImg" data-img="${img}"></figure>
+        <figcaption name="modalFigCap">
+            <h4 name="modalTitle">${name}</h4>
+            <p name="modalPrice">${price}</p>
+            <p name="modalInfo">${info}</p>
+            <p>Special Requests?</p>
+            <p>+ Add them here. We'll do our best to make it happen</p>
+            <input name="userRequestInput"></input>
+            <button name="addOrderBtn"
+                    index="${index}"
+                    data-id="${name}"
+                    data-img="${img}"
+                    data-info="${info}"
+                    data-price="${price}"
+            > + ADD TO MY ORDER</button>
+            <button name="cancelModalBtn">X Cancel</button>
+        </figcaption>
+    `
 }
 
 //           Lodash Functions
@@ -364,7 +413,9 @@ onlineOrderFoodItemBuilder(breadOrder["sample"], onlineOrderFoodItemTemplate);
 $categoryTitle.text(breadOrder["title"]);
 $categoryInfo.text(breadOrder["info"]);
 
+//-----------------------------------
 
+var $orderFoodItemBtn = $('button[name="orderFoodItemBtn"]');
 
 //         .hide(EVENTS)
 //====================================
@@ -377,9 +428,38 @@ $subjectAlert.hide();
 $msgAlert.hide();
 $formFailMsg.hide();
 $formSuccessMsg.hide();
+$foodOrderModal.hide();
 
 //         on.(EVENTS)
 //====================================
+$orderFoodItemBtn.on({
+    "click" : function(event){
+        event.preventDefault();
+        var index = $(this).attr("index");
+        var dataId = $(this).attr("data-id");
+        var dataImg = $(this).attr("data-img");
+        var dataInfo = $(this).attr("data-info");
+        var dataPrice = $(this).attr("data-price");
+        $foodOrderModalContainer.empty();
+        orderModalBuilder(orderModalTemplate(index, dataId, dataImg, dataInfo, dataPrice));
+        
+        var $cancelModalBtn = $('button[name="cancelModalBtn"]');
+        console.log($cancelModalBtn);
+
+        $foodOrderModal.fadeIn('fast');
+    }
+})
+
+//var $cancelModalBtn = $('button[name="cancelModalBtn"]');
+//console.log($cancelModalBtn);
+
+$cancelModalBtn.on({
+    "click" : function(event){
+        event.preventDefault();
+        console.log('i clicked');
+        $foodOrderModal.fadeOut('fast');
+    }
+})
 
 $breadOrderMenu.on({
     "click" : function(){
