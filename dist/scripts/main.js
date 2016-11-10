@@ -48,6 +48,7 @@ var $categoryTitle = $('h3[name="categoryTitle"]');
 var $cakeOrderMenu = $('a[name="cakeOrderMenu"]');
 var $breadOrderMenu = $('a[name="breadOrderMenu"]');
 var $itemsForSale = $('div[name="itemsForSale"]');
+var $myOrderTitle = $('div[name="myOrderTitle"]');
 
 
 // online Order Modal
@@ -77,9 +78,19 @@ var bakeryFoods = [];
 var booksForSale = [];
 var breadCatergory = [];
 var cakeCatergory = [];
+var shoppingList = [];
 
 //    Object Contructors/Array builders
 //========================================
+
+// food Order items
+
+function shoppingItem(index, name, price){
+    this.index = index;
+    this.name = name;
+    this.price = price;
+};
+
 
 // foodItems 'data-base'
 
@@ -228,8 +239,21 @@ function onlineOrderFoodItemBuilder(foodObj, callback){
     $(template).appendTo($itemsForSale);
 }
 
+function myOrderItemBuilder(callback){
+    $(callback).appendTo($myOrderTitle);
+}
+
 //              HTML templates
 //--------------------------------------------
+
+function myOrderItemTemplate(index, name, price){
+    return `
+    <div name="myOrderItem" index="${index}">
+        <div name="nameOfItem">${name}</div>
+        <div name="priceOfItem">${price}</div>
+    </div>
+    `
+}
 
 function aboutGalleryConstruct(foodItem, index){
     return `
@@ -355,7 +379,7 @@ function orderModalTemplate(index, name, img, info, price){
             <p name="modalPrice">${price}</p>
             <p name="modalInfo">${info}</p>
             <p>Special Requests?</p>
-            <p>+ Add them here. We'll do our best to make it happen</p>
+            <p name='userRequestbtn'>+ Add them here. We'll do our best to make it happen</p>
             <input name="userRequestInput"></input>
             <button name="addOrderBtn"
                     index="${index}"
@@ -363,6 +387,7 @@ function orderModalTemplate(index, name, img, info, price){
                     data-img="${img}"
                     data-info="${info}"
                     data-price="${price}"
+                    date-hasReq="false"
             > + ADD TO MY ORDER</button>
             <button name="cancelModalBtn">X Cancel</button>
         </figcaption>
@@ -430,8 +455,12 @@ $formFailMsg.hide();
 $formSuccessMsg.hide();
 $foodOrderModal.hide();
 
+
 //         on.(EVENTS)
 //====================================
+
+
+
 $orderFoodItemBtn.on({
     "click" : function(event){
         event.preventDefault();
@@ -443,22 +472,43 @@ $orderFoodItemBtn.on({
         $foodOrderModalContainer.empty();
         orderModalBuilder(orderModalTemplate(index, dataId, dataImg, dataInfo, dataPrice));
         
-        var $cancelModalBtn = $('button[name="cancelModalBtn"]');
-        console.log($cancelModalBtn);
-
+        $foodOrderModal.find("input").hide();
         $foodOrderModal.fadeIn('fast');
     }
 })
 
-//var $cancelModalBtn = $('button[name="cancelModalBtn"]');
-//console.log($cancelModalBtn);
 
-$cancelModalBtn.on({
-    "click" : function(event){
-        event.preventDefault();
-        console.log('i clicked');
-        $foodOrderModal.fadeOut('fast');
-    }
+$foodOrderModal.on("click", "button[name='cancelModalBtn']", function(event){
+    event.preventDefault();
+    $foodOrderModal.fadeOut('fast');
+})
+
+$foodOrderModal.on("click", "p[name='userRequestbtn']", function(event){
+    event.preventDefault();
+    $foodOrderModal.find("p[name='userRequestbtn']").toggle('fast');
+    $foodOrderModal.find("input").toggle('fast');
+    $foodOrderModal.find("input").focus();
+})
+
+$foodOrderModal.on("blur", "input", function(event){
+    $foodOrderModal.find("input").toggle('fast');
+    $foodOrderModal.find("p[name='userRequestbtn']").toggle('fast');
+})
+
+$foodOrderModal.on("click", "button[name='addOrderBtn']", function(event){
+    event.preventDefault();
+    var inputVar = $foodOrderModal.find("input").val();
+
+    var index = $("button[name='addOrderBtn']").attr("index");
+    var dataId = $("button[name='addOrderBtn']").attr("data-id");
+    var dataPrice = $("button[name='addOrderBtn']").attr("data-price");
+
+    var listItem = new shoppingItem(index, dataId, dataPrice);
+    myOrderItemBuilder(myOrderItemTemplate(index, dataId, dataPrice)); // pass in the object! and alter template to take in object values instead!
+    shoppingList.push(listItem);
+
+    $foodOrderModal.fadeOut('fast');
+    console.log(shoppingList);
 })
 
 $breadOrderMenu.on({
