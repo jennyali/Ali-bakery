@@ -102,6 +102,7 @@ function shoppingItem(index, name, price, itemQty, totalPrice){
 // foodItems 'data-base'
 
 function foodItem(name, img, catergory, price, info){
+    this.id = Math.ceil(Math.random() * 10000);
     this.name = name;
     this.img = img;
     this.catergory = catergory;
@@ -138,7 +139,7 @@ bakeryFoods.push(new foodItem('Blueberry Muffin', 'images/blueberry-muffin.png',
 
 bakeryFoods.push(new foodItem('Vanilla Lattice ', 'images/vanilla-lattice', 'cake', 4, 
 'Delicious home baked projects, made from the finest ingriedents and prepared fresh in-store by our series of star bakers'));
-
+console.log(bakeryFoods);
 var bakeryFoodsAboutSample = _.slice(bakeryFoods, [0], [8]);    // new array 9 items
 
 
@@ -562,7 +563,7 @@ $myOrderTitle.on("click", "button[name='incQuantity']", function(event){
 
 $myOrderTitle.on("click", "button[name='cancelOrderItem']", function(event){
     event.preventDefault();
-    $(this).closest("div[name='myOrderItem']").remove();
+    //$(this).closest("div[name='myOrderItem']").remove();
     shoppingList.pop();
     setQuantity();
     wordChecker();
