@@ -51,6 +51,7 @@ var $itemsForSale = $('div[name="itemsForSale"]');
 var $myOrderTitle = $('div[name="myOrderTitle"]');
 var $myOrderAmount =$('p[name="myOrderAmount"]');
 var $itemWord = $('p[name="itemWord"]');
+var $subtotal = $('p[name="subtotal"]');
 
 
 // online Order Modal
@@ -73,6 +74,7 @@ var $addOrderBtn = $('button[name="addOrderBtn"]');
 var $preFooterEl = $('main:last');
 var aboutCurrentIndex = 0;
 var numberOfItems = 0;
+var totalShoppingCost = 0;
 
 //               Arrays
 //=======================================
@@ -88,10 +90,12 @@ var shoppingList = [];
 
 // food Order items
 
-function shoppingItem(index, name, price){
+function shoppingItem(index, name, price, itemQty, totalPrice){
     this.index = index;
     this.name = name;
     this.price = price;
+    this.itemQty = itemQty;
+    this.totalPrice = totalPrice;
 };
 
 
@@ -153,6 +157,64 @@ booksForSale.push(new bookItem('Sallys Baking Addiction', "images/sallys-cookboo
 
 //             Functions
 //===================================
+
+function setItemQuantity(index, qty){
+    var foundShoppingItem = _.filter(shoppingList, {'index' : index});
+    console.log(foundShoppingItem);
+}
+
+function setQuantity(){
+    var currentQuanity = shoppingList.length;
+    $myOrderAmount.text(currentQuanity);
+    console.log(currentQuanity);
+}
+
+function setSubtotal(){
+    var newSubTotal = 0;
+
+    _.each(shoppingList, function(foodItem){
+        newSubTotal += parseInt(foodItem["price"])
+    })
+
+    $subtotal.text(newSubTotal);
+}
+
+/*
+function amountsIncUpdate(index, quanity, price, setPrice, callback){
+    var currentQuanity = parseInt(quanity.text());
+    var currentPrice = parseInt(price.text());
+    var currentSetPrice = parseInt(setPrice);
+    var newQuanity = currentQuanity + 1;
+    var newPrice = currentPrice * 2;
+    quanity.text(newQuanity);
+    price.text(newPrice);
+    var newSubtotal = (newPrice * newQuanity) - currentSetPrice;
+    callback(newSubtotal);
+    //console.log($('div[name="myOrderItem"]').attr("index"));
+    /*
+    if($('div[name="myOrderItem"]').attr("index") == index){
+        console.log('match');
+        $('div[name="myOrderItem"]').attr("internalTotal", newSubtotal);
+    }
+ 
+}
+
+function takeFromTotalCost(itemPrice){
+    var currentTotal = parseInt(totalShoppingCost);
+    var thisPrice = parseInt(itemPrice);
+    var newTotal = currentTotal - thisPrice;
+    totalShoppingCost = newTotal;
+    $subtotal.text(totalShoppingCost);
+}
+
+function addToTotalCost(itemPrice){
+    var currentTotal = parseInt(totalShoppingCost);
+    var thisPrice = parseInt(itemPrice);
+    var newTotal = currentTotal + thisPrice;
+    totalShoppingCost = newTotal;
+    $subtotal.text(totalShoppingCost);
+}
+*/
 
 function wordChecker(){
     if(numberOfItems > 1){
@@ -262,10 +324,19 @@ function myOrderItemBuilder(callback){
 function myOrderItemTemplate(listItem){
     return `
     <div name="myOrderItem" index="${listItem["index"]}">
+        <div name="quanityOfItem" data-value="1">1</div>
+        <span>x</span>
         <div name="nameOfItem">${listItem["name"]}</div>
-        <div name="priceOfItem">${listItem["price"]}
+        <span>$</span>
+        <div name="priceOfItem" data-price="${listItem["price"]}">${listItem["price"]}</div>
         <button name="cancelOrderItem" index="${listItem["index"]}">X</button>
-        </div>
+        <button name="incQuantity" 
+                index="${listItem["index"]}"
+                data-id="${listItem["name"]}"
+                data-price="${listItem["price"]}"
+                data-qty="${listItem["itemQty"]}"
+                data-totalPrice="${listItem["totalPrice"]}"
+                >+</button>
     </div>
     `
 }
@@ -427,8 +498,10 @@ menuBuilder($breadList, breadCatergory, menuTemplate);
 menuBuilder($cakeList, cakeCatergory, menuTemplate);
 
 
+
 $preFooterEl.after(footerCode());
-$myOrderAmount.text(numberOfItems);
+//$myOrderAmount.val(numberOfItems);
+$subtotal.text(totalShoppingCost);
 
 //      After Functions Varibles/more Functions
 //===================================
@@ -473,13 +546,27 @@ $foodOrderModal.hide();
 
 //         on.(EVENTS)
 //====================================
-
-$myOrderTitle.on("click", "button", function(event){
+$myOrderTitle.on("click", "button[name='incQuantity']", function(event){
     event.preventDefault();
-    numberOfItems--;
-    $myOrderAmount.text(numberOfItems);
-    wordChecker();
+    var thisIndex = $(this).attr("index");
+    var thisDataId = $(this).attr("data-id");
+    var thisDataPrice = $(this).attr("data-price");
+    var thisItemQty = parseInt($(this).attr("data-qty"));
+    var thisTotalPrice = $(this).attr("data-totalPrice");
+    shoppingList.push(new shoppingItem(thisIndex, thisDataId, thisDataPrice, thisItemQty, thisTotalPrice));
+    console.log(shoppingList);
+    //setItemQuantity(thisIndex, thisItemQty);
+    setQuantity();
+    setSubtotal();
+})
+
+$myOrderTitle.on("click", "button[name='cancelOrderItem']", function(event){
+    event.preventDefault();
     $(this).closest("div[name='myOrderItem']").remove();
+    shoppingList.pop();
+    setQuantity();
+    wordChecker();
+    setSubtotal();
 })
 
 $orderFoodItemBtn.on({
@@ -516,18 +603,23 @@ $foodOrderModal.on("blur", "input", function(event){
 
 $foodOrderModal.on("click", "button[name='addOrderBtn']", function(event){
     event.preventDefault();
-    var inputVar = $foodOrderModal.find("input").val();
+    //var inputVar = $foodOrderModal.find("input").val();
 
-    var index = $("button[name='addOrderBtn']").attr("index");
-    var dataId = $("button[name='addOrderBtn']").attr("data-id");
-    var dataPrice = $("button[name='addOrderBtn']").attr("data-price");
-
-    var listItem = new shoppingItem(index, dataId, dataPrice);
+    var index = $(this).attr("index");
+    var dataId = $(this).attr("data-id");
+    var dataPrice = $(this).attr("data-price");
+    var dataQty = 1;
+    var dataTotalPrice = dataPrice;
+    var listItem = new shoppingItem(index, dataId, dataPrice, dataQty, dataTotalPrice);
     myOrderItemBuilder(myOrderItemTemplate(listItem)); 
     shoppingList.push(listItem);
-    numberOfItems++;
-    $myOrderAmount.text(numberOfItems);
+
+    setQuantity();
     wordChecker();
+
+    //addToTotalCost(dataPrice);
+    console.log(shoppingList);
+    setSubtotal();
     $foodOrderModal.fadeOut('fast');
 })
 
