@@ -336,23 +336,23 @@ function aboutBooks(bookItem, index){
 
 var footerCode = function footerHtml(){
     return `
-        <footer>
-            <section>
-                <article>
+        <footer class="container">
+            <section class="row">
+                <article class="col-3">
                     <h4>Address</h4>
                     <p>[insert address]</p>
                 </article>
-                <article>
+                <article class="col-3">
                     <h4>Hours</h4>
                     <p>Mon - Fri: 6am - 7pm</p>
                     <p>Sat - Sun: 8am - 8pm</p>
                 </article>
-                <article>
+                <article class="col-3">
                     <h4>Contact</h4>
                     <p>123-456-7890</p>
                     <p>info@mysite.com</p>
                 </article>
-                <article>
+                <article class="col-3">
                     <h4>Follow</h4>
                     <ul>
                         <li>[icon]</li>
@@ -450,7 +450,7 @@ foodSorter("cake", cakeCatergory);
 menuBuilder($breadList, breadCatergory, menuTemplate);
 menuBuilder($cakeList, cakeCatergory, menuTemplate);
 
-$preFooterEl.after(footerCode());
+//$preFooterEl.before(footerCode());
 $subtotal.text(totalShoppingCost);
 
 //      After Functions Varibles/more Functions

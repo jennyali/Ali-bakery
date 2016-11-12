@@ -6,6 +6,7 @@
     
     <link href="../node_modules/normalize.css" rel="stylesheet" type="text/css">
     <link href="https://file.myfontastic.com/ncjQH3qL3iqtxPyrLNBQDo/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="styles/styles.css" rel="stylesheet" type="text/css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,65 +14,100 @@
 </head>
         
 <body>
-  <header>
-    <a href="index.html">
-      <h1>Ali's Bakery</h1>
-    </a>
+    <header class="container">
+      <a href="index.html" class="row text-center">
+        <h1 class="col-md-12">Ali's Bakery</h1>
+      </a>
 
-    <button name="burgerMenu"></button>
-    <div name="dropdownMenu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <button name="subMenu-access"></button>
-      <div name="burgerMenu__subMenu">
-        <a href="">Books</a>
+<!--
+      <button name="burgerMenu"></button>
+      <div name="dropdownMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <button name="subMenu-access"></button>
+        <div name="burgerMenu__subMenu">
+          <a href="">Books</a>
+        </div>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order Online</a>
+        <a href="contact.html">Contact</a>
       </div>
-      <a href="menu.html">Menu</a>
-      <a href="order.html">Order Online</a>
-      <a href="contact.html">Contact</a>
-    </div>
+-->
+      <nav class="row text-center">
+        <div class="col-md-2 col-md-offset-1"><a href="index.html">Home</a></div>    
+        <div class="col-md-2">
+          <a href="about.html">About</a>
+          <ul class="dropdown-menu">
+            <li><a href="about.html">Books</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2"><a href="menu.html">Menu</a></div>
+        <div class="col-md-2"><a href="order.html">Order Online</a></div>
+        <div class="col-md-2"><a href="contact.html">Contact</a></div>
+      </nav>
+    </header>
 
-    <nav> <!-- inline navbar -->
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="order.html">Order Online</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div name="aboutMenu">
-        Books
-      </div>
-    </nav>
-  </header>
-            <!-- header end -->
-  <main name="indexPageContent">
-    <section>
-      <figure name="primaryIndexImg">[img]</figure>
-    </section>
-    <section>
-      <figure name="secondaryIndexImg">[img]</figure>
-        <h3>Pastry Love</h3>
-      <figure name="thirdIndexImg">[img]</figure>
-    </section>
-    <section>
-      <article>
-        <h3>Passionate About Baking</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Nullam vitae hendrerit urna. Cras interdum porttitor arcu 
-          et euismod. Maecenas eu mauris et orci lacinia tincidunt 
-          sed sed tellus. Quisque faucibus sodales ex, ac fringilla 
-          neque bibendum in.</p>
-        <div>[img of signiture]</div>
-      </article>
-    </section>
-  </main>
-            <!-- content end -->
+              <!-- header end -->
+  <div class="container">
+    <main name="indexPageContent" class="row">
+      <section class="col-md-4">
+        <figure name="primaryIndexImg"></figure>
+      </section>
+      <section class="col-md-4 text-center">
+        <figure name="secondaryIndexImg"></figure>
+          <h3>Pastry Love</h3>
+        <figure name="thirdIndexImg"></figure>
+      </section>
+      <section class="col-md-4">
+        <article>
+          <h3>Passionate About Baking</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Nullam vitae hendrerit urna. Cras interdum porttitor arcu 
+            et euismod. Maecenas eu mauris et orci lacinia tincidunt 
+            sed sed tellus. Quisque faucibus sodales ex, ac fringilla 
+            neque bibendum in.</p>
+          <div>[img of signiture]</div>
+        </article>
+      </section>
+    </main>
+  </div>
+              <!-- content end -->
 
-<!-- FOOTER ADDED WITH .JS --->
-  
-  
+  <footer class="container text-center" name="globalFooter">
+        <section class="row">
+            <article class="col-md-3">
+                <h4>Address</h4>
+                <p>[insert address]</p>
+            </article>
+            <article class="col-md-3">
+                <h4>Hours</h4>
+                <p>Mon - Fri: 6am - 7pm</p>
+                <p>Sat - Sun: 8am - 8pm</p>
+            </article>
+            <article class="col-md-3">
+                <h4>Contact</h4>
+                <p>123-456-7890</p>
+                <p>info@mysite.com</p>
+            </article>
+            <article class="col-md-3">
+                <h4>Follow</h4>
+                <ul class="list-unstyled">
+                    <li>[icon]</li>
+                    <li>[icon]</li>
+                    <li>[icon]</li>
+                    <li>[icon]</li>
+                  </ul>
+              </article>
+          </section>
+          <section class="row">
+            <p class="col-md-12">
+                Ali's Bakery 2016, created by Jen
+            </p>
+          </section>
+      </footer>
+    
   <script src="../node_modules/jquery/dist/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="scripts/lodash.js"></script>
   <script src="scripts/main.js"></script>      
 </body>
