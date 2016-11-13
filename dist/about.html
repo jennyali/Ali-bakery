@@ -14,41 +14,53 @@
 </head>
         
 <body>
-   <header>
-    <a href="index.html">
+<header class="container">
+  <section class="row text-center">
+    <a href="index.html" class="col-md-12">
       <h1>Ali's Bakery</h1>
     </a>
+  </section>
 
-    <button name="burgerMenu"></button>
-    <div name="dropdownMenu">
-      <a href="index.html">Home</a>
-      <a name="aboutUsLink">About</a>
-      <button name="subMenu-access"></button>
-      <div name="burgerMenu__subMenu">
-        <a name="bookAdsLink">Books</a>
-      </div>
-      <a href="menu.html">Menu</a>
-      <a href="order.html">Order Online</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <nav> <!-- inline navbar -->
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a name="aboutUsLink">About</a></li>
+<!--
+  <nav class="row">
+    <ul class="nav nav-pills nav-stacked">
+      <li class="dropdown-toggle" data-toggle="dropdown">Menu</li>
+      <ul class="dropdown-menu">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="about.html">Books</a></li>
+            </ul>
+        </li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="order.html">Order Online</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div name="bookAdsLink">
-        Books
-      </div>
+    </ul>
+  </nav>
+-->
+  <nav class="row">
+      <ul class="nav nav-pills nav-justified">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown active">
+          <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">About</a>
+          <ul class="dropdown-menu">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html">Books</a></li>
+          </ul>
+        </li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="order.html">Order Online</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
   </header>
             <!-- header end -->
-<main name="aboutUsContent">
-    <section>
-        <h3>About Us</h3>
+<main name="aboutUsContent" class="container">
+    <section class="jumbotron text-center">
+        <h3 class="page-header">About Us</h3>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Nullam vitae hendrerit urna. Cras interdum porttitor arcu et euismod. 
@@ -58,7 +70,8 @@
             litora torquent per conubia nostra, per inceptos himenaeos.
         </p>
     </section>
-    <section data-id="aboutUsGallery"></section> <!-- gallery -->
+    <section data-id="aboutUsGallery" class="row">
+    </section> <!-- gallery -->
 </main>
 <main data-id="bookAdsContent">      <!-- main content for BOOKS drop down menu choice -->
     <section>
@@ -84,7 +97,38 @@
 </main>
             <!-- content end -->
 
-<!-- FOOTER ADDED WITH .JS --->
+  <footer class="container text-center" name="globalFooter">
+        <section class="row">
+            <article class="col-md-3">
+                <h4>Address</h4>
+                <p>[insert address]</p>
+            </article>
+            <article class="col-md-3">
+                <h4>Hours</h4>
+                <p>Mon - Fri: 6am - 7pm</p>
+                <p>Sat - Sun: 8am - 8pm</p>
+            </article>
+            <article class="col-md-3">
+                <h4>Contact</h4>
+                <p>123-456-7890</p>
+                <p>info@mysite.com</p>
+            </article>
+            <article class="col-md-3">
+                <h4>Follow</h4>
+                <ul class="list-unstyled">
+                    <li>[icon]</li>
+                    <li>[icon]</li>
+                    <li>[icon]</li>
+                    <li>[icon]</li>
+                  </ul>
+              </article>
+          </section>
+          <section class="row">
+            <p class="col-md-12">
+                Ali's Bakery 2016, created by Jen
+            </p>
+          </section>
+      </footer>
   
   <script src="../node_modules/jquery/dist/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
