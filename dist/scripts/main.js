@@ -141,7 +141,7 @@ bakeryFoods.push(new foodItem('Blueberry Muffin', 'images/blueberry-muffin.png',
 bakeryFoods.push(new foodItem('Vanilla Lattice ', 'images/vanilla-lattice', 'cake', 4, 
 'Delicious home baked projects, made from the finest ingriedents and prepared fresh in-store by our series of star bakers'));
 
-var bakeryFoodsAboutSample = _.slice(bakeryFoods, [0], [8]);    // new array 9 items
+var bakeryFoodsAboutSample = _.slice(bakeryFoods, [0], [9]);    // new array 9 items
 
 
 // books mini-database
@@ -299,7 +299,9 @@ function aboutGalleryConstruct(foodItem, index){
         <figure data-id="galleryImg"
                 name="${foodItem["name"]}"  
                 data-img="${foodItem["img"]}"  
-                index="${index}">            
+                index="${index}"
+                class="col-md-4"
+                style="background-image:url('${foodItem["img"]}')">            
             <figcaption>
                 <h4>${foodItem["name"]}</h4>
                 <p>${foodItem["info"]}</p>
