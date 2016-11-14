@@ -3,6 +3,7 @@
     font-size: 26px;
 }
 
+// small screen menu/nav //
 .dropdown-menu>li>a{
     color: map-get($map: $color, $key: light);
 }
@@ -43,4 +44,35 @@
     text-decoration: none;
     background-color: map-get($map: $color, $key: base);
     outline: 0;
+}
+
+// large screen menu/nav //
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    background-color: map-get($map: $color, $key: dark);
+    color: map-get($map: $color, $key: light);
+    border-radius: 0px;
+}
+
+.header .header__navbar--base a {
+    background-color: map-get($map: $color, $key: light);
+    color: map-get($map: $color, $key: dark);
+    font-size: 16px;
+    
+    &:hover{
+        background-color: map-get($map: $color, $key: base);
+        color: map-get($map: $color, $key: light);
+        border-radius: 0px;
+    }
+
+    &:focus{
+        background-color: map-get($map: $color, $key: light);
+        color: map-get($map: $color, $key: dark);
+    }
+}
+
+.nav-justified>.dropdown .dropdown-menu {
+    margin-top: 10px;
+    border-radius: 0px;
+    min-width: 230px;
+    border: none;
 }

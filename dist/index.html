@@ -16,7 +16,7 @@
 <body>
 <header class="container header">
 
-  <section class="row header-inner--xs">
+  <section class="row header-inner--xs">  <!-- small screen size nav -->
     <a href="index.html">
       <h1 class="header__title--xs">Ali's Bakery</h1>
     </a>
@@ -39,17 +39,17 @@
   </nav>
   </section>
 
-  <section class="row hidden-xs"> <!-- sx < screen header title + menu -->
-    <a href="index.html" class="col-md-12 text-center">
-      <h1>Ali's Bakery</h1>
+  <section class="row hidden-xs header-inner--base"> <!-- larger screens nav-->
+    <a href="index.html" class="col-sm-12">
+      <h1 class="header__title--base">Ali's Bakery</h1>
     </a>
   </section>
-  <nav class="row hidden-xs">
+  <nav class="row hidden-xs header__navbar--base">
       <ul class="nav nav-pills nav-justified">
         <li class="active"><a href="index.html">Home</a></li>
         <li class="dropdown">
           <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">About</a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu navbar--base">
             <li><a href="about.html">About Us</a></li>
             <li><a href="about.html">Books</a></li>
           </ul>
@@ -64,17 +64,17 @@
               <!-- header end -->
   <div class="container">
     <main name="indexPageContent" class="row">
-      <section class="col-md-4 indexContent__topImg">
+      <section class="col-sm-4 indexContent__topImg">
         <img src="images/baking-img1.jpg" class="img-responsive">
       </section>
 
-      <section class="col-md-4 text-center hidden-xs indexContent__midSection">
+      <section class="col-sm-4 text-center hidden-xs indexContent__midSection">
         <img src="images/blueberry-muffin.png" class="img-responsive midContent__topImg">
           <h3 class="indexContent__secondary-title">Pastry Love</h3>
         <img src="images/baking-img2.jpg" class="img-responsive">
       </section>
 
-      <section class="col-md-4 indexContent__textbox">
+      <section class="col-sm-4 indexContent__textbox">
         <article>
           <h1>Passionate About Baking</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -86,7 +86,7 @@
         </article>
       </section>
 
-      <section class="col-md-4 text-center visible-xs">
+      <section class="col-sm-4 text-center visible-xs">
         <img src="images/blueberry-muffin.png" class="img-responsive midContent__topImg">
           <h3 class="indexContent__secondary-title">Pastry Love</h3>
         <img src="images/baking-img2.jpg" class="img-responsive">
@@ -98,21 +98,21 @@
 
   <footer class="container text-center siteFooter" name="globalFooter">
         <section class="row">
-            <article class="col-md-3">
+            <article class="col-sm-3">
                 <h3>Address</h3>
                 <p>[insert address]</p>
             </article>
-            <article class="col-md-3">
+            <article class="col-sm-3">
                 <h3>Hours</h3>
                 <p>Mon - Fri: 6am - 7pm</p>
                 <p>Sat - Sun: 8am - 8pm</p>
             </article>
-            <article class="col-md-3">
+            <article class="col-sm-3">
                 <h3>Contact</h3>
                 <p>123-456-7890</p>
                 <p>info@mysite.com</p>
             </article>
-            <article class="col-md-3">
+            <article class="col-sm-3">
                 <h3>Follow</h3>
                 <ul class="list-unstyled list-inline socialMedia">
                     <li><span class="icon-share-alt"></span></li>
@@ -123,7 +123,7 @@
               </article>
           </section>
           <section class="row">
-            <p class="col-md-12">
+            <p class="col-sm-12">
                 Ali's Bakery 2016, created by Jen
             </p>
           </section>
