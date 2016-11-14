@@ -1,6 +1,25 @@
+@import "_helpers/variables";
+
 
 .siteFooter{
-    background-color: lightcyan;
+    background-color: map-get($map: $color, $key: light);
+    color: map-get($map: $color, $key: dark);
     padding: 20px;
-    margin: 0px 15px;
+    margin: 5px 15px 40px 15px;
+
+        h3{
+            font-family: $font-family-heading;
+        }
+
+        p{
+            font-family: $font-family-base;
+        }
+
+        article{
+            padding: 10px;
+        }
+
+    .socialMedia{
+        font-size: 24px;
+    }
 }

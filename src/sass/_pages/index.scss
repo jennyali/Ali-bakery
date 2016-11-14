@@ -9,16 +9,21 @@ main[name="indexPageContent"]{
         margin-bottom: 15px;
 
         img{
-            border: 10px solid lightcyan;
+            border: 10px solid map-get($map: $color, $key: light);
         }
     }
 
     .indexContent__topImg{
-        margin-bottom: 30px;
+        margin: 20px 0px;
+    }
+
+    .midContent__topImg{
+        margin-bottom: 20px;
     }
 
     .indexContent__secondary-title{
-        background-color: coral;
+        background-color: map-get($map: $color, $key: base);
+        color: map-get($map: $color, $key: light);
         display: inline-block;
         padding: 15px;
         position: absolute;
@@ -30,11 +35,30 @@ main[name="indexPageContent"]{
         width: 75%;
         outline: 1px solid white;
         outline-offset: -10px;
-        color: white;
+        font-family: $font-family-heading;
+        
     }
 
     .indexContent__textbox{
-        background-color: lightcyan;
+        background-color: map-get($map: $color, $key: light);
+        color: map-get($map: $color, $key: dark);
         padding: 15px;
+        margin: 20px 0px;
+
+            h1{
+                margin: 20px 0px;
+                font-family: $font-family-heading;
+            }
+
+            p{
+                font-family: $font-family-base;
+            }
+
+            div{
+                margin: 20px 0px;
+                font-family: $font-family-handwriting;
+                font-weight: bold;
+                font-size: 24px;
+            }
     }
 }
