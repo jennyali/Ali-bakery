@@ -1,25 +1,40 @@
 
 
 
+main[name="indexPageContent"]{
+    padding: 0px 15px;
 
-figure[name="primaryIndexImg"]{
-    background-image: url("../images/baking-img1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    section{
+        padding: 0px;
+        margin-bottom: 15px;
+
+        img{
+            border: 10px solid lightcyan;
+        }
+    }
+
+    .indexContent__topImg{
+        margin-bottom: 30px;
+    }
+
+    .indexContent__secondary-title{
+        background-color: coral;
+        display: inline-block;
+        padding: 15px;
+        position: absolute;
+        left: 50%;
+        top: 36%;
+        transform: translateX(-50%);
+        margin: 0px;
+        font-size: 36px;
+        width: 75%;
+        outline: 1px solid white;
+        outline-offset: -10px;
+        color: white;
+    }
+
+    .indexContent__textbox{
+        background-color: lightcyan;
+        padding: 15px;
+    }
 }
-
-figure[name="secondaryIndexImg"]{
-    background-image: url("../images/blueberry-muffin.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-figure[name="thirdIndexImg"]{
-    background-image: url("../images/baking-img2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-

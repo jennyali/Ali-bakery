@@ -1,0 +1,40 @@
+
+@import "_helpers/mixins";
+
+.header{
+
+    .header-inner--xs{
+        padding: 0px;
+        margin: 15px 0px;
+
+            @include mediaQ(map-get($breakpoint, sm)){
+                display: none;
+            }
+    }
+
+    .header__title--xs{
+        background-color: lightcyan;
+        padding: 10px;
+        display: inline-block;
+        margin: 0px;
+
+    }
+
+    .burgerMenu{
+        display: inline;
+        float: right;
+    }
+
+    .icon-wrapper{
+        padding: 5px 10px;
+        text-align: center;
+        background-color: lightcyan;
+    }
+
+    .icon-navicon{
+        font-size: 32px;
+        position: relative;
+        
+        height: 20px;
+    }
+}

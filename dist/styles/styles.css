@@ -1,19 +1,66 @@
-figure[name="primaryIndexImg"] {
-  background-image: url("../images/baking-img1.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+body {
+  background-image: url("../images/baking-img5.jpg");
+  background-repeat: repeat-y;
+  background-size: 100%;
   background-position: center; }
 
-figure[name="secondaryIndexImg"] {
-  background-image: url("../images/blueberry-muffin.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; }
+.siteFooter {
+  background-color: lightcyan;
+  padding: 20px;
+  margin: 0px 15px; }
 
-figure[name="thirdIndexImg"] {
-  background-image: url("../images/baking-img2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; }
+.header .header-inner--xs {
+  padding: 0px;
+  margin: 15px 0px; }
+  @media screen and (min-width: 768px) {
+    .header .header-inner--xs {
+      display: none; } }
+
+.header .header__title--xs {
+  background-color: lightcyan;
+  padding: 10px;
+  display: inline-block;
+  margin: 0px; }
+
+.header .burgerMenu {
+  display: inline;
+  float: right; }
+
+.header .icon-wrapper {
+  padding: 5px 10px;
+  text-align: center;
+  background-color: lightcyan; }
+
+.header .icon-navicon {
+  font-size: 32px;
+  position: relative;
+  height: 20px; }
+
+main[name="indexPageContent"] {
+  padding: 0px 15px; }
+  main[name="indexPageContent"] section {
+    padding: 0px;
+    margin-bottom: 15px; }
+    main[name="indexPageContent"] section img {
+      border: 10px solid lightcyan; }
+  main[name="indexPageContent"] .indexContent__topImg {
+    margin-bottom: 30px; }
+  main[name="indexPageContent"] .indexContent__secondary-title {
+    background-color: coral;
+    display: inline-block;
+    padding: 15px;
+    position: absolute;
+    left: 50%;
+    top: 36%;
+    transform: translateX(-50%);
+    margin: 0px;
+    font-size: 36px;
+    width: 75%;
+    outline: 1px solid white;
+    outline-offset: -10px;
+    color: white; }
+  main[name="indexPageContent"] .indexContent__textbox {
+    background-color: lightcyan;
+    padding: 15px; }
 
 /*# sourceMappingURL=styles.css.map */

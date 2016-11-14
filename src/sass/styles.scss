@@ -2,7 +2,13 @@
 
 //========  COMPONENTS ===
 
+@import "_components/body";
 @import "_components/footer";
+@import "_components/header";
+
+//=========  MIXINS ========
+
+@import "_helpers/mixins";
 
 //=========  PAGES ========
 
