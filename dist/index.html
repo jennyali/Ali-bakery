@@ -13,34 +13,37 @@
 </head>
         
 <body>
-<header class="container">
-  <section class="row text-center">
-    <a href="index.html" class="col-md-12">
+<header class="container header">
+
+  <section class="row header-inner--xs">
+    <a href="index.html">
+      <h1 class="header__title--xs">Ali's Bakery</h1>
+    </a>
+    <nav class="burgerMenu">
+    <ul class="nav nav-pills" role="tablist">
+      <li class="dropdown">
+        <a class="dropdown-toggle icon-wrapper" data-toggle="dropdown" href="#">
+          <span class="icon-navicon"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html">Books</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  </section>
+
+  <section class="row hidden-xs"> <!-- sx < screen header title + menu -->
+    <a href="index.html" class="col-md-12 text-center">
       <h1>Ali's Bakery</h1>
     </a>
   </section>
-
-<!--
-  <nav class="row">
-    <ul class="nav nav-pills nav-stacked">
-      <li class="dropdown-toggle" data-toggle="dropdown">Menu</li>
-      <ul class="dropdown-menu">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li class="dropdown">
-            <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">About</a>
-            <ul class="dropdown-menu">
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="about.html">Books</a></li>
-            </ul>
-        </li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="order.html">Order Online</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </ul>
-  </nav>
--->
-  <nav class="row">
+  <nav class="row hidden-xs">
       <ul class="nav nav-pills nav-justified">
         <li class="active"><a href="index.html">Home</a></li>
         <li class="dropdown">
@@ -63,12 +66,14 @@
       <section class="col-md-4">
         <img src="images/baking-img1.jpg" class="img-responsive">
       </section>
-      <section class="col-md-4 text-center">
-        <img src="images/blueberry-muffin.png" class="img-responsive">
-          <h3>Pastry Love</h3>
+
+      <section class="col-md-4 text-center hidden-xs">
+        <img src="images/blueberry-muffin.png" class="img-responsive indexContent__topImg">
+          <h3 class="indexContent__secondary-title">Pastry Love</h3>
         <img src="images/baking-img2.jpg" class="img-responsive">
       </section>
-      <section class="col-md-4">
+
+      <section class="col-md-4 indexContent__textbox">
         <article>
           <h3>Passionate About Baking</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -79,11 +84,18 @@
           <div>[img of signiture]</div>
         </article>
       </section>
+
+      <section class="col-md-4 text-center visible-xs">
+        <img src="images/blueberry-muffin.png" class="img-responsive indexContent__topImg">
+          <h3 class="indexContent__secondary-title">Pastry Love</h3>
+        <img src="images/baking-img2.jpg" class="img-responsive">
+      </section>
+      
     </main>
   </div>
               <!-- content end -->
 
-  <footer class="container text-center" name="globalFooter">
+  <footer class="container text-center siteFooter" name="globalFooter">
         <section class="row">
             <article class="col-md-3">
                 <h4>Address</h4>
@@ -101,7 +113,7 @@
             </article>
             <article class="col-md-3">
                 <h4>Follow</h4>
-                <ul class="list-unstyled">
+                <ul class="list-unstyled list-inline">
                     <li>[icon]</li>
                     <li>[icon]</li>
                     <li>[icon]</li>
