@@ -1,11 +1,15 @@
 @import "_helpers/variables";
-
+@import "_helpers/mixins";
 
 .siteFooter{
     background-color: map-get($map: $color, $key: light);
     color: map-get($map: $color, $key: dark);
     padding: 20px;
     margin: 5px 15px 40px 15px;
+    
+        @include mediaQ(map-get($breakpoint, sm)){
+            margin: auto;
+        }
 
         h3{
             font-family: $font-family-heading;
@@ -18,6 +22,7 @@
         article{
             padding: 10px;
         }
+
 
     .socialMedia{
         font-size: 24px;
