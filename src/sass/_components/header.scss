@@ -1,5 +1,7 @@
 
 @import "_helpers/mixins";
+@import "_helpers/variables";
+
 
 .header{
 
@@ -13,8 +15,10 @@
     }
 
     .header__title--xs{
-        background-color: lightcyan;
-        padding: 10px;
+        background-color: map-get($map: $color, $key: light);
+        color: map-get($map: $color, $key: dark);
+        font-family: $font-family-logo;
+        padding: 8px;
         display: inline-block;
         margin: 0px;
 
@@ -28,10 +32,11 @@
     .icon-wrapper{
         padding: 5px 10px;
         text-align: center;
-        background-color: lightcyan;
+        background-color: map-get($map: $color, $key: light);
     }
 
     .icon-navicon{
+        color: map-get($map: $color, $key: dark);
         font-size: 32px;
         position: relative;
         

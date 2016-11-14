@@ -5,9 +5,18 @@ body {
   background-position: center; }
 
 .siteFooter {
-  background-color: lightcyan;
+  background-color: #F2E6E8;
+  color: #2B0F26;
   padding: 20px;
-  margin: 0px 15px; }
+  margin: 5px 15px 40px 15px; }
+  .siteFooter h3 {
+    font-family: "Abril Fatface", cursive; }
+  .siteFooter p {
+    font-family: "Open Sans", sans-serif; }
+  .siteFooter article {
+    padding: 10px; }
+  .siteFooter .socialMedia {
+    font-size: 24px; }
 
 .header .header-inner--xs {
   padding: 0px;
@@ -17,8 +26,10 @@ body {
       display: none; } }
 
 .header .header__title--xs {
-  background-color: lightcyan;
-  padding: 10px;
+  background-color: #F2E6E8;
+  color: #2B0F26;
+  font-family: "Lobster", cursive;
+  padding: 8px;
   display: inline-block;
   margin: 0px; }
 
@@ -29,12 +40,47 @@ body {
 .header .icon-wrapper {
   padding: 5px 10px;
   text-align: center;
-  background-color: lightcyan; }
+  background-color: #F2E6E8; }
 
 .header .icon-navicon {
+  color: #2B0F26;
   font-size: 32px;
   position: relative;
   height: 20px; }
+
+.icon {
+  font-size: 26px; }
+
+.dropdown-menu > li > a {
+  color: #F2E6E8; }
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 330px;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  font-family: "Open Sans", sans-serif;
+  background-color: #2B0F26;
+  border: 1px solid #F2E6E8; }
+  .dropdown-menu li:not(:first-child) {
+    border-top: 1px solid #F2E6E8; }
+  .dropdown-menu li a {
+    padding: 15px; }
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #9F3140;
+  outline: 0; }
 
 main[name="indexPageContent"] {
   padding: 0px 15px; }
@@ -42,11 +88,14 @@ main[name="indexPageContent"] {
     padding: 0px;
     margin-bottom: 15px; }
     main[name="indexPageContent"] section img {
-      border: 10px solid lightcyan; }
+      border: 10px solid #F2E6E8; }
   main[name="indexPageContent"] .indexContent__topImg {
-    margin-bottom: 30px; }
+    margin: 20px 0px; }
+  main[name="indexPageContent"] .midContent__topImg {
+    margin-bottom: 20px; }
   main[name="indexPageContent"] .indexContent__secondary-title {
-    background-color: coral;
+    background-color: #9F3140;
+    color: #F2E6E8;
     display: inline-block;
     padding: 15px;
     position: absolute;
@@ -58,9 +107,21 @@ main[name="indexPageContent"] {
     width: 75%;
     outline: 1px solid white;
     outline-offset: -10px;
-    color: white; }
+    font-family: "Abril Fatface", cursive; }
   main[name="indexPageContent"] .indexContent__textbox {
-    background-color: lightcyan;
-    padding: 15px; }
+    background-color: #F2E6E8;
+    color: #2B0F26;
+    padding: 15px;
+    margin: 20px 0px; }
+    main[name="indexPageContent"] .indexContent__textbox h1 {
+      margin: 20px 0px;
+      font-family: "Abril Fatface", cursive; }
+    main[name="indexPageContent"] .indexContent__textbox p {
+      font-family: "Open Sans", sans-serif; }
+    main[name="indexPageContent"] .indexContent__textbox div {
+      margin: 20px 0px;
+      font-family: "Sacramento", cursive;
+      font-weight: bold;
+      font-size: 24px; }
 
 /*# sourceMappingURL=styles.css.map */
