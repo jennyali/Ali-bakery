@@ -19,9 +19,11 @@
         background-color: map-get($map: $color, $key: light);
         color: map-get($map: $color, $key: dark);
         font-family: $font-family-logo;
-        padding: 8px;
         display: inline-block;
         margin: 0px;
+        padding: 15px;
+        outline: 1px solid map-get($map: $color, $key: dark);
+        outline-offset: -5px;
 
     }
 

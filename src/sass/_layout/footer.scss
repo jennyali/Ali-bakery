@@ -9,22 +9,50 @@
     
         @include mediaQ(map-get($breakpoint, sm)){
             margin: auto;
+            padding: 30px;
         }
 
         h3{
             font-family: $font-family-heading;
+
+            @include mediaQ(map-get($breakpoint, sm)){
+                font-size: 20px;
+                margin-top: 0px;
+                @include mediaQ(map-get($breakpoint, md)){
+                    font-size: 24px;
+                    margin-bottom: 30px;
+                }
+            }
         }
 
         p{
             font-family: $font-family-base;
+                @include mediaQ(map-get($breakpoint, sm)){
+                    margin-bottom: 0px;
+                }
         }
 
         article{
             padding: 10px;
         }
 
+        article:not(:last-child){
+            border-right: 1px dotted map-get($map: $color, $key: dark);
+        }
+
 
     .socialMedia{
         font-size: 24px;
+            @include mediaQ(map-get($breakpoint, sm)){
+                font-size: 20px;
+                @include mediaQ(map-get($breakpoint, md)){
+                    font-size: 24px;
+                }
+            }
+    }
+
+    .copyrightText{
+        padding-top: 30px;
+        font-size: 14px;
     }
 }
