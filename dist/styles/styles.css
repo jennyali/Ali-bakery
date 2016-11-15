@@ -11,15 +11,38 @@ body {
   margin: 5px 15px 40px 15px; }
   @media screen and (min-width: 768px) {
     .siteFooter {
-      margin: auto; } }
+      margin: auto;
+      padding: 30px; } }
   .siteFooter h3 {
     font-family: "Abril Fatface", cursive; }
+    @media screen and (min-width: 768px) {
+      .siteFooter h3 {
+        font-size: 20px;
+        margin-top: 0px; } }
+  @media screen and (min-width: 768px) and (min-width: 992px) {
+    .siteFooter h3 {
+      font-size: 24px;
+      margin-bottom: 30px; } }
   .siteFooter p {
     font-family: "Open Sans", sans-serif; }
+    @media screen and (min-width: 768px) {
+      .siteFooter p {
+        margin-bottom: 0px; } }
   .siteFooter article {
     padding: 10px; }
+  .siteFooter article:not(:last-child) {
+    border-right: 1px dotted #2B0F26; }
   .siteFooter .socialMedia {
     font-size: 24px; }
+    @media screen and (min-width: 768px) {
+      .siteFooter .socialMedia {
+        font-size: 20px; } }
+  @media screen and (min-width: 768px) and (min-width: 992px) {
+    .siteFooter .socialMedia {
+      font-size: 24px; } }
+  .siteFooter .copyrightText {
+    padding-top: 30px;
+    font-size: 14px; }
 
 .header .header-inner--xs {
   padding: 0px;
@@ -32,9 +55,11 @@ body {
   background-color: #F2E6E8;
   color: #2B0F26;
   font-family: "Lobster", cursive;
-  padding: 8px;
   display: inline-block;
-  margin: 0px; }
+  margin: 0px;
+  padding: 15px;
+  outline: 1px solid #2B0F26;
+  outline-offset: -5px; }
 
 .header .burgerMenu {
   display: inline;
@@ -137,7 +162,7 @@ body {
 
 main[name="indexPageContent"] {
   padding: 0px 15px; }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 768px) {
     main[name="indexPageContent"] {
       padding: 0px;
       margin-bottom: 15px; } }
@@ -148,7 +173,7 @@ main[name="indexPageContent"] {
       border: 10px solid #F2E6E8; }
   main[name="indexPageContent"] .indexContent__topImg {
     margin: 20px 0px; }
-    @media screen and (min-width: 992px) {
+    @media screen and (min-width: 768px) {
       main[name="indexPageContent"] .indexContent__topImg {
         overflow: hidden;
         margin: 0px;
@@ -156,16 +181,19 @@ main[name="indexPageContent"] {
         border: 10px solid #F2E6E8; }
         main[name="indexPageContent"] .indexContent__topImg img {
           border: none;
-          max-width: 200%;
+          max-width: 204%;
           position: relative;
           left: 50%;
           transform: translateX(-50%); } }
+    @media screen and (min-width: 768px) and (min-width: 1200px) {
+      main[name="indexPageContent"] .indexContent__topImg img {
+        max-width: 202.5%; } }
   main[name="indexPageContent"] .midContent__topImg {
     margin-bottom: 20px; }
-    @media screen and (min-width: 992px) {
+    @media screen and (min-width: 768px) {
       main[name="indexPageContent"] .midContent__topImg {
         margin-bottom: 10px; } }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 768px) {
     main[name="indexPageContent"] .indexContent__midSection {
       padding: 0px 10px;
       margin: 0px; } }
@@ -184,43 +212,72 @@ main[name="indexPageContent"] {
     outline: 1px solid white;
     outline-offset: -7px;
     font-family: "Abril Fatface", cursive; }
-    @media screen and (min-width: 992px) {
+    @media screen and (min-width: 768px) {
       main[name="indexPageContent"] .indexContent__secondary-title {
-        font-size: 32px;
         width: 60%;
-        padding: 30px;
-        top: 33%; } }
+        top: 33%;
+        padding: 15px;
+        font-size: 28px; } }
+  @media screen and (min-width: 768px) and (min-width: 992px) {
+    main[name="indexPageContent"] .indexContent__secondary-title {
+      padding: 20px;
+      font-size: 32px; } }
+  @media screen and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
+    main[name="indexPageContent"] .indexContent__secondary-title {
+      padding: 30px; } }
   main[name="indexPageContent"] .indexContent__textbox {
     background-color: #F2E6E8;
     color: #2B0F26;
-    padding: 15px;
+    padding: 30px;
     margin: 20px 0px; }
-    @media screen and (min-width: 992px) {
+    @media screen and (min-width: 768px) {
       main[name="indexPageContent"] .indexContent__textbox {
         margin: 0px;
-        height: 505px;
-        padding: 30px; }
-        main[name="indexPageContent"] .indexContent__textbox article {
-          position: relative;
-          top: 50%;
-          transform: translateY(-60%); }
-        main[name="indexPageContent"] .indexContent__textbox h1 {
-          margin: 30px 0px; }
-        main[name="indexPageContent"] .indexContent__textbox p {
-          margin: 60px 0px;
-          word-spacing: 1px;
-          line-height: 1.6em; }
-        main[name="indexPageContent"] .indexContent__textbox div {
-          margin: 30px 0px; } }
+        padding: 19px; } }
+  @media screen and (min-width: 768px) and (min-width: 992px) {
+    main[name="indexPageContent"] .indexContent__textbox {
+      height: 422px;
+      padding: 30px; } }
+  @media screen and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
+    main[name="indexPageContent"] .indexContent__textbox {
+      height: 510px; } }
+    @media screen and (min-width: 992px) {
+      main[name="indexPageContent"] .indexContent__textbox article {
+        position: relative;
+        top: 50%;
+        transform: translateY(-60%); } }
     main[name="indexPageContent"] .indexContent__textbox h1 {
       margin: 20px 0px;
       font-family: "Abril Fatface", cursive; }
+      @media screen and (min-width: 768px) {
+        main[name="indexPageContent"] .indexContent__textbox h1 {
+          font-size: 28px;
+          margin-top: 0px;
+          margin-bottom: 10px; } }
+  @media screen and (min-width: 768px) and (min-width: 1200px) {
+    main[name="indexPageContent"] .indexContent__textbox h1 {
+      font-size: 36px; } }
     main[name="indexPageContent"] .indexContent__textbox p {
       font-family: "Open Sans", sans-serif; }
+      @media screen and (min-width: 768px) {
+        main[name="indexPageContent"] .indexContent__textbox p {
+          font-size: 14px; } }
+  @media screen and (min-width: 768px) and (min-width: 992px) {
+    main[name="indexPageContent"] .indexContent__textbox p {
+      margin: 30px 0px;
+      word-spacing: 1px;
+      line-height: 1.6em; } }
+  @media screen and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
+    main[name="indexPageContent"] .indexContent__textbox p {
+      margin: 60px 0px; } }
     main[name="indexPageContent"] .indexContent__textbox div {
       margin: 20px 0px;
       font-family: "Sacramento", cursive;
       font-weight: bold;
       font-size: 24px; }
+      @media screen and (min-width: 768px) {
+        main[name="indexPageContent"] .indexContent__textbox div {
+          margin: 0px;
+          font-size: 20px; } }
 
 /*# sourceMappingURL=styles.css.map */

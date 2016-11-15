@@ -5,7 +5,7 @@
 main[name="indexPageContent"]{
     padding: 0px 15px;
 
-        @include mediaQ(map-get($breakpoint, md)){
+        @include mediaQ(map-get($breakpoint, sm)){
             padding: 0px;
             margin-bottom: 15px;
         }
@@ -22,7 +22,7 @@ main[name="indexPageContent"]{
     .indexContent__topImg{
         margin: 20px 0px;
 
-        @include mediaQ(map-get($breakpoint, md)){
+        @include mediaQ(map-get($breakpoint, sm)){
             overflow: hidden;
             margin: 0px;
             max-height: 530px;
@@ -30,10 +30,14 @@ main[name="indexPageContent"]{
 
             img{
                 border: none;
-                max-width: 200%;
+                max-width: 204%;
                 position: relative;
                 left: 50%;
                 transform: translateX(-50%);
+
+                @include mediaQ(map-get($breakpoint, lg)){
+                    max-width: 202.5%;
+                }
             }
         }
     }
@@ -41,13 +45,13 @@ main[name="indexPageContent"]{
     .midContent__topImg{
         margin-bottom: 20px;
 
-            @include mediaQ(map-get($breakpoint, md)){
+            @include mediaQ(map-get($breakpoint, sm)){
                 margin-bottom: 10px;
             }
     }
 
     .indexContent__midSection{
-        @include mediaQ(map-get($breakpoint, md)){
+        @include mediaQ(map-get($breakpoint, sm)){
             padding: 0px 10px;
             margin: 0px;
         }
@@ -69,11 +73,18 @@ main[name="indexPageContent"]{
         outline-offset: -7px;
         font-family: $font-family-heading;
 
-            @include mediaQ(map-get($breakpoint, md)){
-                font-size: 32px;
+            @include mediaQ(map-get($breakpoint, sm)){
                 width: 60%;
-                padding: 30px;
                 top: 33%;
+                padding: 15px;
+                font-size: 28px;
+                @include mediaQ(map-get($breakpoint, md)){
+                    padding: 20px;
+                    font-size: 32px;
+                    @include mediaQ(map-get($breakpoint, lg)){
+                        padding: 30px;
+                    }
+                }
             }
         
     }
@@ -81,42 +92,58 @@ main[name="indexPageContent"]{
     .indexContent__textbox{
         background-color: map-get($map: $color, $key: light);
         color: map-get($map: $color, $key: dark);
-        padding: 15px;
+        padding: 30px;
         margin: 20px 0px;
 
-            @include mediaQ(map-get($breakpoint, md)){
+            @include mediaQ(map-get($breakpoint, sm)){
                 margin: 0px;
-                height: 505px;
-                padding: 30px;
+                padding: 19px;
 
-                article{
+                    @include mediaQ(map-get($breakpoint, md)){
+                        height: 422px;
+                        padding: 30px;
+
+                        @include mediaQ(map-get($breakpoint, lg)){
+                            height: 510px;
+                        }
+                    }
+            }
+
+            article{
+                @include mediaQ(map-get($breakpoint, md)){
                     position: relative;
                     top: 50%;
                     transform: translateY(-60%);
-                }
-
-                h1{
-                    margin: 30px 0px;
-                }
-
-                p{
-                    margin: 60px 0px;
-                    word-spacing: 1px;
-                    line-height: 1.6em;
-                }
-
-                div{
-                    margin: 30px 0px;
                 }
             }
 
             h1{
                 margin: 20px 0px;
                 font-family: $font-family-heading;
+
+                    @include mediaQ(map-get($breakpoint, sm)){
+                        font-size: 28px;
+                        margin-top: 0px;
+                        margin-bottom: 10px;
+                        @include mediaQ(map-get($breakpoint, lg)){
+                            font-size: 36px;
+                        }
+                    }
             }
 
             p{
                 font-family: $font-family-base;
+                    @include mediaQ(map-get($breakpoint, sm)){
+                        font-size: 14px;
+                        @include mediaQ(map-get($breakpoint, md)){
+                            margin: 30px 0px;
+                            word-spacing: 1px;
+                            line-height: 1.6em;
+                            @include mediaQ(map-get($breakpoint, lg)){
+                                margin: 60px 0px;
+                            }
+                        }
+                    }
             }
 
             div{
@@ -124,6 +151,11 @@ main[name="indexPageContent"]{
                 font-family: $font-family-handwriting;
                 font-weight: bold;
                 font-size: 24px;
+
+                    @include mediaQ(map-get($breakpoint, sm)){
+                        margin: 0px;
+                        font-size: 20px;
+                    }
             }
     }
 }
