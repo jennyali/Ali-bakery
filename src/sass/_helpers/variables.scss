@@ -1,7 +1,19 @@
 
+//         ========  Helpers ========
+/*
+    =============   Contents   =============
+
+             A:   Colors
+             B:   Font-Families
+             C:   Font-size
+             D:   
+             E:   
+             F:   
+             G:   
 
 
-
+    ========================================
+*/
 
 //======== Colors =========
 
@@ -17,3 +29,15 @@ $font-family-logo: 'Lobster', cursive;
 $font-family-heading: 'Abril Fatface', cursive;
 $font-family-base: 'Open Sans', sans-serif;
 $font-family-handwriting: 'Sacramento', cursive;
+
+//======== Font-size =========
+
+$font-size: (
+    xxlg: 48px,
+    xlg: 36px,
+    lg: 32px,
+    md: 28px,
+    sm: 24px,
+    xs: 20px,
+    base: 14px
+)

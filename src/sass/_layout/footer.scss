@@ -1,58 +1,55 @@
 @import "_helpers/variables";
 @import "_helpers/mixins";
 
+//          ========  Layout =========
+
 .siteFooter{
-    background-color: map-get($map: $color, $key: light);
-    color: map-get($map: $color, $key: dark);
+    @include colorTheme--base();
     padding: 20px;
     margin: 5px 15px 40px 15px;
     
         @include mediaQ(map-get($breakpoint, sm)){
             margin: auto;
             padding: 30px;
+            margin-bottom: 160px;
+                @include mediaQ(map-get($breakpoint, md)){
+                    margin-bottom: 40px;
+            }
         }
 
-        h3{
-            font-family: $font-family-heading;
-
-            @include mediaQ(map-get($breakpoint, sm)){
-                font-size: 20px;
-                margin-top: 0px;
+    h3{
+        @include mediaQ(map-get($breakpoint, sm)){
+            font-size: map-get($map: $font-size, $key: xs);
+            margin-top: 0px;
                 @include mediaQ(map-get($breakpoint, md)){
                     font-size: 24px;
                     margin-bottom: 30px;
-                }
             }
         }
+    }
 
-        p{
-            font-family: $font-family-base;
-                @include mediaQ(map-get($breakpoint, sm)){
-                    margin-bottom: 0px;
-                }
+    p{
+        @include mediaQ(map-get($breakpoint, sm)){
+            margin-bottom: 0px;
         }
+    }
 
-        article{
-            padding: 10px;
-        }
+    article{padding: 10px;}
 
-        article:not(:last-child){
-            border-right: 1px dotted map-get($map: $color, $key: dark);
-        }
-
+    article:not(:last-child){border-right: 1px dotted map-get($map: $color, $key: dark);}
 
     .socialMedia{
-        font-size: 24px;
+        font-size: map-get($map: $font-size, $key: sm);
             @include mediaQ(map-get($breakpoint, sm)){
-                font-size: 20px;
+                font-size: map-get($map: $font-size, $key: xs);
                 @include mediaQ(map-get($breakpoint, md)){
-                    font-size: 24px;
-                }
+                    font-size: map-get($map: $font-size, $key: sm);
             }
+        }
     }
 
     .copyrightText{
         padding-top: 30px;
-        font-size: 14px;
+        font-size: map-get($map: $font-size, $key: base);
     }
 }

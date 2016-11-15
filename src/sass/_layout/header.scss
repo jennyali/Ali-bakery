@@ -2,29 +2,24 @@
 @import "_helpers/mixins";
 @import "_helpers/variables";
 
+//          ========  Layout =========
 
 .header{
-
     // small screen styles //
     .header-inner--xs{
         padding: 0px;
         margin: 15px 0px;
-
-            @include mediaQ(map-get($breakpoint, sm)){
-                display: none;
-            }
+            @include mediaQ(map-get($breakpoint, sm)){display: none;}
     }
 
     .header__title--xs{
-        background-color: map-get($map: $color, $key: light);
-        color: map-get($map: $color, $key: dark);
+        @include colorTheme--base();
         font-family: $font-family-logo;
         display: inline-block;
         margin: 0px;
         padding: 15px;
         outline: 1px solid map-get($map: $color, $key: dark);
         outline-offset: -5px;
-
     }
 
     .burgerMenu{
@@ -33,30 +28,26 @@
     }
 
     .icon-wrapper{
+        @include colorTheme--base();
         padding: 5px 10px;
         text-align: center;
-        background-color: map-get($map: $color, $key: light);
     }
 
-    .icon-navicon{
-        color: map-get($map: $color, $key: dark);
-        font-size: 32px;
+    .icon-navicon{ 
+        font-size: map-get($map: $font-size, $key: lg);
         position: relative;
-        
         height: 20px;
     }
     // END //
 
     // larger screen styles //
     .header-inner--base{
-        background-color: map-get($map: $color, $key: light);
+        @include colorTheme--base();
+        @include posCenterX(relative);
         font-family: $font-family-logo;
         padding: 8px;
         display: inline-block;
         margin: 20px -15px;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
 
         a{
             text-decoration: none;
@@ -66,20 +57,10 @@
     }
 
     .header__title--base{
+        @include colorTheme--base();
+        font-size: map-get($map: $font-size, $key: xxlg);
         margin-top: 15px;
-        font-size: 48px;
-        color: map-get($map: $color, $key: dark);
     }
        
-
-    .header__navbar--base{
-        background-color: map-get($map: $color, $key: light);
-        margin-bottom: 20px;
-
-        a{
-            color: map-get($map: $color, $key: dark);
-            font-family: $font-family-heading;
-            font-weight: lighter;
-        }
-    }
+    .header__navbar--base{margin-bottom: 20px;}
 }
