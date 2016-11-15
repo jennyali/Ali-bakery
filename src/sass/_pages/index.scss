@@ -4,7 +4,6 @@
 
 main[name="indexPageContent"]{
     padding: 0px 15px;
-
         @include mediaQ(map-get($breakpoint, sm)){
             padding: 0px;
             margin-bottom: 15px;
@@ -13,41 +12,30 @@ main[name="indexPageContent"]{
     section{
         padding: 0px;
         margin-bottom: 15px;
-
-        img{
-            border: 10px solid map-get($map: $color, $key: light);
-        }
+        
+            img{border: 10px solid map-get($map: $color, $key: light);}
     }
 
     .indexContent__topImg{
         margin: 20px 0px;
+            @include mediaQ(map-get($breakpoint, sm)){
+                overflow: hidden;
+                margin: 0px;
+                max-height: 530px;
+                border: 10px solid map-get($map: $color, $key: light);
 
-        @include mediaQ(map-get($breakpoint, sm)){
-            overflow: hidden;
-            margin: 0px;
-            max-height: 530px;
-            border: 10px solid map-get($map: $color, $key: light);
-
-            img{
-                border: none;
-                max-width: 204%;
-                position: relative;
-                left: 50%;
-                transform: translateX(-50%);
-
-                @include mediaQ(map-get($breakpoint, lg)){
-                    max-width: 202.5%;
-                }
+                img{
+                    @include posCenterX(relative);
+                    border: none;
+                    max-width: 204%;
+                        @include mediaQ(map-get($breakpoint, lg)){max-width: 202.5%;}
             }
         }
     }
 
     .midContent__topImg{
         margin-bottom: 20px;
-
-            @include mediaQ(map-get($breakpoint, sm)){
-                margin-bottom: 10px;
-            }
+            @include mediaQ(map-get($breakpoint, sm)){margin-bottom: 10px;}
     }
 
     .indexContent__midSection{
@@ -58,40 +46,31 @@ main[name="indexPageContent"]{
     }
 
     .indexContent__secondary-title{
-        background-color: map-get($map: $color, $key: base);
-        color: map-get($map: $color, $key: light);
+        @include colorTheme--contrast;
+        @include posCenterX(absolute);
+        font-size: map-get($map: $font-size, $key: xlg);
         display: inline-block;
         padding: 15px;
-        position: absolute;
-        left: 50%;
-        top: 36%;
-        transform: translateX(-50%);
+        top: 40%;
         margin: 0px;
-        font-size: 36px;
         width: 75%;
         outline: 1px solid white;
         outline-offset: -7px;
-        font-family: $font-family-heading;
-
             @include mediaQ(map-get($breakpoint, sm)){
+                font-size: map-get($map: $font-size, $key: md);
                 width: 60%;
                 top: 33%;
                 padding: 15px;
-                font-size: 28px;
-                @include mediaQ(map-get($breakpoint, md)){
-                    padding: 20px;
-                    font-size: 32px;
-                    @include mediaQ(map-get($breakpoint, lg)){
-                        padding: 30px;
-                    }
-                }
+                    @include mediaQ(map-get($breakpoint, md)){
+                        font-size: map-get($map: $font-size, $key: lg);
+                        padding: 20px;
+                            @include mediaQ(map-get($breakpoint, lg)){padding: 30px;}
             }
-        
+        }
     }
 
     .indexContent__textbox{
-        background-color: map-get($map: $color, $key: light);
-        color: map-get($map: $color, $key: dark);
+        @include colorTheme--base;
         padding: 30px;
         margin: 20px 0px;
 
@@ -103,59 +82,51 @@ main[name="indexPageContent"]{
                         height: 422px;
                         padding: 30px;
 
-                        @include mediaQ(map-get($breakpoint, lg)){
-                            height: 510px;
-                        }
-                    }
+                        @include mediaQ(map-get($breakpoint, lg)){height: 510px;}
+                }
             }
 
             article{
                 @include mediaQ(map-get($breakpoint, md)){
-                    position: relative;
-                    top: 50%;
-                    transform: translateY(-60%);
+                    @include posCenter--custom(relative, translateY(-60%)){
+                        top: 50%;
+                    }
                 }
             }
 
-            h1{
+            h2{
                 margin: 20px 0px;
-                font-family: $font-family-heading;
 
                     @include mediaQ(map-get($breakpoint, sm)){
-                        font-size: 28px;
+                        font-size: map-get($map: $font-size, $key: md);
                         margin-top: 0px;
                         margin-bottom: 10px;
-                        @include mediaQ(map-get($breakpoint, lg)){
-                            font-size: 36px;
-                        }
-                    }
+                            @include mediaQ(map-get($breakpoint, lg)){font-size: 36px;}
+                }
             }
 
             p{
-                font-family: $font-family-base;
-                    @include mediaQ(map-get($breakpoint, sm)){
-                        font-size: 14px;
+                @include mediaQ(map-get($breakpoint, sm)){
+                    font-size: map-get($map: $font-size, $key: base);
                         @include mediaQ(map-get($breakpoint, md)){
                             margin: 30px 0px;
                             word-spacing: 1px;
                             line-height: 1.6em;
-                            @include mediaQ(map-get($breakpoint, lg)){
-                                margin: 60px 0px;
-                            }
-                        }
+                                @include mediaQ(map-get($breakpoint, lg)){margin: 60px 0px;}
                     }
+                }
             }
 
             div{
                 margin: 20px 0px;
                 font-family: $font-family-handwriting;
                 font-weight: bold;
-                font-size: 24px;
+                font-size: map-get($map: $font-size, $key: sm);
 
                     @include mediaQ(map-get($breakpoint, sm)){
                         margin: 0px;
-                        font-size: 20px;
-                    }
+                        font-size: map-get($map: $font-size, $key: xs);
             }
+        }
     }
 }

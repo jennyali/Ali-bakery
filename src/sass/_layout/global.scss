@@ -1,15 +1,14 @@
 
-.icon{
-    font-size: 26px;
-}
+//          ========  Layout =========
+
+.icon{font-size: map-get($map: $font-size, $key: sm);}
 
 // small screen menu/nav //
-.dropdown-menu>li>a{
-    color: map-get($map: $color, $key: light);
-}
+.dropdown-menu>li>a{color: map-get($map: $color, $key: light);}
 
 
 .dropdown-menu{
+    @include colorTheme--invert();
     position: absolute;
     top: 100%;
     z-index: 1000;
@@ -18,56 +17,40 @@
     min-width: 330px;
     padding: 0;
     margin: 0;
-    font-size: 14px;
+    font-size: map-get($map: $font-size, $key: base);
     text-align: left;
     list-style: none;
-    background-color: #fff;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     font-family: $font-family-base;
-    background-color: map-get($map: $color, $key: dark);
     border: 1px solid map-get($map: $color, $key: light);
 
-    li:not(:first-child){
-        border-top: 1px solid map-get($map: $color, $key: light);
-    }
+    li:not(:first-child){border-top: 1px solid map-get($map: $color, $key: light);}
 
-    li a{
-        padding: 15px;
-
-    }
+    li a{padding: 15px}
 }
 
 
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
-    color: #fff;
+    @include colorTheme--contrast;
     text-decoration: none;
-    background-color: map-get($map: $color, $key: base);
     outline: 0;
 }
 
 // large screen menu/nav //
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
-    background-color: map-get($map: $color, $key: dark);
-    color: map-get($map: $color, $key: light);
+    @include colorTheme--invert;
     border-radius: 0px;
 }
 
 .header .header__navbar--base a {
-    background-color: map-get($map: $color, $key: light);
-    color: map-get($map: $color, $key: dark);
+    @include colorTheme--base;
     font-size: 16px;
+    border-radius: 0px;
     
-    &:hover{
-        background-color: map-get($map: $color, $key: base);
-        color: map-get($map: $color, $key: light);
-        border-radius: 0px;
-    }
+    &:hover{@include colorTheme--contrast;}
 
-    &:focus{
-        background-color: map-get($map: $color, $key: light);
-        color: map-get($map: $color, $key: dark);
-    }
+    &:focus{@include colorTheme--base;}
 }
 
 .nav-justified>.dropdown .dropdown-menu {
@@ -76,3 +59,6 @@
     min-width: 230px;
     border: none;
 }
+
+
+

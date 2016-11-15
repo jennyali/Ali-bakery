@@ -1,9 +1,93 @@
+/*
+    =============   Contents   =============
+
+             1,   Components
+
+             2,   Helpers
+
+             3,   Layout 
+             
+             4,   Pages
+
+    ========================================
+*/
+/*
+    =============   Contents   =============
+
+             A:   Media queries
+             B:   Color mixins
+             C:   Position mixins
+             D:   Default font-styles
+             E:   
+             F:   
+             G:   
+
+
+    ========================================
+*/
+/*
+    =============   Contents   =============
+
+             A:   Colors
+             B:   Font-Families
+             C:   Font-size
+             D:   
+             E:   
+             F:   
+             G:   
+
+
+    ========================================
+*/
 body {
-  background-image: url("../images/baking-img5.jpg");
+  background-image: url("../images/baking-img6.jpeg");
   background-repeat: repeat-y;
   background-size: 100%;
-  background-position: center; }
+  background-position: top;
+  box-shadow: inset 0px 65px 98px 9px rgba(43, 15, 38, 0.38);
+  height: 100%; }
+  body h1 {
+    font-family: "Lobster", cursive; }
+  body h2 {
+    font-family: "Abril Fatface", cursive; }
+  body h3 {
+    font-family: "Abril Fatface", cursive; }
+  body p {
+    font-family: "Open Sans", sans-serif; }
+  body li {
+    font-family: "Open Sans", sans-serif; }
+  body a {
+    font-family: "Abril Fatface", cursive;
+    font-weight: lighter; }
 
+/*
+    =============   Contents   =============
+
+             A:   Colors
+             B:   Font-Families
+             C:   Font-size
+             D:   
+             E:   
+             F:   
+             G:   
+
+
+    ========================================
+*/
+/*
+    =============   Contents   =============
+
+             A:   Media queries
+             B:   Color mixins
+             C:   Position mixins
+             D:   Default font-styles
+             E:   
+             F:   
+             G:   
+
+
+    ========================================
+*/
 .siteFooter {
   background-color: #F2E6E8;
   color: #2B0F26;
@@ -12,22 +96,22 @@ body {
   @media screen and (min-width: 768px) {
     .siteFooter {
       margin: auto;
-      padding: 30px; } }
-  .siteFooter h3 {
-    font-family: "Abril Fatface", cursive; }
-    @media screen and (min-width: 768px) {
-      .siteFooter h3 {
-        font-size: 20px;
-        margin-top: 0px; } }
+      padding: 30px;
+      margin-bottom: 160px; } }
+  @media screen and (min-width: 768px) and (min-width: 992px) {
+    .siteFooter {
+      margin-bottom: 40px; } }
+  @media screen and (min-width: 768px) {
+    .siteFooter h3 {
+      font-size: 20px;
+      margin-top: 0px; } }
   @media screen and (min-width: 768px) and (min-width: 992px) {
     .siteFooter h3 {
       font-size: 24px;
       margin-bottom: 30px; } }
-  .siteFooter p {
-    font-family: "Open Sans", sans-serif; }
-    @media screen and (min-width: 768px) {
-      .siteFooter p {
-        margin-bottom: 0px; } }
+  @media screen and (min-width: 768px) {
+    .siteFooter p {
+      margin-bottom: 0px; } }
   .siteFooter article {
     padding: 10px; }
   .siteFooter article:not(:last-child) {
@@ -44,6 +128,34 @@ body {
     padding-top: 30px;
     font-size: 14px; }
 
+/*
+    =============   Contents   =============
+
+             A:   Media queries
+             B:   Color mixins
+             C:   Position mixins
+             D:   Default font-styles
+             E:   
+             F:   
+             G:   
+
+
+    ========================================
+*/
+/*
+    =============   Contents   =============
+
+             A:   Colors
+             B:   Font-Families
+             C:   Font-size
+             D:   
+             E:   
+             F:   
+             G:   
+
+
+    ========================================
+*/
 .header .header-inner--xs {
   padding: 0px;
   margin: 15px 0px; }
@@ -66,50 +178,49 @@ body {
   float: right; }
 
 .header .icon-wrapper {
+  background-color: #F2E6E8;
+  color: #2B0F26;
   padding: 5px 10px;
-  text-align: center;
-  background-color: #F2E6E8; }
+  text-align: center; }
 
 .header .icon-navicon {
-  color: #2B0F26;
   font-size: 32px;
   position: relative;
   height: 20px; }
 
 .header .header-inner--base {
   background-color: #F2E6E8;
+  color: #2B0F26;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: "Lobster", cursive;
   padding: 8px;
   display: inline-block;
-  margin: 20px -15px;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%); }
+  margin: 20px -15px; }
   .header .header-inner--base a {
     text-decoration: none;
     outline: 1px solid black;
     outline-offset: 4px; }
 
 .header .header__title--base {
-  margin-top: 15px;
+  background-color: #F2E6E8;
+  color: #2B0F26;
   font-size: 48px;
-  color: #2B0F26; }
+  margin-top: 15px; }
 
 .header .header__navbar--base {
-  background-color: #F2E6E8;
   margin-bottom: 20px; }
-  .header .header__navbar--base a {
-    color: #2B0F26;
-    font-family: "Abril Fatface", cursive;
-    font-weight: lighter; }
 
 .icon {
-  font-size: 26px; }
+  font-size: 24px; }
 
 .dropdown-menu > li > a {
   color: #F2E6E8; }
 
 .dropdown-menu {
+  background-color: #2B0F26;
+  color: #F2E6E8;
   position: absolute;
   top: 100%;
   z-index: 1000;
@@ -121,10 +232,8 @@ body {
   font-size: 14px;
   text-align: left;
   list-style: none;
-  background-color: #fff;
   background-clip: padding-box;
   font-family: "Open Sans", sans-serif;
-  background-color: #2B0F26;
   border: 1px solid #F2E6E8; }
   .dropdown-menu li:not(:first-child) {
     border-top: 1px solid #F2E6E8; }
@@ -132,9 +241,9 @@ body {
     padding: 15px; }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
-  color: #fff;
-  text-decoration: none;
   background-color: #9F3140;
+  color: #F2E6E8;
+  text-decoration: none;
   outline: 0; }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
@@ -145,11 +254,11 @@ body {
 .header .header__navbar--base a {
   background-color: #F2E6E8;
   color: #2B0F26;
-  font-size: 16px; }
+  font-size: 16px;
+  border-radius: 0px; }
   .header .header__navbar--base a:hover {
     background-color: #9F3140;
-    color: #F2E6E8;
-    border-radius: 0px; }
+    color: #F2E6E8; }
   .header .header__navbar--base a:focus {
     background-color: #F2E6E8;
     color: #2B0F26; }
@@ -160,6 +269,34 @@ body {
   min-width: 230px;
   border: none; }
 
+/*
+    =============   Contents   =============
+
+             A:   Media queries
+             B:   Color mixins
+             C:   Position mixins
+             D:   Default font-styles
+             E:   
+             F:   
+             G:   
+
+
+    ========================================
+*/
+/*
+    =============   Contents   =============
+
+             A:   Colors
+             B:   Font-Families
+             C:   Font-size
+             D:   
+             E:   
+             F:   
+             G:   
+
+
+    ========================================
+*/
 main[name="indexPageContent"] {
   padding: 0px 15px; }
   @media screen and (min-width: 768px) {
@@ -180,11 +317,11 @@ main[name="indexPageContent"] {
         max-height: 530px;
         border: 10px solid #F2E6E8; }
         main[name="indexPageContent"] .indexContent__topImg img {
-          border: none;
-          max-width: 204%;
           position: relative;
           left: 50%;
-          transform: translateX(-50%); } }
+          transform: translateX(-50%);
+          border: none;
+          max-width: 204%; } }
     @media screen and (min-width: 768px) and (min-width: 1200px) {
       main[name="indexPageContent"] .indexContent__topImg img {
         max-width: 202.5%; } }
@@ -200,28 +337,27 @@ main[name="indexPageContent"] {
   main[name="indexPageContent"] .indexContent__secondary-title {
     background-color: #9F3140;
     color: #F2E6E8;
-    display: inline-block;
-    padding: 15px;
     position: absolute;
     left: 50%;
-    top: 36%;
     transform: translateX(-50%);
-    margin: 0px;
     font-size: 36px;
+    display: inline-block;
+    padding: 15px;
+    top: 40%;
+    margin: 0px;
     width: 75%;
     outline: 1px solid white;
-    outline-offset: -7px;
-    font-family: "Abril Fatface", cursive; }
+    outline-offset: -7px; }
     @media screen and (min-width: 768px) {
       main[name="indexPageContent"] .indexContent__secondary-title {
+        font-size: 28px;
         width: 60%;
         top: 33%;
-        padding: 15px;
-        font-size: 28px; } }
+        padding: 15px; } }
   @media screen and (min-width: 768px) and (min-width: 992px) {
     main[name="indexPageContent"] .indexContent__secondary-title {
-      padding: 20px;
-      font-size: 32px; } }
+      font-size: 32px;
+      padding: 20px; } }
   @media screen and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
     main[name="indexPageContent"] .indexContent__secondary-title {
       padding: 30px; } }
@@ -244,24 +380,21 @@ main[name="indexPageContent"] {
     @media screen and (min-width: 992px) {
       main[name="indexPageContent"] .indexContent__textbox article {
         position: relative;
-        top: 50%;
-        transform: translateY(-60%); } }
-    main[name="indexPageContent"] .indexContent__textbox h1 {
-      margin: 20px 0px;
-      font-family: "Abril Fatface", cursive; }
+        transform: translateY(-60%);
+        top: 50%; } }
+    main[name="indexPageContent"] .indexContent__textbox h2 {
+      margin: 20px 0px; }
       @media screen and (min-width: 768px) {
-        main[name="indexPageContent"] .indexContent__textbox h1 {
+        main[name="indexPageContent"] .indexContent__textbox h2 {
           font-size: 28px;
           margin-top: 0px;
           margin-bottom: 10px; } }
   @media screen and (min-width: 768px) and (min-width: 1200px) {
-    main[name="indexPageContent"] .indexContent__textbox h1 {
+    main[name="indexPageContent"] .indexContent__textbox h2 {
       font-size: 36px; } }
-    main[name="indexPageContent"] .indexContent__textbox p {
-      font-family: "Open Sans", sans-serif; }
-      @media screen and (min-width: 768px) {
-        main[name="indexPageContent"] .indexContent__textbox p {
-          font-size: 14px; } }
+    @media screen and (min-width: 768px) {
+      main[name="indexPageContent"] .indexContent__textbox p {
+        font-size: 14px; } }
   @media screen and (min-width: 768px) and (min-width: 992px) {
     main[name="indexPageContent"] .indexContent__textbox p {
       margin: 30px 0px;

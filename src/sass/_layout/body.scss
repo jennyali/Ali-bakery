@@ -1,7 +1,15 @@
 
+//          ========  Layout =========
+
 body{
-    background-image: url("../images/baking-img5.jpg");
+    @include font-styles--base;
+    background-image: url("../images/baking-img6.jpeg");
     background-repeat: repeat-y;
     background-size: 100%;
-    background-position: center;
+    background-position: top;
+    -webkit-box-shadow: inset 0px 65px 98px 9px rgba(43,15,38,0.38);
+    -moz-box-shadow: inset 0px 65px 98px 9px rgba(43,15,38,0.38);
+    box-shadow: inset 0px 65px 98px 9px rgba(43,15,38,0.38);
+    height: 100%;
 }
+

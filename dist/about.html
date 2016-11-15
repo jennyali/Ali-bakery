@@ -6,6 +6,7 @@
     
     <link href="../node_modules/normalize.css" rel="stylesheet" type="text/css">
     <link href="https://file.myfontastic.com/ncjQH3qL3iqtxPyrLNBQDo/icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Lobster|Open+Sans|Sacramento" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="styles/styles.css" rel="stylesheet" type="text/css">
 
@@ -14,39 +15,42 @@
 </head>
         
 <body>
-<header class="container">
-  <section class="row text-center">
-    <a href="index.html" class="col-md-12">
-      <h1>Ali's Bakery</h1>
-    </a>
-  </section>
+<header class="container header">
 
-<!--
-  <nav class="row">
-    <ul class="nav nav-pills nav-stacked">
-      <li class="dropdown-toggle" data-toggle="dropdown">Menu</li>
-      <ul class="dropdown-menu">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li class="dropdown">
-            <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">About</a>
-            <ul class="dropdown-menu">
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="about.html">Books</a></li>
-            </ul>
-        </li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="order.html">Order Online</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+  <section class="row header-inner--xs">  <!-- small screen size nav -->
+    <a href="index.html">
+      <h1 class="header__title--xs">Ali's Bakery</h1>
+    </a>
+    <nav class="burgerMenu">
+    <ul class="nav nav-pills" role="tablist">
+      <li class="dropdown">
+        <a class="dropdown-toggle icon-wrapper" data-toggle="dropdown" href="#">
+          <span class="icon-navicon"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html">Books</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
--->
-  <nav class="row">
+  </section>
+
+  <section class="row hidden-xs header-inner--base"> <!-- larger screens nav-->
+    <a href="index.html" class="col-sm-12">
+      <h1 class="header__title--base">Ali's Bakery</h1>
+    </a>
+  </section>
+  <nav class="row hidden-xs header__navbar--base">
       <ul class="nav nav-pills nav-justified">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown active">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li class="dropdown">
           <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">About</a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu navbar--base">
             <li><a href="about.html">About Us</a></li>
             <li><a href="about.html">Books</a></li>
           </ul>
@@ -57,6 +61,7 @@
       </ul>
     </nav>
   </header>
+
             <!-- header end -->
 <main name="aboutUsContent" class="container">
     <section class="jumbotron text-center">
@@ -97,34 +102,35 @@
 </main>
             <!-- content end -->
 
-  <footer class="container text-center" name="globalFooter">
+  <footer class="container text-center siteFooter" name="globalFooter">
         <section class="row">
-            <article class="col-md-3">
-                <h4>Address</h4>
-                <p>[insert address]</p>
+            <article class="col-sm-3">
+                <h3>Address</h3>
+                <p>500 Terry Francois St.</p>
+                <p>San Francisco, CA 94158</p>
             </article>
-            <article class="col-md-3">
-                <h4>Hours</h4>
+            <article class="col-sm-3">
+                <h3>Hours</h3>
                 <p>Mon - Fri: 6am - 7pm</p>
                 <p>Sat - Sun: 8am - 8pm</p>
             </article>
-            <article class="col-md-3">
-                <h4>Contact</h4>
+            <article class="col-sm-3">
+                <h3>Contact</h3>
                 <p>123-456-7890</p>
                 <p>info@mysite.com</p>
             </article>
-            <article class="col-md-3">
-                <h4>Follow</h4>
-                <ul class="list-unstyled">
-                    <li>[icon]</li>
-                    <li>[icon]</li>
-                    <li>[icon]</li>
-                    <li>[icon]</li>
+            <article class="col-sm-3">
+                <h3>Follow</h3>
+                <ul class="list-unstyled list-inline socialMedia">
+                    <li><span class="icon-share-alt"></span></li>
+                    <li><span class="icon-facebook"></span></li>
+                    <li><span class="icon-google-plus"></span></li>
+                    <li><span class="icon-twitter"></span></li>
                   </ul>
               </article>
           </section>
           <section class="row">
-            <p class="col-md-12">
+            <p class="col-sm-12 copyrightText">
                 Ali's Bakery 2016, created by Jen
             </p>
           </section>
