@@ -12,6 +12,7 @@ var $aboutUsContent = $('main[name="aboutUsContent"]');
 var $aboutUsGallery = $('section[data-id="aboutUsGallery"]');
 var $aboutUsLink =$('a[name="aboutUsLink"]');
 
+
 var $aboutUsGalleryCarrossel = $('main[data-id="aboutUsGalleryCarrossel"]');
 var $carrosselImg = $('article[data-id="carrosselImgArticle"]');
 var $carrosselCancelBtn = $('span[data-id="cancelBtn"]');
@@ -301,8 +302,9 @@ function aboutGalleryConstruct(foodItem, index){
                 data-img="${foodItem["img"]}"  
                 index="${index}"
                 class="col-xs-4 about__galleryImg"
-                style="background-image:url('${foodItem["img"]}')">            
-            <figcaption class="hidden galleryImg__textBox">
+                style="background-image:url('${foodItem["img"]}')">
+            <div class="galleryImg__overlay"></div>            
+            <figcaption class="galleryImg__textBox">
                 <h4 class="galleryImg__title">${foodItem["name"]}</h4>
                 <p class="galleryImg__text">${foodItem["info"]}</p>
             </figcaption>
@@ -311,10 +313,10 @@ function aboutGalleryConstruct(foodItem, index){
 
 function aboutGalleryCarrosselConstruct(){
     return `
-        <figure>
+        <figure class="carrossel__img__inner">
             <img src="${bakeryFoodsAboutSample[aboutCurrentIndex]["img"]}" index="${aboutCurrentIndex}">
             <figcaption>
-                <p>${bakeryFoodsAboutSample[aboutCurrentIndex]["name"]}</p>
+                <p class="lead">${bakeryFoodsAboutSample[aboutCurrentIndex]["name"]}</p>
                 <p>${bakeryFoodsAboutSample[aboutCurrentIndex]["info"]}</p>
             </figcaption>
         </figure>
@@ -494,11 +496,28 @@ $msgAlert.hide();
 $formFailMsg.hide();
 $formSuccessMsg.hide();
 $foodOrderModal.hide();
+$aboutUsGallery.find(".galleryImg__overlay").hide();
+$aboutUsGallery.find(".galleryImg__textBox").hide();
 
 
 //         on.(EVENTS)
 //====================================
 
+$aboutUsGallery.on("mouseenter", "figure[data-id='galleryImg']", function(event){
+     //$aboutUsGallery.find(".galleryImg__overlay").not(':animated');
+     $(this).find('.galleryImg__overlay')
+            .fadeIn(1000);
+     $(this).find('figcaption')
+            .fadeIn(1000);
+});
+
+$aboutUsGallery.on("mouseleave", "figure[data-id='galleryImg']", function(event){
+    //$aboutUsGallery.find(".galleryImg__overlay").not(':animated');
+     $(this).find('.galleryImg__overlay')
+            .fadeOut();
+     $(this).find('figcaption')
+            .fadeOut();
+});
 
 $myOrderTitle.on("click", "button[name='cancelOrderItem']", function(event){
     event.preventDefault();

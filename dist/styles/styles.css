@@ -52,6 +52,8 @@ body {
     font-family: "Abril Fatface", cursive; }
   body h3 {
     font-family: "Abril Fatface", cursive; }
+  body h4 {
+    font-family: "Abril Fatface", cursive; }
   body p {
     font-family: "Open Sans", sans-serif; }
   body li {
@@ -276,10 +278,6 @@ body {
   min-width: 230px;
   border: none; }
 
-.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
-  background-color: #2B0F26;
-  border-color: #F2E6E8; }
-
 .nav > li > a:focus, .nav > li > a:hover {
   text-decoration: none;
   background-color: #2B0F26; }
@@ -430,6 +428,9 @@ main[name="indexPageContent"] {
 
 #about-content {
   margin-bottom: 15px; }
+  @media screen and (min-width: 768px) {
+    #about-content {
+      padding: 0px; } }
   #about-content #about__jumbo {
     background-color: #F2E6E8;
     color: #2B0F26;
@@ -441,16 +442,24 @@ main[name="indexPageContent"] {
     color: #F2E6E8;
     font-size: 28px;
     display: inline-block;
-    padding: 15px;
+    padding: 15px 60px;
     margin: 0px;
-    width: 90%;
     outline: 1px solid white;
     outline-offset: -7px; }
+    @media screen and (min-width: 768px) {
+      #about-content #jumbo__title {
+        padding: 30px 60px; } }
   #about-content #jumbo__text {
     font-size: 14px;
     margin: 40px 0px;
     word-spacing: 1px;
     line-height: 1.6em; }
+    @media screen and (min-width: 992px) {
+      #about-content #jumbo__text {
+        padding: 0px 80px; } }
+  @media screen and (min-width: 992px) and (min-width: 992px) {
+    #about-content #jumbo__text {
+      padding: 0px 160px; } }
   #about-content #about__imgGallery {
     background-color: #F2E6E8;
     color: #2B0F26;
@@ -460,7 +469,103 @@ main[name="indexPageContent"] {
   #about-content .about__galleryImg {
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     height: 70px;
     border: 5px solid #F2E6E8; }
+    @media screen and (min-width: 768px) {
+      #about-content .about__galleryImg {
+        height: 150px; } }
+  @media screen and (min-width: 768px) and (min-width: 992px) {
+    #about-content .about__galleryImg {
+      height: 200px; } }
+  @media screen and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
+    #about-content .about__galleryImg {
+      height: 250px; } }
+  #about-content .galleryImg__overlay {
+    background-color: rgba(43, 15, 38, 0.8);
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 100%; }
+  #about-content .galleryImg__textBox {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #F2E6E8; }
+
+.about__carrossel {
+  background-color: #2B0F26;
+  color: #F2E6E8;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  padding: 15px; }
+  .about__carrossel .icon-delete-2 {
+    float: right; }
+  .about__carrossel #carrossel__content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+    @media screen and (min-width: 768px) {
+      .about__carrossel #carrossel__content {
+        margin-top: 100px;
+        top: 0px;
+        transform: translateY(0); } }
+  .about__carrossel #carrossel__prev-arrow {
+    font-size: 32px;
+    margin-top: 200px; }
+  .about__carrossel #carrossel__next-arrow {
+    font-size: 32px;
+    margin-top: 200px;
+    text-align: right; }
+  .about__carrossel .carrossel__img__inner {
+    overflow: hidden; }
+    .about__carrossel .carrossel__img__inner img {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 100%; }
+    .about__carrossel .carrossel__img__inner figcaption {
+      padding-top: 15px;
+      text-align: center; }
+
+.menu__content {
+  background-color: #F2E6E8;
+  color: #2B0F26;
+  margin-bottom: 15px;
+  padding: 0px 60px; }
+  .menu__content .menu__jumbo {
+    background-color: #F2E6E8;
+    color: #2B0F26;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 10px; }
+    .menu__content .menu__jumbo h3 {
+      background-color: #9F3140;
+      color: #F2E6E8;
+      font-size: 28px;
+      display: inline-block;
+      padding: 15px 60px;
+      margin: 0px;
+      outline: 1px solid white;
+      outline-offset: -7px; }
+      @media screen and (min-width: 768px) {
+        .menu__content .menu__jumbo h3 {
+          padding: 30px 60px; } }
+    .menu__content .menu__jumbo p {
+      font-size: 14px;
+      margin: 40px 0px;
+      word-spacing: 1px;
+      line-height: 1.6em; }
+      @media screen and (min-width: 992px) {
+        .menu__content .menu__jumbo p {
+          padding: 0px 80px; } }
+  @media screen and (min-width: 992px) and (min-width: 992px) {
+    .menu__content .menu__jumbo p {
+      padding: 0px 160px; } }
 
 /*# sourceMappingURL=styles.css.map */

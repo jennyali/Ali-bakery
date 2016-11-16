@@ -85,18 +85,23 @@
     </section>
     <section data-id="bookAdsSection"></section>
 </main>
-<main data-id="aboutUsGalleryCarrossel" id="about__carrossel">      <!-- main content for GALLERY carrossel -->
-    <div id="carrossel__">
-        <span data-id="cancelBtn">[X icon]</span>
-    </div>
-    <section>
-        <div>
-            <span data-id="carrosselLeftArrow">[left arrow]</span>
+
+<main data-id="aboutUsGalleryCarrossel" class="container about__carrossel">      <!-- main content for GALLERY carrossel -->
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="icon-delete-2" data-id="cancelBtn"></span>
         </div>
-        <article data-id="carrosselImgArticle">
+    </div>
+    <section id="carrossel__content" class="row">
+        <div id="carrossel__prev-arrow" class="col-xs-1 hidden-xs">
+            <span data-id="carrosselLeftArrow" class="icon-arrow-39 carrosselArrow"></span>
+        </div>
+        <article  class="col-xs-12 visible-xs" id="carrossel__img" data-id="carrosselImgArticle">
         </article>
-        <div>
-            <span data-id="carrosselRightArrow">[right arrow]</span>
+        <article  class="col-xs-10 hidden-xs" id="carrossel__img" data-id="carrosselImgArticle">
+        </article>
+        <div id="carrossel__next-arrow" class="col-xs-1 hidden-xs">
+            <span data-id="carrosselRightArrow" class="icon-arrow-40 carrosselArrow"></span>
         </div>
     </section>
 </main>

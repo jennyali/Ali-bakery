@@ -62,10 +62,7 @@
 }
 
 // burger menu .icon
-.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
-    background-color: map-get($map: $color, $key: dark);
-    border-color: map-get($map: $color, $key: light);
-}
+
 
 .nav>li>a:focus, .nav>li>a:hover {
     text-decoration: none;

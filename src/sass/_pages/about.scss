@@ -3,6 +3,10 @@
 #about-content{
     margin-bottom: 15px;
 
+        @include mediaQ(map-get($breakpoint, sm)){
+            padding: 0px;
+        }
+
     #about__jumbo{
         @include colorTheme--base;
         border-radius: 0px;
@@ -14,11 +18,14 @@
         @include colorTheme--contrast;
         font-size: map-get($map: $font-size, $key: md);
         display: inline-block;
-        padding: 15px;
+        padding: 15px 60px;
         margin: 0px;
-        width: 90%;
         outline: 1px solid white;
         outline-offset: -7px;
+
+            @include mediaQ(map-get($breakpoint, sm)){
+                padding: 30px 60px;
+            }
     }
 
     #jumbo__text{
@@ -26,8 +33,17 @@
         margin: 40px 0px;
         word-spacing: 1px;
         line-height: 1.6em;
+
+            @include mediaQ(map-get($breakpoint, md)){
+                padding: 0px 80px;
+
+                    @include mediaQ(map-get($breakpoint, md)){
+                        padding: 0px 160px;
+                    }
+            }
     }
 
+    // Gallery
     #about__imgGallery{
         @include colorTheme--base;
         margin: 0px;
@@ -38,11 +54,91 @@
     .about__galleryImg{
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
         height: 70px;
         border: 5px solid map-get($map: $color, $key: light);
+
+            @include mediaQ(map-get($breakpoint, sm)){
+                height: 150px;
+                    @include mediaQ(map-get($breakpoint, md)){
+                        height: 200px;
+                            @include mediaQ(map-get($breakpoint, lg)){
+                                height: 250px;
+                            }
+                    }
+            }
+    }
+
+    .galleryImg__overlay{
+        background-color: rgba(#2B0F26, 0.8);
+        position: absolute;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+    }
+    .galleryImg__textBox{
+        @include posCenterY(relative);
+        text-align: center;
+        color: map-get($map: $color, $key: light);
     }
 
     .galleryImg__title{}
 
     .galleryImg__text{}
+
+}
+
+//Carousel (different container)
+.about__carrossel{
+    @include colorTheme--invert;
+    background-color: rgba(black, 0.9);
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    padding: 15px;
+
+    .icon-delete-2{
+        float: right;
+    }
+
+    #carrossel__content{
+        @include posCenterY(relative);
+
+            @include mediaQ(map-get($breakpoint, sm)){
+                margin-top: 100px;
+                top: 0px;
+                transform: translateY(0);
+            }
+    }
+
+    #carrossel__prev-arrow{
+        font-size: map-get($map: $font-size, $key: lg);
+        margin-top: 200px;
+    }
+
+    #carrossel__next-arrow{
+        font-size: map-get($map: $font-size, $key: lg);
+        margin-top: 200px;
+        text-align: right;
+
+    }
+
+
+    #carrossel__img{}
+
+    .carrossel__img__inner{
+        overflow: hidden;
+
+        img{
+            @include posCenterX(relative);
+            max-width: 100%;
+        }
+
+        figcaption{
+            padding-top: 15px;
+            text-align: center;
+        }
+    }
 }

@@ -60,6 +60,12 @@ $breakpoint:(
     transform: translateX(-50%);
 }
 
+@mixin posCenterY($position){
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 @mixin posCenter--custom($position, $translate){
     position: $position;
     transform: $translate;
@@ -82,6 +88,10 @@ $breakpoint:(
         font-family: $font-family-heading;
     }
 
+    h4{
+        font-family: $font-family-heading;
+    }
+
     p{
         font-family: $font-family-base;
     }
@@ -96,3 +106,40 @@ $breakpoint:(
     }
 }
 
+// jumbotron custom Default style
+
+@mixin jumboStyle--base{
+    @include colorTheme--base;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+
+    h3{
+        @include colorTheme--contrast;
+        font-size: map-get($map: $font-size, $key: md);
+        display: inline-block;
+        padding: 15px 60px;
+        margin: 0px;
+        outline: 1px solid white;
+        outline-offset: -7px;
+
+            @include mediaQ(map-get($breakpoint, sm)){
+                padding: 30px 60px;
+            }
+    }
+
+    p{
+        font-size: map-get($map: $font-size, $key: base);
+        margin: 40px 0px;
+        word-spacing: 1px;
+        line-height: 1.6em;
+
+            @include mediaQ(map-get($breakpoint, md)){
+                padding: 0px 80px;
+
+                    @include mediaQ(map-get($breakpoint, md)){
+                        padding: 0px 160px;
+                    }
+            }
+    }
+}
