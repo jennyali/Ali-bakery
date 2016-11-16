@@ -1,0 +1,11 @@
+
+
+.menu__content{
+    @include colorTheme--base;
+    margin-bottom: 15px;
+    padding: 0px 60px;
+
+    .menu__jumbo{
+        @include jumboStyle--base;
+    }
+}
