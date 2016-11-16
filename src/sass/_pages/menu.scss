@@ -2,10 +2,92 @@
 
 .menu__content{
     @include colorTheme--base;
-    margin-bottom: 15px;
-    padding: 0px 60px;
+    margin: 0px 15px;
+    padding: 0px 40px;
+
+    @include mediaQ(map-get($breakpoint, sm)){
+        margin: auto;
+        margin-bottom: 15px;
+        padding: 0px 60px;
+    }
 
     .menu__jumbo{
         @include jumboStyle--base;
+
+        .page-header{
+            padding: 15px 40px;
+                @include mediaQ(map-get($breakpoint, sm)){
+                    padding: 30px 60px;
+                }
+        }
+    }
+
+    .menu__bread{
+        @include menuFoodTitle;
+    }
+
+    .menu-item__img{
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 200px;
+        position: relative;
+        padding: 0px;
+    }
+
+    .menu-item__textbox{
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        background-color: rgba(242, 230, 232, 0.7);
+        padding: 30px 90px 0px 10px;
+        height: 82px;
+    }
+
+    .menu-item__title{
+        display: inline;
+        font-size: map-get($map: $font-size, $key: xs);
+        font-family: $font-family-base;
+        text-transform: uppercase;
+    }
+
+    .menu-item__price{
+        @include colorTheme--base;
+        font-size: map-get($map: $font-size, $key: xs);
+        margin: 0px;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        padding: 27px 30px;
+    }
+
+    .menu-item__info--xs{
+        margin: 15px 10px 40px 10px;
+    }
+
+    .menu__cake{
+        @include menuFoodTitle;
+
+        h3{
+            margin-top: 15px; 
+        }
+    }
+
+    .menuItem{
+        margin-bottom: 60px;
+    }
+
+    .menu-item__info--md{
+        display: inline;
+    }
+
+    .menu-item__price--md{
+        display: inline;
+        float: right;
+
+    }
+
+    .menu-item__divider{
+        display: inline;
     }
 }

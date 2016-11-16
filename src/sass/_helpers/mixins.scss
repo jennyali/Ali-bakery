@@ -143,3 +143,25 @@ $breakpoint:(
             }
     }
 }
+
+// menu food category heading styles
+
+@mixin menuFoodTitle(){
+    h3{
+        margin-top: 60px;
+
+            @include mediaQ(map-get($breakpoint, sm)){
+                margin: 40px 0px 15px 0px;
+                border-top: 2px solid rgba(#2B0F26, 0.5);
+                border-bottom: 2px solid rgba(#2B0F26, 0.5);
+                padding: 25px 0px 20px 0px;
+            }
+    }
+
+    .menu__item-text{
+        margin-bottom: 60px;
+            @include mediaQ(map-get($breakpoint, sm)){
+                font-style: italic;
+            }
+    }
+}

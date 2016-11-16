@@ -536,8 +536,13 @@ main[name="indexPageContent"] {
 .menu__content {
   background-color: #F2E6E8;
   color: #2B0F26;
-  margin-bottom: 15px;
-  padding: 0px 60px; }
+  margin: 0px 15px;
+  padding: 0px 40px; }
+  @media screen and (min-width: 768px) {
+    .menu__content {
+      margin: auto;
+      margin-bottom: 15px;
+      padding: 0px 60px; } }
   .menu__content .menu__jumbo {
     background-color: #F2E6E8;
     color: #2B0F26;
@@ -567,5 +572,114 @@ main[name="indexPageContent"] {
   @media screen and (min-width: 992px) and (min-width: 992px) {
     .menu__content .menu__jumbo p {
       padding: 0px 160px; } }
+    .menu__content .menu__jumbo .page-header {
+      padding: 15px 40px; }
+      @media screen and (min-width: 768px) {
+        .menu__content .menu__jumbo .page-header {
+          padding: 30px 60px; } }
+  .menu__content .menu__bread h3 {
+    margin-top: 60px; }
+    @media screen and (min-width: 768px) {
+      .menu__content .menu__bread h3 {
+        margin: 40px 0px 15px 0px;
+        border-top: 2px solid rgba(43, 15, 38, 0.5);
+        border-bottom: 2px solid rgba(43, 15, 38, 0.5);
+        padding: 25px 0px 20px 0px; } }
+  .menu__content .menu__bread .menu__item-text {
+    margin-bottom: 60px; }
+    @media screen and (min-width: 768px) {
+      .menu__content .menu__bread .menu__item-text {
+        font-style: italic; } }
+  .menu__content .menu-item__img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    position: relative;
+    padding: 0px; }
+  .menu__content .menu-item__textbox {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(242, 230, 232, 0.7);
+    padding: 30px 90px 0px 10px;
+    height: 82px; }
+  .menu__content .menu-item__title {
+    display: inline;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase; }
+  .menu__content .menu-item__price {
+    background-color: #F2E6E8;
+    color: #2B0F26;
+    font-size: 20px;
+    margin: 0px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: 27px 30px; }
+  .menu__content .menu-item__info--xs {
+    margin: 15px 10px 40px 10px; }
+  .menu__content .menu__cake h3 {
+    margin-top: 60px; }
+    @media screen and (min-width: 768px) {
+      .menu__content .menu__cake h3 {
+        margin: 40px 0px 15px 0px;
+        border-top: 2px solid rgba(43, 15, 38, 0.5);
+        border-bottom: 2px solid rgba(43, 15, 38, 0.5);
+        padding: 25px 0px 20px 0px; } }
+  .menu__content .menu__cake .menu__item-text {
+    margin-bottom: 60px; }
+    @media screen and (min-width: 768px) {
+      .menu__content .menu__cake .menu__item-text {
+        font-style: italic; } }
+  .menu__content .menu__cake h3 {
+    margin-top: 15px; }
+  .menu__content .menuItem {
+    margin-bottom: 60px; }
+  .menu__content .menu-item__info--md {
+    display: inline; }
+  .menu__content .menu-item__price--md {
+    display: inline;
+    float: right; }
+  .menu__content .menu-item__divider {
+    display: inline; }
+
+.contact__content {
+  background-color: #F2E6E8;
+  color: #2B0F26;
+  margin-bottom: 15px;
+  padding: 30px; }
+  .contact__content .contact__jumbo {
+    background-color: #F2E6E8;
+    color: #2B0F26;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 10px; }
+    .contact__content .contact__jumbo h3 {
+      background-color: #9F3140;
+      color: #F2E6E8;
+      font-size: 28px;
+      display: inline-block;
+      padding: 15px 60px;
+      margin: 0px;
+      outline: 1px solid white;
+      outline-offset: -7px; }
+      @media screen and (min-width: 768px) {
+        .contact__content .contact__jumbo h3 {
+          padding: 30px 60px; } }
+    .contact__content .contact__jumbo p {
+      font-size: 14px;
+      margin: 40px 0px;
+      word-spacing: 1px;
+      line-height: 1.6em; }
+      @media screen and (min-width: 992px) {
+        .contact__content .contact__jumbo p {
+          padding: 0px 80px; } }
+  @media screen and (min-width: 992px) and (min-width: 992px) {
+    .contact__content .contact__jumbo p {
+      padding: 0px 160px; } }
+  .contact__content .form-section {
+    margin-top: 60px; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -139,7 +139,7 @@ bakeryFoods.push(new foodItem('Cream filled Donuts', 'images/cream-filled-dougnu
 bakeryFoods.push(new foodItem('Blueberry Muffin', 'images/blueberry-muffin.png', 'cake', 3, 
 'Delicious home baked projects, made from the finest ingriedents and prepared fresh in-store by our series of star bakers'));
 
-bakeryFoods.push(new foodItem('Vanilla Lattice ', 'images/vanilla-lattice', 'cake', 4, 
+bakeryFoods.push(new foodItem('Vanilla Lattice ', 'images/vanilla-lattice.jpeg', 'cake', 4, 
 'Delicious home baked projects, made from the finest ingriedents and prepared fresh in-store by our series of star bakers'));
 
 var bakeryFoodsAboutSample = _.slice(bakeryFoods, [0], [9]);    // new array 9 items
@@ -375,20 +375,22 @@ var footerCode = function footerHtml(){
 
 function menuTemplate(foodItem, index){
     return `
-        <article data-id="menuItem"
+        <article class="row col-md-12 menuItem"
+                 data-id="menuItem"
                  name="${foodItem["name"]}"
                  index="${index}">
-            <figure data-img="${foodItem["img"]}">
-                <figcaption>
-                    <h4>${foodItem["name"]}</h4>
-                    <p>$${foodItem["price"]}</p>
+            <figure class="menu-item__img col-md-2" data-img="${foodItem["img"]}" style="background-image:url('${foodItem["img"]}')">
+                <figcaption class="menu-item__textbox visible-xs">
+                    <h4 class="menu-item__title">${foodItem["name"]}</h4>
+                    <p class="menu-item__price">$${foodItem["price"]}</p>
                 </figcaption>
             </figure>
-            <section>
-                <h4>${foodItem["name"]}</h4>
-                <p>${foodItem["info"]}</p>
-                <div></div>
-                <p>$${foodItem["price"]}</p>
+            <p class="menu-item__info--xs visible-xs">${foodItem["info"]}<p>
+            <section class="hidden-xs col-md-10">
+                <h4 class="">${foodItem["name"]}</h4>
+                <p class="inline menu-item__info--md">Delicious home baked projects, made from the finest ingriedents</p>
+                <div class="inline menu-item__divider"></div>
+                <p class="inline menu-item__price--md">$${foodItem["price"]}</p>
             </section>
         </article>
     `
@@ -504,7 +506,7 @@ $aboutUsGallery.find(".galleryImg__textBox").hide();
 //====================================
 
 $aboutUsGallery.on("mouseenter", "figure[data-id='galleryImg']", function(event){
-     //$aboutUsGallery.find(".galleryImg__overlay").not(':animated');
+     //$aboutUsGallery.find(".galleryImg__overlay").stop();
      $(this).find('.galleryImg__overlay')
             .fadeIn(1000);
      $(this).find('figcaption')
@@ -512,7 +514,7 @@ $aboutUsGallery.on("mouseenter", "figure[data-id='galleryImg']", function(event)
 });
 
 $aboutUsGallery.on("mouseleave", "figure[data-id='galleryImg']", function(event){
-    //$aboutUsGallery.find(".galleryImg__overlay").not(':animated');
+    //$aboutUsGallery.find(".galleryImg__overlay").stop();
      $(this).find('.galleryImg__overlay')
             .fadeOut();
      $(this).find('figcaption')
