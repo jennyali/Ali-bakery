@@ -56,14 +56,17 @@ main[name="indexPageContent"]{
         width: 75%;
         outline: 1px solid white;
         outline-offset: -7px;
+
             @include mediaQ(map-get($breakpoint, sm)){
                 font-size: map-get($map: $font-size, $key: md);
                 width: 60%;
                 top: 33%;
                 padding: 15px;
+
                     @include mediaQ(map-get($breakpoint, md)){
                         font-size: map-get($map: $font-size, $key: lg);
                         padding: 20px;
+                        
                             @include mediaQ(map-get($breakpoint, lg)){padding: 30px;}
             }
         }

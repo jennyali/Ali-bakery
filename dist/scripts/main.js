@@ -300,11 +300,11 @@ function aboutGalleryConstruct(foodItem, index){
                 name="${foodItem["name"]}"  
                 data-img="${foodItem["img"]}"  
                 index="${index}"
-                class="col-md-4"
+                class="col-xs-4 about__galleryImg"
                 style="background-image:url('${foodItem["img"]}')">            
-            <figcaption>
-                <h4>${foodItem["name"]}</h4>
-                <p>${foodItem["info"]}</p>
+            <figcaption class="hidden galleryImg__textBox">
+                <h4 class="galleryImg__title">${foodItem["name"]}</h4>
+                <p class="galleryImg__text">${foodItem["info"]}</p>
             </figcaption>
         </figure>  `
 }

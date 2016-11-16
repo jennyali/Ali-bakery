@@ -24,6 +24,7 @@
     background-clip: padding-box;
     font-family: $font-family-base;
     border: 1px solid map-get($map: $color, $key: light);
+    border-radius: 0px;
 
     li:not(:first-child){border-top: 1px solid map-get($map: $color, $key: light);}
 
@@ -60,5 +61,13 @@
     border: none;
 }
 
+// burger menu .icon
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: map-get($map: $color, $key: dark);
+    border-color: map-get($map: $color, $key: light);
+}
 
-
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: map-get($map: $color, $key: dark);
+}
