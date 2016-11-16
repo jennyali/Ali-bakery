@@ -1,0 +1,48 @@
+
+
+#about-content{
+    margin-bottom: 15px;
+
+    #about__jumbo{
+        @include colorTheme--base;
+        border-radius: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 10px;
+    }
+
+    #jumbo__title{
+        @include colorTheme--contrast;
+        font-size: map-get($map: $font-size, $key: md);
+        display: inline-block;
+        padding: 15px;
+        margin: 0px;
+        width: 90%;
+        outline: 1px solid white;
+        outline-offset: -7px;
+    }
+
+    #jumbo__text{
+        font-size: map-get($map: $font-size, $key: base);
+        margin: 40px 0px;
+        word-spacing: 1px;
+        line-height: 1.6em;
+    }
+
+    #about__imgGallery{
+        @include colorTheme--base;
+        margin: 0px;
+        padding: 15px;
+        padding-bottom: 30px;
+    }
+
+    .about__galleryImg{
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 70px;
+        border: 5px solid map-get($map: $color, $key: light);
+    }
+
+    .galleryImg__title{}
+
+    .galleryImg__text{}
+}

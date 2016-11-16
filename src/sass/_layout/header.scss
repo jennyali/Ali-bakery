@@ -28,13 +28,14 @@
     }
 
     .icon-wrapper{
-        @include colorTheme--base();
-        padding: 5px 10px;
+        @include colorTheme--invert();
+        border: 1px solid map-get($map: $color, $key: light);
+        padding: 8px 10px;
         text-align: center;
     }
 
     .icon-navicon{ 
-        font-size: map-get($map: $font-size, $key: lg);
+        font-size: map-get($map: $font-size, $key: xlg);
         position: relative;
         height: 20px;
     }
