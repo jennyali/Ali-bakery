@@ -118,10 +118,12 @@ $breakpoint:(
         @include colorTheme--contrast;
         font-size: map-get($map: $font-size, $key: md);
         display: inline-block;
-        padding: 15px 60px;
+        padding: 20px 60px;
         margin: 0px;
         outline: 1px solid white;
         outline-offset: -7px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
 
             @include mediaQ(map-get($breakpoint, sm)){
                 padding: 30px 60px;

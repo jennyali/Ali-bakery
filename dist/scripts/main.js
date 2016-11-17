@@ -379,18 +379,24 @@ function menuTemplate(foodItem, index){
                  data-id="menuItem"
                  name="${foodItem["name"]}"
                  index="${index}">
-            <figure class="menu-item__img col-md-2" data-img="${foodItem["img"]}" style="background-image:url('${foodItem["img"]}')">
-                <figcaption class="menu-item__textbox visible-xs">
+            <figure class="menu-item__img visible-xs" data-img="${foodItem["img"]}" style="background-image:url('${foodItem["img"]}')">
+                <figcaption class="menu-item__textbox">
                     <h4 class="menu-item__title">${foodItem["name"]}</h4>
                     <p class="menu-item__price">$${foodItem["price"]}</p>
                 </figcaption>
             </figure>
             <p class="menu-item__info--xs visible-xs">${foodItem["info"]}<p>
-            <section class="hidden-xs col-md-10">
-                <h4 class="">${foodItem["name"]}</h4>
-                <p class="inline menu-item__info--md">Delicious home baked projects, made from the finest ingriedents</p>
-                <div class="inline menu-item__divider"></div>
-                <p class="inline menu-item__price--md">$${foodItem["price"]}</p>
+            
+            <section class="hidden-xs col-md-12 media">
+                <div class="media-left">
+                    <img src="${foodItem["img"]}" class="media-object menu-item__img--sm">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">${foodItem["name"]}</h4>
+                    <p class="inline menu-item__info--md">Delicious home baked projects, made from the finest ingriedents</p>
+                    <div class="inline menu-item__divider"></div>
+                    <p class="inline menu-item__price--md">$${foodItem["price"]}</p>
+                </div>
             </section>
         </article>
     `

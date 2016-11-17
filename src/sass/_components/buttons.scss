@@ -1,0 +1,12 @@
+
+
+@mixin buttonStyle--base(){
+    .button--custom{
+        @include colorTheme--invert;
+        border: none;
+        padding: 5px;
+        font-size: map-get($map: $font-size, $key: xxs);
+        font-family: $font-family-base;
+        float: right;
+    }
+}
