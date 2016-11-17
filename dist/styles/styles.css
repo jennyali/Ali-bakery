@@ -32,8 +32,8 @@
              B:   Color mixins
              C:   Position mixins
              D:   Default font-styles
-             E:   
-             F:   
+             E:   jumbotron custom Default style
+             F:   menu food category heading styles
              G:   
 
 
@@ -65,6 +65,10 @@
   .dropdown-menu--custom li a {
     text-decoration: none; }
 
+.icon-basket-1 {
+  font-size: 100px;
+  opacity: 0.2; }
+
 /*
     =============   Contents   =============
 
@@ -72,8 +76,8 @@
              B:   Color mixins
              C:   Position mixins
              D:   Default font-styles
-             E:   
-             F:   
+             E:   jumbotron custom Default style
+             F:   menu food category heading styles
              G:   
 
 
@@ -112,9 +116,6 @@ body {
     font-family: "Open Sans", sans-serif; }
   body li {
     font-family: "Open Sans", sans-serif; }
-  body a {
-    font-family: "Abril Fatface", cursive;
-    font-weight: lighter; }
 
 /*
     =============   Contents   =============
@@ -137,8 +138,8 @@ body {
              B:   Color mixins
              C:   Position mixins
              D:   Default font-styles
-             E:   
-             F:   
+             E:   jumbotron custom Default style
+             F:   menu food category heading styles
              G:   
 
 
@@ -196,8 +197,8 @@ body {
              B:   Color mixins
              C:   Position mixins
              D:   Default font-styles
-             E:   
-             F:   
+             E:   jumbotron custom Default style
+             F:   menu food category heading styles
              G:   
 
 
@@ -217,6 +218,9 @@ body {
 
     ========================================
 */
+.header li, .header a {
+  font-family: "Abril Fatface", cursive; }
+
 .header .header-inner--xs {
   padding: 0px;
   margin: 15px 0px; }
@@ -348,8 +352,8 @@ body {
              B:   Color mixins
              C:   Position mixins
              D:   Default font-styles
-             E:   
-             F:   
+             E:   jumbotron custom Default style
+             F:   menu food category heading styles
              G:   
 
 
@@ -603,14 +607,12 @@ main[name="indexPageContent"] {
   background-color: #F2E6E8;
   color: #2B0F26;
   margin: 0px 15px;
-  padding: 0px 40px 40px 40px;
-  margin-bottom: 15px; }
+  padding: 0px 40px; }
   @media screen and (min-width: 768px) {
     .bookAds__content {
       margin: auto;
       margin-bottom: 15px;
-      padding: 0px 60px;
-      padding-bottom: 15px; } }
+      padding: 0px 60px; } }
   .bookAds__content .books__jumbo {
     background-color: #F2E6E8;
     color: #2B0F26;
@@ -779,14 +781,15 @@ main[name="indexPageContent"] {
 .contact__content {
   background-color: #F2E6E8;
   color: #2B0F26;
-  margin: 0px 15px 15px 15px;
-  padding: 15px 25px 25px 25px; }
+  margin: 0px 15px;
+  padding: 0px 40px;
+  padding-bottom: 60px; }
   @media screen and (min-width: 768px) {
     .contact__content {
       margin: auto;
       margin-bottom: 15px;
-      padding: 30px;
-      padding-top: 0px; } }
+      padding: 0px 60px;
+      padding-bottom: 60px; } }
   .contact__content .contact__jumbo {
     background-color: #F2E6E8;
     color: #2B0F26;
@@ -876,5 +879,127 @@ main[name="indexPageContent"] {
     @media screen and (min-width: 992px) {
       .contact__content .contact_img {
         margin-top: 0px; } }
+
+.order__content {
+  background-color: #F2E6E8;
+  color: #2B0F26;
+  margin: 0px 15px;
+  padding: 0px 40px;
+  padding-bottom: 60px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px; }
+  @media screen and (min-width: 768px) {
+    .order__content {
+      margin: auto;
+      margin-bottom: 15px;
+      padding: 0px 60px;
+      padding-bottom: 60px; } }
+  @media screen and (min-width: 768px) {
+    .order__content {
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-bottom: 0px; } }
+  .order__content .order__jumbo {
+    background-color: #F2E6E8;
+    color: #2B0F26;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    margin-bottom: 40px; }
+    .order__content .order__jumbo h3 {
+      background-color: #9F3140;
+      color: #F2E6E8;
+      font-size: 28px;
+      display: inline-block;
+      padding: 20px 60px;
+      margin: 0px;
+      outline: 1px solid white;
+      outline-offset: -7px;
+      letter-spacing: 1px;
+      text-transform: uppercase; }
+      @media screen and (min-width: 768px) {
+        .order__content .order__jumbo h3 {
+          padding: 30px 60px; } }
+    .order__content .order__jumbo p {
+      font-size: 14px;
+      margin: 40px 0px;
+      word-spacing: 1px;
+      line-height: 1.6em; }
+      @media screen and (min-width: 992px) {
+        .order__content .order__jumbo p {
+          padding: 0px 80px; } }
+  @media screen and (min-width: 992px) and (min-width: 992px) {
+    .order__content .order__jumbo p {
+      padding: 0px 160px; } }
+  .order__content .eCommerce {
+    border-top: 1px solid rgba(43, 15, 38, 0.5); }
+  .order__content .eCommerce-inner {
+    margin: 0px; }
+  .order__content .left-aside__nav {
+    background-color: #2B0F26;
+    color: #F2E6E8;
+    padding: 0px;
+    height: 800px; }
+    .order__content .left-aside__nav .nav-item {
+      background-color: rgba(242, 230, 232, 0.1);
+      margin: 0px; }
+    .order__content .left-aside__nav .nav-item__link {
+      color: #F2E6E8; }
+  .order__content .mid-section__shop {
+    padding: 30px;
+    padding-top: 20px;
+    border-right: 1px solid rgba(43, 15, 38, 0.5); }
+  .order__content .shop__title {
+    border-bottom: 1px solid rgba(43, 15, 38, 0.5);
+    padding-bottom: 15px; }
+    .order__content .shop__title h3 {
+      font-size: 28px; }
+  .order__content .shop__category h3 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold; }
+  .order__content .right-aside__basket {
+    padding: 0px; }
+    .order__content .right-aside__basket .button--large {
+      background-color: #2B0F26;
+      color: #F2E6E8;
+      border: none;
+      font-size: 16px;
+      font-family: "Open Sans", sans-serif;
+      float: right;
+      width: 100%;
+      padding: 15px; }
+    .order__content .right-aside__basket .button--large {
+      text-transform: uppercase; }
+      .order__content .right-aside__basket .button--large span {
+        padding-left: 15px;
+        font-size: 12px; }
+  .order__content .basket__amount {
+    padding: 20px 15px; }
+  .order__content .amount__title {
+    display: inline; }
+  .order__content .amount__number {
+    display: inline;
+    float: right;
+    margin-right: 5px; }
+  .order__content .amount__text {
+    display: inline;
+    float: right; }
+  .order__content .basket__order {
+    border-top: 1px solid rgba(43, 15, 38, 0.5);
+    padding: 15px; }
+  .order__content .basket__subtotal-container {
+    padding: 20px 15px; }
+  .order__content .basket__subtotal {
+    border-top: 2px solid rgba(159, 49, 64, 0.5);
+    padding-top: 15px; }
+  .order__content .subtotal__title {
+    display: inline; }
+  .order__content .subtotal__moneySign {
+    display: inline;
+    float: right; }
+  .order__content .subtotal__number {
+    display: inline;
+    float: right; }
 
 /*# sourceMappingURL=styles.css.map */

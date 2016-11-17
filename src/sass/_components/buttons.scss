@@ -10,3 +10,15 @@
         float: right;
     }
 }
+
+@mixin buttonStyle--large(){
+    .button--large{
+        @include colorTheme--invert;
+        border: none;
+        font-size: map-get($map: $font-size, $key: xxs);
+        font-family: $font-family-base;
+        float: right;
+        width: 100%;
+        padding: 15px;
+    }
+}

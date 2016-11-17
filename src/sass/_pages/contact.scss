@@ -1,17 +1,8 @@
 
 
 .contact__content{
-    @include colorTheme--base;
-    margin: 0px 15px 15px 15px;
-    padding: 15px 25px 25px 25px;
-
-        @include mediaQ(map-get($breakpoint, sm)){
-            margin: auto;
-            margin-bottom: 15px;
-            padding: 30px;
-            padding-top: 0px;
-        }
-
+    @include containerStyle--base(60px);
+    
     .contact__jumbo{
         @include jumboStyle--base;
         padding-left: 0px;

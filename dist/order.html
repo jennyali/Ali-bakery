@@ -4,65 +4,75 @@
 <head>
     <title>Ali's Bakery</title>
     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../node_modules/normalize.css" rel="stylesheet" type="text/css">
     <link href="https://file.myfontastic.com/ncjQH3qL3iqtxPyrLNBQDo/icons.css" rel="stylesheet">
-    <link href="styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Lobster|Open+Sans|Sacramento" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/styles.css" rel="stylesheet" type="text/css">
 
 </head>
         
 <body>
-  <header>
+<header class="container header">
+
+  <section class="row header-inner--xs">  <!-- small screen size nav -->
     <a href="index.html">
-      <h1>Ali's Bakery</h1>
+      <h1 class="header__title--xs">Ali's Bakery</h1>
     </a>
+    <nav class="burgerMenu">
+    <ul class="nav nav-pills" role="tablist">
+      <li class="dropdown">
+        <a class="dropdown-toggle icon-wrapper" data-toggle="dropdown" href="#">
+          <span class="icon-navicon"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html">Books</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  </section>
 
-    <button name="burgerMenu"></button>
-    <div name="dropdownMenu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <button name="subMenu-access"></button>
-      <div name="burgerMenu__subMenu">
-        <a href="">Books</a>
-      </div>
-      <a href="menu.html">Menu</a>
-      <a href="order.html">Order Online</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <nav> <!-- inline navbar -->
-      <ul>
-        <li><a href="index.html">Home</a></li>
+  <section class="row hidden-xs header-inner--base"> <!-- larger screens nav-->
+    <a href="index.html" class="col-sm-12">
+      <h1 class="header__title--base">Ali's Bakery</h1>
+    </a>
+  </section>
+  <nav class="row hidden-xs header__navbar--base">
+      <ul class="nav nav-pills nav-justified">
+        <li ><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="menu.html">Menu</a></li>
-        <li><a href="order.html">Order Online</a></li>
+        <li class="active"><a href="order.html">Order Online</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div name="aboutMenu">
-        Books
-      </div>
     </nav>
   </header>
             <!-- header end -->
-<main>
-  <section>   <!-- faux header -->
-    <h3>Order Online</h3>
+<main class="container order__content">
+  <section class="jumbotron text-center order__jumbo">   <!-- faux header -->
+    <h3 class="page-header order__jumbo-title">Order Online</h3>
   </section>
-  <section>
-    <article>
-      <section name="leftAsideMenu">   <!-- left faux aside -->
-        <button>Cakes & Breads<span>[up arrow]</span></button>
-        <div name="dropdownMenu__order">
-          <a name="cakeOrderMenu">Cakes</a>
-          <a name="breadOrderMenu">Breads</a>
-        </div>
+  <section class="eCommerce">
+    <article class="row eCommerce-inner">
+      <section name="leftAsideMenu" class="col-sm-2 left-aside__nav">   <!-- left faux aside -->
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#">Cakes & Breads</a></li>
+          <li class="nav-item"><a name="cakeOrderMenu" class="nav-item__link">Cakes</a></li>
+          <li class="nav-item"><a name="breadOrderMenu" class="nav-item__link">Breads</a></li>
+        </ul>
       </section>
-      <section name="midSectionContent">
-        <div>   
+      <section name="midSectionContent" class="col-sm-7 mid-section__shop">
+        <div class="text-center shop__title">   
           <h3 name="orderOnlineTitle">Breads & Cakes </h3>
         </div>
-        <div>
+        <div class="text-center shop__category">
           <h3 name="categoryTitle"></h3>
           <p name="categoryInfo"></p>
         </div>
@@ -84,26 +94,31 @@
           </figcaption> -->
         </article>
       </section>
-      <section>   <!-- right faux aside with pricing -->
-        <div name="myOrderTitle">
-          <p>My Order</p>
-          <p name="myOrderAmount">0</p>
-          <p name="itemWord">items</p>
+      <section class="col-sm-3 right-aside__basket">   <!-- right faux aside with pricing -->
+        <div name="myOrderTitle" class="basket__amount">
+          <p class="amount__title inline">My Order</p>
+          <p class="amount__text inline" name="itemWord">items</p>
+          <p class="amount__number inline" name="myOrderAmount">0</p>
+        </div>
+        <div class="basket__subtotal-container">
+          <div class="text-center"><span class="icon-basket-1"></span></div>
+          <div class="basket__subtotal">
+            <p class="subtotal__title">Subtotal</p>
+            <p class="subtotal__number" name="subtotal"></p>
+            <p class="subtotal__moneySign"><span>$</span></p>
+          </div>
         </div>
 
-        <div>
-          <p>Subtotal</p>
-          <span>$</span>
-          <p name="subtotal"></p>
-        </div>
-        <div>
-          <button>
-            <span>[+ icon]</span>Special requests
-          </button>
+        <div class="basket__order">
+          <p>
+            <span class="icon-add-2"></span>
+            Special requests
+          </p>
           <p>Pickup Only</p>
           <p>For:ASAP(in 15 minutes)</p>
-          <button>order now<span>[right arrow]</span></button>
+          <button class="button--large">order now<span class="icon-arrow-40"></span></button>
         </div>
+
       </section>
       <section>   <!-- offscreen right section for order agreement -->
 
@@ -117,8 +132,39 @@
 </main>
             <!-- content end -->
 
-<!-- FOOTER ADDED WITH .JS --->
-  
+  <footer class="container text-center siteFooter" name="globalFooter">
+        <section class="row">
+            <article class="col-sm-3">
+                <h3>Address</h3>
+                <p>500 Terry Francois St.</p>
+                <p>San Francisco, CA 94158</p>
+            </article>
+            <article class="col-sm-3">
+                <h3>Hours</h3>
+                <p>Mon - Fri: 6am - 7pm</p>
+                <p>Sat - Sun: 8am - 8pm</p>
+            </article>
+            <article class="col-sm-3">
+                <h3>Contact</h3>
+                <p>123-456-7890</p>
+                <p>info@mysite.com</p>
+            </article>
+            <article class="col-sm-3">
+                <h3>Follow</h3>
+                <ul class="list-unstyled list-inline socialMedia">
+                    <li><span class="icon-share-alt"></span></li>
+                    <li><span class="icon-facebook"></span></li>
+                    <li><span class="icon-google-plus"></span></li>
+                    <li><span class="icon-twitter"></span></li>
+                  </ul>
+              </article>
+          </section>
+          <section class="row">
+            <p class="col-sm-12 copyrightText">
+                Ali's Bakery 2016, created by Jen
+            </p>
+          </section>
+      </footer>
   
   <script src="../node_modules/jquery/dist/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

@@ -119,18 +119,8 @@
 // books tab 
 
 .bookAds__content{
-    @include colorTheme--base;
-    margin: 0px 15px;
-    padding: 0px 40px 40px 40px;
-    margin-bottom: 15px;
-
-    @include mediaQ(map-get($breakpoint, sm)){
-        margin: auto;
-        margin-bottom: 15px;
-        padding: 0px 60px;
-        padding-bottom: 15px;
-    }
-
+    @include containerStyle--base;
+    
     .books__jumbo{
         @include jumboStyle--base;
         margin-bottom: 40px;
