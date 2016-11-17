@@ -7,8 +7,8 @@
              B:   Color mixins
              C:   Position mixins
              D:   Default font-styles
-             E:   
-             F:   
+             E:   jumbotron custom Default style
+             F:   menu food category heading styles
              G:   
 
 
@@ -100,10 +100,10 @@ $breakpoint:(
         font-family: $font-family-base;
     }
 
-    a{ 
-        font-family: $font-family-heading;
-        font-weight: lighter;
-    }
+    //a{ 
+       // font-family: $font-family-heading;
+      //  font-weight: lighter;
+   // }
 }
 
 // jumbotron custom Default style
@@ -166,4 +166,20 @@ $breakpoint:(
                 font-style: italic;
             }
     }
+}
+
+// container base style mixin 
+
+@mixin containerStyle--base($padding : null){
+    @include colorTheme--base;
+    margin: 0px 15px;
+    padding: 0px 40px;
+    padding-bottom: $padding;
+
+        @include mediaQ(map-get($breakpoint, sm)){
+            margin: auto;
+            margin-bottom: 15px;
+            padding: 0px 60px;
+            padding-bottom: $padding;
+        }
 }

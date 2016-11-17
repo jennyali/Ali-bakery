@@ -1,15 +1,7 @@
 
 
 .menu__content{
-    @include colorTheme--base;
-    margin: 0px 15px;
-    padding: 0px 40px;
-
-    @include mediaQ(map-get($breakpoint, sm)){
-        margin: auto;
-        margin-bottom: 15px;
-        padding: 0px 60px;
-    }
+@include containerStyle--base;
 
     .menu__jumbo{
         @include jumboStyle--base;

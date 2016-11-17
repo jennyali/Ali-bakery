@@ -291,7 +291,7 @@ function myOrderItemTemplate(listItem){
         <div name="nameOfItem">${listItem["name"]}</div>
         <span>$</span>
         <div name="priceOfItem" data-price="${listItem["price"]}">${listItem["price"]}</div>
-        <button name="cancelOrderItem" index="${listItem["index"]}">X</button>
+        <button name="cancelOrderItem" index="${listItem["index"]}" class="icon-delete-2"></button>
     </div>
     `
 }
@@ -419,7 +419,8 @@ function onlineOrderFoodItemTemplate(foodItem, index){
                     data-img="${foodItem["img"]}"
                     data-info="${foodItem["info"]}"
                     data-price="${foodItem["price"]}"
-            >[ + icon]</button>
+                    class="icon-add-2"
+            ></button>
         </article>
       `
 }
@@ -441,8 +442,9 @@ function orderModalTemplate(index, name, img, info, price){
                     data-info="${info}"
                     data-price="${price}"
                     date-hasReq="false"
-            > + ADD TO MY ORDER</button>
-            <button name="cancelModalBtn">X Cancel</button>
+                    class="icon-add-2"
+            >ADD TO MY ORDER</button>
+            <button name="cancelModalBtn" class="icon-delete-2" >Cancel</button>
         </figcaption>
     `
 }

@@ -6,6 +6,11 @@
 
 .header{
     // small screen styles //
+
+    li, a{
+        font-family: $font-family-heading;
+    }
+
     .header-inner--xs{
         padding: 0px;
         margin: 15px 0px;

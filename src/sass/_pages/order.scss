@@ -1,0 +1,128 @@
+
+
+.order__content{
+@include containerStyle--base(60px);
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+
+        @include mediaQ(map-get($breakpoint, sm)){
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+        }
+
+    .order__jumbo{
+        @include jumboStyle--base;
+        margin-bottom: 40px;
+    }
+
+    .eCommerce{
+        border-top: 1px solid rgba(43, 15, 38, 0.5);
+    }
+
+    .eCommerce-inner{
+        margin: 0px;
+    }
+
+    .left-aside__nav{
+        @include colorTheme--invert;
+        padding: 0px;
+        height: 800px;
+
+        .nav-item{
+            background-color: rgba(242, 230, 232, 0.1);
+            margin: 0px;
+        }
+
+        .nav-item__link{
+            color: map-get($map: $color, $key: light);
+        }
+
+    }
+
+    .mid-section__shop{
+        padding: 30px;
+        padding-top: 20px;
+        border-right: 1px solid rgba(43, 15, 38, 0.5);
+    }
+
+    .shop__title{
+        border-bottom: 1px solid rgba(43, 15, 38, 0.5);
+        padding-bottom: 15px;
+
+        h3{
+            font-size: map-get($map: $font-size, $key: md);
+        }
+    }
+
+    .shop__category{
+
+        h3{
+            font-family: $font-family-base;
+            font-weight: bold;
+        }
+    }
+
+    .right-aside__basket{
+        @include buttonStyle--large;
+        padding: 0px;
+
+        .button--large{
+            text-transform: uppercase;
+
+            span{
+                padding-left: 15px;
+                font-size: 12px;
+            }
+        }
+    }
+
+    .basket__amount{
+        //border-bottom: 1px solid rgba(43, 15, 38, 0.5);
+        padding: 20px 15px;
+    }
+
+    .amount__title{
+        display: inline;
+    }
+
+    .amount__number{
+        display: inline;
+        float: right;
+        margin-right: 5px;
+    }
+
+    .amount__text{
+        display: inline;
+        float: right;
+    }
+
+    .basket__order{
+        border-top: 1px solid rgba(43, 15, 38, 0.5);
+        padding: 15px;
+    }
+
+    .basket__subtotal-container{
+        padding: 20px 15px;
+    }
+
+    .basket__subtotal{
+        border-top: 2px solid rgba(159,49,64, 0.5);
+        padding-top: 15px;
+    }
+
+    .subtotal__title{
+        display: inline;
+    }
+
+    .subtotal__moneySign{
+        display: inline;
+        float: right;
+    }
+
+    .subtotal__number{
+        display: inline;
+        float: right;
+    }
+}
