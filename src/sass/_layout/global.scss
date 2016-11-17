@@ -38,6 +38,11 @@
     outline: 0;
 }
 
+    .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+        @include colorTheme--invert;
+        border: 1px solid map-get($map: $color, $key: light);
+    }
+
 // large screen menu/nav //
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
     @include colorTheme--invert;
@@ -48,6 +53,7 @@
     @include colorTheme--base;
     font-size: 16px;
     border-radius: 0px;
+    
     
     &:hover{@include colorTheme--contrast;}
 

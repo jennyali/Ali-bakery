@@ -1,6 +1,6 @@
 
 
-#about-content{
+.gallery__content{
     margin-bottom: 15px;
 
         @include mediaQ(map-get($breakpoint, sm)){
@@ -9,38 +9,11 @@
 
     #about__jumbo{
         @include colorTheme--base;
+        @include jumboStyle--base;
         border-radius: 0px;
         margin-bottom: 0px;
         padding-bottom: 10px;
-    }
 
-    #jumbo__title{
-        @include colorTheme--contrast;
-        font-size: map-get($map: $font-size, $key: md);
-        display: inline-block;
-        padding: 15px 60px;
-        margin: 0px;
-        outline: 1px solid white;
-        outline-offset: -7px;
-
-            @include mediaQ(map-get($breakpoint, sm)){
-                padding: 30px 60px;
-            }
-    }
-
-    #jumbo__text{
-        font-size: map-get($map: $font-size, $key: base);
-        margin: 40px 0px;
-        word-spacing: 1px;
-        line-height: 1.6em;
-
-            @include mediaQ(map-get($breakpoint, md)){
-                padding: 0px 80px;
-
-                    @include mediaQ(map-get($breakpoint, md)){
-                        padding: 0px 160px;
-                    }
-            }
     }
 
     // Gallery
@@ -142,3 +115,49 @@
         }
     }
 }
+
+// books tab 
+
+.bookAds__content{
+    @include colorTheme--base;
+    margin: 0px 15px;
+    padding: 0px 40px 40px 40px;
+    margin-bottom: 15px;
+
+    @include mediaQ(map-get($breakpoint, sm)){
+        margin: auto;
+        margin-bottom: 15px;
+        padding: 0px 60px;
+        padding-bottom: 15px;
+    }
+
+    .books__jumbo{
+        @include jumboStyle--base;
+        margin-bottom: 40px;
+    }
+
+    .book-item__container{
+        padding: 0px;
+            @include mediaQ(map-get($breakpoint, sm)){
+                padding: 15px;
+            }
+    }
+
+    .book-item{
+        padding: 0px;
+        margin-top: 40px;
+
+            @include mediaQ(map-get($breakpoint, sm)){
+                padding: 30px;
+            }
+    }
+
+    .book-item__img{
+        width: 100%;
+    }
+
+    .book-item__text{
+        margin: 30px 5px 0px 5px;
+    }
+}
+

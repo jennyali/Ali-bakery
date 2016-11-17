@@ -47,14 +47,15 @@
   </section>
   <nav class="row hidden-xs header__navbar--base">
       <ul class="nav nav-pills nav-justified">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li class="dropdown">
-          <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">About</a>
-          <ul class="dropdown-menu navbar--base">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="about.html">Books</a></li>
+        <li><a href="index.html">Home</a></li>
+
+        <li class="active"><a data-toggle="pill" href="about.html">About</a>
+          <ul class="dropdown-menu--custom navbar--base">
+            <li><a data-toggle="pill" href="#galleryContent">About Us</a></li>
+            <li><a data-toggle="pill" href="#booksContent">Books</a></li>
           </ul>
         </li>
+
         <li><a href="menu.html">Menu</a></li>
         <li><a href="order.html">Order Online</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -63,28 +64,30 @@
   </header>
 
             <!-- header end -->
-<main name="aboutUsContent" class="container" id="about-content">
-    <section class="jumbotron text-center" id="about__jumbo">
-        <h3 class="page-header" id="jumbo__title">About Us</h3>
-        <p id="jumbo__text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Nullam vitae hendrerit urna. Cras interdum porttitor arcu et euismod. 
-            Maecenas eu mauris et orci lacinia tincidunt sed sed tellus. 
-            Quisque faucibus sodales ex, ac fringilla neque bibendum in. Donec vitae lectus 
-            vitae sem venenatis tincidunt a non augue. Class aptent taciti sociosqu ad 
-            litora torquent per conubia nostra, per inceptos himenaeos.
-        </p>
-    </section>
-    <section data-id="aboutUsGallery" class="row" id="about__imgGallery">
-    </section> <!-- gallery -->
-</main>
+<div class="tab-content">
+    <main name="aboutUsContent" class="container gallery__content tab-pane fade in active" id="galleryContent">
+        <section class="jumbotron text-center" id="about__jumbo">
+            <h3 class="page-header" id="jumbo__title">About Us</h3>
+            <p id="jumbo__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Nullam vitae hendrerit urna. Cras interdum porttitor arcu et euismod. 
+                Maecenas eu mauris et orci lacinia tincidunt sed sed tellus. 
+                Quisque faucibus sodales ex, ac fringilla neque bibendum in. Donec vitae lectus 
+                vitae sem venenatis tincidunt a non augue. Class aptent taciti sociosqu ad 
+                litora torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+        </section>
+        <section data-id="aboutUsGallery" class="row" id="about__imgGallery">
+        </section> <!-- gallery -->
+    </main>
 
-<main data-id="bookAdsContent">      <!-- main content for BOOKS drop down menu choice -->
-    <section>
-        <h3>Books</h3>
-    </section>
-    <section data-id="bookAdsSection"></section>
-</main>
+    <main class="container bookAds__content tab-pane fade" data-id="bookAdsContent" id="booksContent">      <!-- main content for BOOKS drop down menu choice -->
+        <section class="jumbotron text-center books__jumbo">
+            <h3 class="page-header books__jumbo-title">Books</h3>
+        </section>
+        <section class="row" data-id="bookAdsSection"></section>
+    </main>
+</div>
 
 <main data-id="aboutUsGalleryCarrossel" class="container about__carrossel">      <!-- main content for GALLERY carrossel -->
     <div class="row">

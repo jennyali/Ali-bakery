@@ -9,6 +9,7 @@ var $indexContent = $('main[name="indexPageContent"]');
 
 //---- About page inc gallery + carrossel 
 var $aboutUsContent = $('main[name="aboutUsContent"]');
+var $aboutGalleryContainer = $('main[name="aboutGalleryContainer"]');
 var $aboutUsGallery = $('section[data-id="aboutUsGallery"]');
 var $aboutUsLink =$('a[name="aboutUsLink"]');
 
@@ -327,11 +328,12 @@ function aboutBooks(bookItem, index){
     return `
         <article data-id="bookAd" 
                  name="${bookItem["name"]}
-                 index="${index}">
-            <figure>
-                <img src="${bookItem["img"]}">
+                 index="${index}"
+                 class="col-sm-4 book-item__container">
+            <figure class="book-item">
+                <img src="${bookItem["img"]}" class="book-item__img">
                 <figcaption>
-                    <p>${bookItem["info"]}</p>
+                    <p class="book-item__text">${bookItem["info"]}</p>
                 </figcaption>
             </figure>
         </article>
@@ -496,7 +498,7 @@ var $orderFoodItemBtn = $('button[name="orderFoodItemBtn"]');
 //====================================
 
 $aboutUsGalleryCarrossel.hide();
-$bookAdsContent.hide();
+//$bookAdsContent.hide();
 $nameAlert.hide();
 $emailAlert.hide();
 $subjectAlert.hide();

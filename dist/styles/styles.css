@@ -39,6 +39,32 @@
 
     ========================================
 */
+.dropdown-menu--custom {
+  position: absolute;
+  top: 100%;
+  z-index: 1000;
+  display: inline-block;
+  float: left;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-clip: padding-box;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 0px;
+  margin-top: -10px;
+  min-width: 148px; }
+  .dropdown-menu--custom li:not(:first-child) {
+    border-top: 1px solid #F2E6E8; }
+  .dropdown-menu--custom li {
+    margin: 15px 0px;
+    padding: 10px;
+    background-color: #F2E6E8;
+    color: #2B0F26; }
+  .dropdown-menu--custom li a {
+    text-decoration: none; }
+
 /*
     =============   Contents   =============
 
@@ -283,6 +309,11 @@ body {
   text-decoration: none;
   outline: 0; }
 
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+  background-color: #2B0F26;
+  color: #F2E6E8;
+  border: 1px solid #F2E6E8; }
+
 .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
   background-color: #2B0F26;
   color: #F2E6E8;
@@ -454,68 +485,75 @@ main[name="indexPageContent"] {
           margin: 0px;
           font-size: 20px; } }
 
-#about-content {
+.gallery__content {
   margin-bottom: 15px; }
   @media screen and (min-width: 768px) {
-    #about-content {
+    .gallery__content {
       padding: 0px; } }
-  #about-content #about__jumbo {
+  .gallery__content #about__jumbo {
+    background-color: #F2E6E8;
+    color: #2B0F26;
     background-color: #F2E6E8;
     color: #2B0F26;
     border-radius: 0px;
     margin-bottom: 0px;
+    padding-bottom: 10px;
+    border-radius: 0px;
+    margin-bottom: 0px;
     padding-bottom: 10px; }
-  #about-content #jumbo__title {
-    background-color: #9F3140;
-    color: #F2E6E8;
-    font-size: 28px;
-    display: inline-block;
-    padding: 15px 60px;
-    margin: 0px;
-    outline: 1px solid white;
-    outline-offset: -7px; }
-    @media screen and (min-width: 768px) {
-      #about-content #jumbo__title {
-        padding: 30px 60px; } }
-  #about-content #jumbo__text {
-    font-size: 14px;
-    margin: 40px 0px;
-    word-spacing: 1px;
-    line-height: 1.6em; }
-    @media screen and (min-width: 992px) {
-      #about-content #jumbo__text {
-        padding: 0px 80px; } }
+    .gallery__content #about__jumbo h3 {
+      background-color: #9F3140;
+      color: #F2E6E8;
+      font-size: 28px;
+      display: inline-block;
+      padding: 20px 60px;
+      margin: 0px;
+      outline: 1px solid white;
+      outline-offset: -7px;
+      letter-spacing: 1px;
+      text-transform: uppercase; }
+      @media screen and (min-width: 768px) {
+        .gallery__content #about__jumbo h3 {
+          padding: 30px 60px; } }
+    .gallery__content #about__jumbo p {
+      font-size: 14px;
+      margin: 40px 0px;
+      word-spacing: 1px;
+      line-height: 1.6em; }
+      @media screen and (min-width: 992px) {
+        .gallery__content #about__jumbo p {
+          padding: 0px 80px; } }
   @media screen and (min-width: 992px) and (min-width: 992px) {
-    #about-content #jumbo__text {
+    .gallery__content #about__jumbo p {
       padding: 0px 160px; } }
-  #about-content #about__imgGallery {
+  .gallery__content #about__imgGallery {
     background-color: #F2E6E8;
     color: #2B0F26;
     margin: 0px;
     padding: 15px;
     padding-bottom: 30px; }
-  #about-content .about__galleryImg {
+  .gallery__content .about__galleryImg {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 70px;
     border: 5px solid #F2E6E8; }
     @media screen and (min-width: 768px) {
-      #about-content .about__galleryImg {
+      .gallery__content .about__galleryImg {
         height: 150px; } }
   @media screen and (min-width: 768px) and (min-width: 992px) {
-    #about-content .about__galleryImg {
+    .gallery__content .about__galleryImg {
       height: 200px; } }
   @media screen and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
-    #about-content .about__galleryImg {
+    .gallery__content .about__galleryImg {
       height: 250px; } }
-  #about-content .galleryImg__overlay {
+  .gallery__content .galleryImg__overlay {
     background-color: rgba(43, 15, 38, 0.8);
     position: absolute;
     left: 0px;
     height: 100%;
     width: 100%; }
-  #about-content .galleryImg__textBox {
+  .gallery__content .galleryImg__textBox {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -560,6 +598,66 @@ main[name="indexPageContent"] {
     .about__carrossel .carrossel__img__inner figcaption {
       padding-top: 15px;
       text-align: center; }
+
+.bookAds__content {
+  background-color: #F2E6E8;
+  color: #2B0F26;
+  margin: 0px 15px;
+  padding: 0px 40px 40px 40px;
+  margin-bottom: 15px; }
+  @media screen and (min-width: 768px) {
+    .bookAds__content {
+      margin: auto;
+      margin-bottom: 15px;
+      padding: 0px 60px;
+      padding-bottom: 15px; } }
+  .bookAds__content .books__jumbo {
+    background-color: #F2E6E8;
+    color: #2B0F26;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    margin-bottom: 40px; }
+    .bookAds__content .books__jumbo h3 {
+      background-color: #9F3140;
+      color: #F2E6E8;
+      font-size: 28px;
+      display: inline-block;
+      padding: 20px 60px;
+      margin: 0px;
+      outline: 1px solid white;
+      outline-offset: -7px;
+      letter-spacing: 1px;
+      text-transform: uppercase; }
+      @media screen and (min-width: 768px) {
+        .bookAds__content .books__jumbo h3 {
+          padding: 30px 60px; } }
+    .bookAds__content .books__jumbo p {
+      font-size: 14px;
+      margin: 40px 0px;
+      word-spacing: 1px;
+      line-height: 1.6em; }
+      @media screen and (min-width: 992px) {
+        .bookAds__content .books__jumbo p {
+          padding: 0px 80px; } }
+  @media screen and (min-width: 992px) and (min-width: 992px) {
+    .bookAds__content .books__jumbo p {
+      padding: 0px 160px; } }
+  .bookAds__content .book-item__container {
+    padding: 0px; }
+    @media screen and (min-width: 768px) {
+      .bookAds__content .book-item__container {
+        padding: 15px; } }
+  .bookAds__content .book-item {
+    padding: 0px;
+    margin-top: 40px; }
+    @media screen and (min-width: 768px) {
+      .bookAds__content .book-item {
+        padding: 30px; } }
+  .bookAds__content .book-item__img {
+    width: 100%; }
+  .bookAds__content .book-item__text {
+    margin: 30px 5px 0px 5px; }
 
 .menu__content {
   background-color: #F2E6E8;
@@ -724,7 +822,7 @@ main[name="indexPageContent"] {
       padding: 0px 160px; } }
   @media screen and (min-width: 992px) {
     .contact__content .form-section {
-      margin-top: 100px; } }
+      margin-top: 80px; } }
   .contact__content .form-group--base {
     margin-bottom: 50px; }
     @media screen and (min-width: 992px) {

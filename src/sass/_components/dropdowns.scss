@@ -1,0 +1,34 @@
+
+.dropdown-menu--custom{
+    //@include colorTheme--invert();
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+    display: inline-block;
+    float: left;
+    padding: 0;
+    margin: 0;
+    font-size: map-get($map: $font-size, $key: base);
+    text-align: left;
+    list-style: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    font-family: $font-family-base;
+    //border: 1px solid map-get($map: $color, $key: light);
+    border-radius: 0px;
+    margin-top: -10px;
+    min-width: 148px;
+
+    li:not(:first-child){border-top: 1px solid map-get($map: $color, $key: light);}
+
+    li{
+        margin: 15px 0px;
+        padding: 10px;
+        @include colorTheme--base();
+    }
+
+    li a{
+        //padding: 10px;
+        text-decoration: none;
+    }
+}
