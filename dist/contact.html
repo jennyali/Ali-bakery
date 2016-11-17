@@ -65,23 +65,23 @@
         <h3 class="page-header contact__jumbo-title">Contact</h3>
     </section>
     <section class="row form-section">
-        <form name="contactForm" class="form-group col-md-6">
-            <p>Planning a special event? Write us here:</p>
-            <input name="nameInput" placeholder="Name" class="form-control"/>
+        <form name="contactForm" class="form-group form-group--base col-md-7">
+            <p class="form__topMsg">Planning a special event? Write us here:</p>
+            <input name="nameInput" placeholder="Name" class="form-control form-control--custom"/>
             <p name="nameAlert">*Name must be filled in</p>
-            <input name="emailInput" placeholder="Email" class="form-control"/>
+            <input name="emailInput" placeholder="Email" class="form-control form-control--custom"/>
             <p name="emailAlert">*Please provide an email address</p>
-            <input name="subjectInput" placeholder="Subject" class="form-control"/>
+            <input name="subjectInput" placeholder="Subject" class="form-control form-control--custom"/>
             <p name="subjectAlert">*A subject needs to be listed</p>
-            <textarea name="msgInput" placeholder="Message" class="form-control"></textarea>
+            <textarea name="msgInput" placeholder="Message" class="form-control form-control--custom textarea.form-control--custom"></textarea>
             <p name="msgAlert">*A message needs to be written</p>
-            <button name="formBtn">Send</button>
+            <button name="formBtn" class="button--custom">Send</button>
             <p name="failFormMsg">Failed to Send! please check all boxes are filled in.</p>
             <p name="successFormMsg">Success! we have recieved your response and will report back to you shorty.</p>
         </form>
-      <figure class="col-md-6">
-            [map Img]
-        </figure>
+      <figure class="col-md-5 contact__img-container">
+            <img src="images/bakery_location.png" class="contact_img responsive">
+      </figure>
     </section>
 </main>
             <!-- content end -->

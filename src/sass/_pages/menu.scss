@@ -84,10 +84,15 @@
     .menu-item__price--md{
         display: inline;
         float: right;
+        font-size: 20px;
 
     }
 
     .menu-item__divider{
         display: inline;
+    }
+
+    .menu-item__img--sm{
+        width: 150px;
     }
 }

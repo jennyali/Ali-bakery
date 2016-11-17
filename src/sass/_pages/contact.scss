@@ -2,14 +2,40 @@
 
 .contact__content{
     @include colorTheme--base;
-    margin-bottom: 15px;
-    padding: 30px;
+    margin: 0px 15px 15px 15px;
+    padding: 15px 25px 25px 25px;
+
+        @include mediaQ(map-get($breakpoint, sm)){
+            margin: auto;
+            margin-bottom: 15px;
+            padding: 30px;
+            padding-top: 0px;
+        }
 
     .contact__jumbo{
         @include jumboStyle--base;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .contact__jumbo-title{
+
     }
 
     .form-section{
-        margin-top: 60px;
+        @include mediaQ(map-get($breakpoint, md)){
+            margin-top: 100px;
+        }
+    }
+
+    @include formStyle--base;
+
+    .contact_img{
+        width: 100%;
+        margin-top: 15px;
+
+        @include mediaQ(map-get($breakpoint, md)){
+            margin-top: 0px;
+        }
     }
 }
