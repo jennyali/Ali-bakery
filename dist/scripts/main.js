@@ -59,7 +59,7 @@ var $midSectionContent = $('section[name="midSectionContent]');
 
 // online Order Modal
 
-var $foodOrderModal = $('section[name="foodOrderModal"]');
+var $foodOrderModal = $('main[name="foodOrderModal"]');
 var $foodOrderModalContainer =$('article[name="foodOrderModalContainer"]');
 //var $cancelModalBtn = $('button[name="cancelModalBtn"]');
 
@@ -285,13 +285,13 @@ function myOrderItemBuilder(callback){
 
 function myOrderItemTemplate(listItem){
     return `
-    <div name="myOrderItem" index="${listItem["index"]}">
-        <div name="quanityOfItem" data-value="1">1</div>
+    <div class="my-order-item__container" name="myOrderItem" index="${listItem["index"]}">
+        <div class="my-order-item__quantity" name="quanityOfItem" data-value="1">1</div>
         <span>x</span>
-        <div name="nameOfItem">${listItem["name"]}</div>
-        <span>$</span>
-        <div name="priceOfItem" data-price="${listItem["price"]}">${listItem["price"]}</div>
-        <button name="cancelOrderItem" index="${listItem["index"]}" class="icon-delete-2"></button>
+        <div class="my-order-item__name" name="nameOfItem">${listItem["name"]}</div>
+        
+        <div class="my-order-item__price" name="priceOfItem" data-price="${listItem["price"]}"><span>$</span>${listItem["price"]}</div>
+        <button name="cancelOrderItem" index="${listItem["index"]}" class="icon-delete-2 my-order-item__btn button--cancel--small"></button>
     </div>
     `
 }
@@ -406,12 +406,14 @@ function menuTemplate(foodItem, index){
 
 function onlineOrderFoodItemTemplate(foodItem, index){
     return `
-        <article data-id="${foodItem["name"]}" index="${index}">   
-            <figure data-img="${foodItem["img"]}">[img]</figure>
-            <figcaption>
-              <p>${foodItem["name"]}</p>
-              <p>${foodItem["price"]}</p>
-              <p>${foodItem["info"]}</p>
+        <article class="col-sm-5 online-food__container" data-id="${foodItem["name"]}" index="${index}">   
+            <figure class="online-food__img" data-img="${foodItem["img"]}">
+                <img src="${foodItem["img"]}" class="img-responsive">
+            </figure>
+            <figcaption class="online-food__textbox">
+              <p class="online-food__name">${foodItem["name"]}</p>
+              <p class="online-food__price ">$${foodItem["price"]}</p>
+              <p class="online-food__info collapse">${foodItem["info"]}</p>
             </figcaption>
             <button name="orderFoodItemBtn"
                     index="${index}"
@@ -419,7 +421,7 @@ function onlineOrderFoodItemTemplate(foodItem, index){
                     data-img="${foodItem["img"]}"
                     data-info="${foodItem["info"]}"
                     data-price="${foodItem["price"]}"
-                    class="icon-add-2"
+                    class="icon-add-2 pull-right online-food__btn button--clear"
             ></button>
         </article>
       `
@@ -427,14 +429,16 @@ function onlineOrderFoodItemTemplate(foodItem, index){
 
 function orderModalTemplate(index, name, img, info, price){
     return `
-        <figure name="modalImg" data-img="${img}"></figure>
-        <figcaption name="modalFigCap">
-            <h4 name="modalTitle">${name}</h4>
-            <p name="modalPrice">${price}</p>
-            <p name="modalInfo">${info}</p>
-            <p>Special Requests?</p>
-            <p name='userRequestbtn'>+ Add them here. We'll do our best to make it happen</p>
-            <input name="userRequestInput"></input>
+        <figure name="modalImg" data-img="${img}">
+            <img src="${img}" class="img-responsive">
+        </figure>
+        <figcaption class="modal-caption" name="modalFigCap">
+            <h4 class="modal__title" name="modalTitle">${name}</h4>
+            <p class="modal__price" name="modalPrice">$${price}</p>
+            <p class="modal__info" name="modalInfo">${info}</p>
+            <p class="modal__secondary-title lead page-header" >Special Requests?</p>
+            <p class="modal__input-link icon-add-2" name='userRequestbtn'> Add them here. We'll do our best to make it happen</p>
+            <input class="modal__input form-control form-control--custom"name="userRequestInput"></input>
             <button name="addOrderBtn"
                     index="${index}"
                     data-id="${name}"
@@ -442,9 +446,9 @@ function orderModalTemplate(index, name, img, info, price){
                     data-info="${info}"
                     data-price="${price}"
                     date-hasReq="false"
-                    class="icon-add-2"
+                    class="icon-add-2 modal__add-btn button--large"
             >ADD TO MY ORDER</button>
-            <button name="cancelModalBtn" class="icon-delete-2" >Cancel</button>
+            <button name="cancelModalBtn" class="icon-delete-2 button--topCancel" ></button>
         </figcaption>
     `
 }
@@ -538,6 +542,16 @@ $myOrderTitle.on("click", "button[name='cancelOrderItem']", function(event){
     wordChecker();
     setSubtotal();
     $(this).closest("div[name='myOrderItem']").remove();
+})
+
+$myOrderTitle.on("mouseenter", "div[name='myOrderItem']", function(){
+    $(this).find("div[name='priceOfItem']").css('right', '45px');
+    $(this).find("button[name='cancelOrderItem']").css('right', '15px');
+})
+
+$myOrderTitle.on("mouseleave", "div[name='myOrderItem']", function(){
+    $(this).find("div[name='priceOfItem']").css('right', '15px');
+    $(this).find("button[name='cancelOrderItem']").css('right', '-45px');
 })
 
 $itemsForSale.on("click", "button[name='orderFoodItemBtn']", function(event){
