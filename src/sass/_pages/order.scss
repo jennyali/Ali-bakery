@@ -2,6 +2,7 @@
 
 .order__content{
 @include containerStyle--base(60px);
+@include dropshadowOffset--base;
     padding-left: 0px;
     padding-right: 0px;
     padding-bottom: 0px;
@@ -18,7 +19,9 @@
     }
 
     .eCommerce{
-        border-top: 1px solid rgba(43, 15, 38, 0.5);
+        @include mediaQ(map-get($breakpoint, sm)){
+            border-top: 1px solid rgba(43, 15, 38, 0.5);
+        }
     }
 
     .eCommerce-inner{
@@ -27,8 +30,14 @@
 
     .left-aside__nav{
         @include colorTheme--invert;
+        @include navPillsStyle--base;
         padding: 0px;
-        height: 800px;
+        margin: 0px 15px;
+
+        @include mediaQ(map-get($breakpoint, sm)){
+            height: 800px;   
+            margin: 0px;             
+        }
 
         .nav-item{
             background-color: rgba(242, 230, 232, 0.1);
@@ -65,25 +74,32 @@
     }
 
     .shop__sale-items{
-        @include posCenterX(relative);
-        transform: translate(-44%);
+
+        @include mediaQ(map-get($breakpoint, sm)){
+            @include posCenterX(relative);
+            transform: translate(-44%);
+        }
     }
 
     .online-food__container{
         @include buttonStyle--clear;
         padding: 0px;
         margin: 15px;
-        -webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.44);
-        -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.44);
-        box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.44);
+        @include dropshadowOffset--base;
     }
 
 
     .online-food__img{
         
         img{
-            height: 150px;
             width: 100%;
+
+            @include mediaQ(map-get($breakpoint, sm)){
+                height: 100px;
+                @include mediaQ(map-get($breakpoint, md)){
+                    height: 150px;
+                }
+            }
         }
     }
 
@@ -114,6 +130,11 @@
         @include buttonStyle--large;
         overflow: hidden;
         padding: 0px;
+        padding-bottom: 30px;
+
+        @include mediaQ(map-get($breakpoint, sm)){
+            padding: 0px;
+        }
 
         .button--large{
             text-transform: uppercase;

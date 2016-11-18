@@ -5,6 +5,7 @@
 
 .siteFooter{
     @include colorTheme--base();
+    @include dropshadowOffset--base;
     padding: 20px;
     padding-top: 40px;
     margin: 5px 15px 40px 15px;

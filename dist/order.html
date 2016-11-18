@@ -21,7 +21,7 @@
       <h1 class="header__title--xs">Ali's Bakery</h1>
     </a>
     <nav class="burgerMenu">
-    <ul class="nav nav-pills" role="tablist">
+    <ul class="nav nav-pills nav--custom" role="tablist">
       <li class="dropdown">
         <a class="dropdown-toggle icon-wrapper" data-toggle="dropdown" href="#">
           <span class="icon-navicon"></span>
@@ -62,10 +62,10 @@
   <section class="eCommerce">
     <article class="row eCommerce-inner">
       <section name="leftAsideMenu" class="col-sm-2 left-aside__nav">   <!-- left faux aside -->
-        <ul class="nav nav-pills nav-stacked">
+        <ul class="nav nav-pills nav-stacked nav--custom">
           <li class="active"><a href="#">Cakes & Breads</a></li>
-          <li class="nav-item"><a name="cakeOrderMenu" class="nav-item__link">Cakes</a></li>
-          <li class="nav-item"><a name="breadOrderMenu" class="nav-item__link">Breads</a></li>
+          <li class="nav-item"><a href="#" name="cakeOrderMenu" class="nav-item__link">Cakes</a></li>
+          <li class="nav-item"><a href="#" name="breadOrderMenu" class="nav-item__link">Breads</a></li>
         </ul>
       </section>
       <section name="midSectionContent" class="col-sm-7 mid-section__shop">
@@ -110,7 +110,7 @@
     </article>
   </section>
 </main>
-<main name="foodOrderModal" class="container order-modal">
+<main name="foodOrderModal" class="order-modal">
   <section class="row">
         <article name="foodOrderModalContainer" class="col-sm-4 col-sm-offset-4 order-modal__inner">
             <!--<figure name="modalImg"></figure>

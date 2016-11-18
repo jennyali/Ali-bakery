@@ -72,5 +72,14 @@
 
 .nav>li>a:focus, .nav>li>a:hover {
     text-decoration: none;
-    background-color: map-get($map: $color, $key: dark);
+    //background-color: map-get($map: $color, $key: dark);
+}
+
+
+// large container media query
+
+@media (min-width: 1200px){
+    .container {
+        width: 980px;
+    }
 }

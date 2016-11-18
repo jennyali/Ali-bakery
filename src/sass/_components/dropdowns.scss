@@ -16,19 +16,27 @@
     font-family: $font-family-base;
     //border: 1px solid map-get($map: $color, $key: light);
     border-radius: 0px;
-    margin-top: -10px;
+    margin-top: 10px;
     min-width: 148px;
+    
+
+        @include mediaQ(map-get($breakpoint, md)){
+            min-width: 194px;
+        }
 
     li:not(:first-child){border-top: 1px solid map-get($map: $color, $key: light);}
 
     li{
-        margin: 15px 0px;
-        padding: 10px;
+        //margin: 15px 0px;
+        //padding: 10px;
         @include colorTheme--base();
     }
 
     li a{
-        //padding: 10px;
+        @include dropshadowOffset--base;
+        padding: 10px;
+        display: block;
         text-decoration: none;
+        margin-bottom: 10px;
     }
 }

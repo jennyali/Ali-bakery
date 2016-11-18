@@ -1,6 +1,7 @@
 
 
 .gallery__content{
+    @include dropshadowOffset--base;
     margin-bottom: 15px;
 
         @include mediaQ(map-get($breakpoint, sm)){

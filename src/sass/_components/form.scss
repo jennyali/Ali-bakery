@@ -40,6 +40,7 @@
             padding: 30px 5px;
             font-size: map-get($map: $font-size, $key: xxs);
             font-family: $font-family-base;
+            @include dropshadowInset--base;
 
                 @include mediaQ(map-get($breakpoint, md)){
                     padding: 15px 5px;
