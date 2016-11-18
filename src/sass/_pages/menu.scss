@@ -2,6 +2,7 @@
 
 .menu__content{
 @include containerStyle--base;
+@include dropshadowOffset--base;
 
     .menu__jumbo{
         @include jumboStyle--base;

@@ -116,6 +116,7 @@ $breakpoint:(
 
     h3{
         @include colorTheme--contrast;
+        @include dropshadowOffset--base;
         font-size: map-get($map: $font-size, $key: md);
         display: inline-block;
         padding: 20px 60px;
@@ -124,6 +125,7 @@ $breakpoint:(
         outline-offset: -7px;
         letter-spacing: 1px;
         text-transform: uppercase;
+        border: none;
 
             @include mediaQ(map-get($breakpoint, sm)){
                 padding: 30px 60px;
@@ -182,4 +184,48 @@ $breakpoint:(
             padding: 0px 60px;
             padding-bottom: $padding;
         }
+}
+// order online, left aside nav-pills hover style
+
+@mixin navPillsStyle--base(){
+    .nav--custom>li>a{
+        font-family: $font-family-base;
+    }
+
+    .nav--custom>li>a:hover{
+        background-color: rgba(242, 230, 232, 0.3);
+        border-radius: 0px;
+    }
+
+    .nav--custom>li>a:focus{
+        background-color: rgba(242, 230, 232, 0.2);
+    }
+}
+
+// li, a tags hover + focus styles
+
+@mixin burgerDropdownStyle--base(){
+    .nav--custom>li>a{
+        font-family: $font-family-base;
+    }
+
+    .nav--custom>li>a:focus, .nav--custom>li>a:hover{
+        background-color: map-get($map: $color, $key: dark);
+    }
+}
+
+// drop shadows 
+
+@mixin dropshadowOffset--base(){
+-webkit-box-shadow: 0px 1px 2px 0px rgba(43,15,38,0.63);
+-moz-box-shadow: 0px 1px 2px 0px rgba(43,15,38,0.63);
+box-shadow: 0px 1px 2px 0px rgba(43,15,38,0.63);
+
+
+}
+
+@mixin dropshadowInset--base(){
+    -webkit-box-shadow: inset 0px 1px 6px -2px rgba(43,15,38,0.71);
+    -moz-box-shadow: inset 0px 1px 6px -2px rgba(43,15,38,0.71);
+    box-shadow: inset 0px 1px 6px -2px rgba(43,15,38,0.71);
 }

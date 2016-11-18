@@ -1,7 +1,8 @@
 
 
 .contact__content{
-    @include containerStyle--base(60px);
+    @include containerStyle--base(30px);
+    @include dropshadowOffset--base;
     
     .contact__jumbo{
         @include jumboStyle--base;
@@ -26,7 +27,7 @@
         margin-top: 15px;
 
         @include mediaQ(map-get($breakpoint, md)){
-            margin-top: 0px;
+            margin-top: 40px;
         }
     }
 }

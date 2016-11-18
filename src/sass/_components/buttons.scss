@@ -14,6 +14,7 @@
 @mixin buttonStyle--large(){
     .button--large{
         @include colorTheme--contrast;
+        @include dropshadowOffset--base;
         border: none;
         font-size: map-get($map: $font-size, $key: xxs);
         font-family: $font-family-base;
@@ -36,6 +37,7 @@
 @mixin buttonStyle--topCancel(){
     .button--topCancel{
         @include colorTheme--contrast;
+        @include dropshadowOffset--base;
         border: 0;
         border-radius: 50%;
         padding: 10px 12px 8px;

@@ -12,7 +12,8 @@ var $aboutUsContent = $('main[name="aboutUsContent"]');
 var $aboutGalleryContainer = $('main[name="aboutGalleryContainer"]');
 var $aboutUsGallery = $('section[data-id="aboutUsGallery"]');
 var $aboutUsLink =$('a[name="aboutUsLink"]');
-
+var $aboutDropdownLink = $('.aboutDropdownLink');
+var $aboutDropdown =$('.navbar--base');
 
 var $aboutUsGalleryCarrossel = $('main[data-id="aboutUsGalleryCarrossel"]');
 var $carrosselImg = $('article[data-id="carrosselImgArticle"]');
@@ -514,10 +515,19 @@ $formSuccessMsg.hide();
 $foodOrderModal.hide();
 $aboutUsGallery.find(".galleryImg__overlay").hide();
 $aboutUsGallery.find(".galleryImg__textBox").hide();
+$aboutDropdown.hide();
 
 
 //         on.(EVENTS)
 //====================================
+
+$aboutDropdownLink.on("mouseenter", function(){
+    $aboutDropdown.slideDown();
+});
+
+$aboutDropdown.on("mouseleave", function(){
+    $aboutDropdown.slideUp();
+});
 
 $aboutUsGallery.on("mouseenter", "figure[data-id='galleryImg']", function(event){
      //$aboutUsGallery.find(".galleryImg__overlay").stop();

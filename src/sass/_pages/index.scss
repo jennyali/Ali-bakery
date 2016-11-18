@@ -3,6 +3,7 @@
 
 
 main[name="indexPageContent"]{
+
     padding: 0px 15px;
         @include mediaQ(map-get($breakpoint, sm)){
             padding: 0px;
@@ -17,6 +18,7 @@ main[name="indexPageContent"]{
     }
 
     .indexContent__topImg{
+        @include dropshadowOffset--base;
         margin: 20px 0px;
             @include mediaQ(map-get($breakpoint, sm)){
                 overflow: hidden;
@@ -34,8 +36,13 @@ main[name="indexPageContent"]{
     }
 
     .midContent__topImg{
+        @include dropshadowOffset--base;
         margin-bottom: 20px;
             @include mediaQ(map-get($breakpoint, sm)){margin-bottom: 10px;}
+    }
+
+    .midContent__bottomImg{
+        @include dropshadowOffset--base;
     }
 
     .indexContent__midSection{
@@ -46,6 +53,7 @@ main[name="indexPageContent"]{
     }
 
     .indexContent__secondary-title{
+        @include dropshadowOffset--base;
         @include colorTheme--contrast;
         @include posCenterX(absolute);
         font-size: map-get($map: $font-size, $key: xlg);
@@ -73,6 +81,7 @@ main[name="indexPageContent"]{
     }
 
     .indexContent__textbox{
+        @include dropshadowOffset--base;
         @include colorTheme--base;
         padding: 30px;
         margin: 20px 0px;
@@ -84,8 +93,6 @@ main[name="indexPageContent"]{
                     @include mediaQ(map-get($breakpoint, md)){
                         height: 422px;
                         padding: 30px;
-
-                        @include mediaQ(map-get($breakpoint, lg)){height: 510px;}
                 }
             }
 
@@ -104,7 +111,6 @@ main[name="indexPageContent"]{
                         font-size: map-get($map: $font-size, $key: md);
                         margin-top: 0px;
                         margin-bottom: 10px;
-                            @include mediaQ(map-get($breakpoint, lg)){font-size: 36px;}
                 }
             }
 
@@ -115,7 +121,6 @@ main[name="indexPageContent"]{
                             margin: 30px 0px;
                             word-spacing: 1px;
                             line-height: 1.6em;
-                                @include mediaQ(map-get($breakpoint, lg)){margin: 60px 0px;}
                     }
                 }
             }

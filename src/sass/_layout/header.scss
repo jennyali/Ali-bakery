@@ -7,9 +7,6 @@
 .header{
     // small screen styles //
 
-    li, a{
-        font-family: $font-family-heading;
-    }
 
     .header-inner--xs{
         padding: 0px;
@@ -18,6 +15,7 @@
     }
 
     .header__title--xs{
+        @include dropshadowOffset--base;
         @include colorTheme--base();
         font-family: $font-family-logo;
         display: inline-block;
@@ -28,6 +26,8 @@
     }
 
     .burgerMenu{
+        @include burgerDropdownStyle--base;
+        @include dropshadowOffset--base;
         display: inline;
         float: right;
     }
@@ -53,6 +53,7 @@
     .header-inner--base{
         @include colorTheme--base();
         @include posCenterX(relative);
+        @include dropshadowOffset--base;
         font-family: $font-family-logo;
         padding: 8px;
         display: inline-block;
@@ -71,5 +72,12 @@
         margin-top: 15px;
     }
        
-    .header__navbar--base{margin-bottom: 20px;}
+    .header__navbar--base{
+        @include dropshadowOffset--base;
+        margin-bottom: 20px;
+        
+        li>a{
+            font-family: $font-family-heading;
+        }
+    }
 }
