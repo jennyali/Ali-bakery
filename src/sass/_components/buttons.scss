@@ -13,12 +13,55 @@
 
 @mixin buttonStyle--large(){
     .button--large{
-        @include colorTheme--invert;
+        @include colorTheme--contrast;
         border: none;
         font-size: map-get($map: $font-size, $key: xxs);
         font-family: $font-family-base;
         float: right;
         width: 100%;
         padding: 15px;
+    }
+}
+
+@mixin buttonStyle--clear{
+    .button--clear{
+        background-color: map-get($map: $color, $key: light);
+        color: map-get($map: $color, $key: base);
+        font-size: 12px;
+        border: none;
+        outline: none;
+    }
+}
+
+@mixin buttonStyle--topCancel(){
+    .button--topCancel{
+        @include colorTheme--contrast;
+        border: 0;
+        border-radius: 50%;
+        padding: 10px 12px 8px;
+        font-size: 12px;
+        position: absolute;
+        top: -15px;
+        right: -15px;
+    }
+}
+
+@mixin buttonStyle--cancel(){
+    .button--cancel{
+        @include colorTheme--contrast;
+        border: 0;
+        border-radius: 50%;
+        padding: 10px 12px 8px;
+        font-size: 12px;
+    }
+}
+
+@mixin buttonStyle--cancel--small(){
+    .button--cancel--small{
+        @include colorTheme--contrast;
+        border: 0;
+        border-radius: 50%;
+        padding: 6px 8px 4px 6px;
+        font-size: 8px;
     }
 }

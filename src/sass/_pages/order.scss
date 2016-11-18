@@ -64,8 +64,55 @@
         }
     }
 
+    .shop__sale-items{
+        @include posCenterX(relative);
+        transform: translate(-44%);
+    }
+
+    .online-food__container{
+        @include buttonStyle--clear;
+        padding: 0px;
+        margin: 15px;
+        -webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.44);
+        -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.44);
+        box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.44);
+    }
+
+
+    .online-food__img{
+        
+        img{
+            height: 150px;
+            width: 100%;
+        }
+    }
+
+    .online-food__textbox{
+        padding: 15px;
+    }
+
+    .online-food__name{
+        margin-bottom: 3px;
+    }
+
+    .online-food__price{
+        color: map-get($map: $color, $key: base);
+        display: inline-block;
+    }
+
+    .online-food__info{}
+
+    .online-food__btn{
+        position: absolute;
+        right: 15px;
+        bottom: 30px;
+    }
+
+
+// right aside shopping basket related styles
     .right-aside__basket{
         @include buttonStyle--large;
+        overflow: hidden;
         padding: 0px;
 
         .button--large{
@@ -125,4 +172,34 @@
         display: inline;
         float: right;
     }
+
 }
+
+.my-order-item__container{
+    @include buttonStyle--cancel--small;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.my-order-item__quantity{
+    display: inline;
+}
+
+.my-order-item__name{
+    display: inline;
+}
+
+.my-order-item__price{
+    display: inline;
+    position: absolute;
+    right: 15px; 
+    transition: right 0.5s;
+}
+
+.my-order-item__btn{
+    position: absolute;
+    right: -30px;
+    transition: right 0.5s;
+}
+

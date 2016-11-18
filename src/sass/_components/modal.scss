@@ -1,0 +1,61 @@
+@import "_helpers/variables";
+@import "_helpers/mixins";
+@import "_components/buttons";
+
+
+
+// modal online-food order
+
+    .order-modal{
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(#2B0F26, 0.8);
+        z-index: 10;
+        top: 0px;
+    }
+
+
+    .order-modal__inner{
+        @include colorTheme--base;
+        position: relative;
+        transform: translateY(20%);
+        padding: 0px;
+    
+
+
+    .modal-caption{
+            padding: 20px;
+            @include buttonStyle--large;
+            @include buttonStyle--topCancel;
+    }
+
+    .modal__title{
+            font-size: 28px;
+            font-family: $font-family-base;
+    }
+
+    .modal__price{
+        font-size: 20px;
+        color: map-get($color, base);
+    }
+
+    .modal__info{}
+
+    .modal__secondary-title{
+        border-bottom-color: rgba(43, 15, 38, 0.5); 
+    }
+
+    .modal__input-link{}
+
+    .modal__input{}
+
+    .modal__add-btn{
+        float: none;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+
+    .modal__cancel-btn{}
+
+    }
