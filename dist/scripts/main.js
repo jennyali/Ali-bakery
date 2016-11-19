@@ -563,7 +563,7 @@ $myOrderTitle.on("mouseleave", "div[name='myOrderItem']", function(){
     $(this).find("div[name='priceOfItem']").css('right', '15px');
     $(this).find("button[name='cancelOrderItem']").css('right', '-45px');
 })
-
+/*
 $itemsForSale.on("click", "button[name='orderFoodItemBtn']", function(event){
         event.preventDefault();
         var index = $(this).attr("index");
@@ -576,7 +576,7 @@ $itemsForSale.on("click", "button[name='orderFoodItemBtn']", function(event){
         $foodOrderModal.find("input").hide();
         $foodOrderModal.fadeIn('fast');
 })
-
+*/
 
 $foodOrderModal.on("click", "button[name='cancelModalBtn']", function(event){
     event.preventDefault();
@@ -696,5 +696,259 @@ $carrosselCancelBtn.on({
     }
 })
 
+/*=============================================
 
+    VERSION 2 of SHOPPING CART PRACTICE 
+
+==============================================*/
+
+/*--------------------------
+
+            MODEL
+
+---------------------------*/
+
+// foodItems 'data-base'
+
+var foodCatalogue = [
+    {name: 'Rustic Rolls', img: 'images/bread-selection.jpg', catergory: 'bread', price: 4, info: 'A delicious home baked product, made from the finest ingriedents and prepared fresh in-store'},
+    {name: 'Baguette', img: 'images/baguette.jpeg', catergory: 'bread', price: 5, info: 'A delicious home baked product, made from the finest ingriedents and prepared fresh in-store'},
+    {name: 'Sliced Wholemeal Loaf', img: 'images/wholemeal-loaf.jpeg', catergory: 'bread', price: 3, info: 'A delicious home baked product, made from the finest ingriedents and prepared fresh in-store'},
+    {name: 'Croissant', img: 'images/croissant.jpeg', catergory: 'bread', price: 2, info: 'A delicious home baked product, made from the finest ingriedents and prepared fresh in-store'},
+    {name: 'Ciabatta', img: 'images/ciabatta.jpeg', catergory: 'bread', price: 3, info: 'A delicious home baked product, made from the finest ingriedents and prepared fresh in-store'},
+    {name: 'Vanilla Cheesecake', img: 'images/vanilla-cheesecake.jpeg', catergory: 'cake', price: 10, info: 'A delicious home baked product, made from the finest ingriedents and prepared fresh in-store'},
+    {name: 'White-Icing Cupcakes', img: 'images/white-icing-cupcake.jpeg', catergory: 'cake', price: 8, info: 'A delicious home baked product, made from the finest ingriedents and prepared fresh in-store'},
+    {name: 'Cream filled Donuts', img: 'images/cream-filled-dougnuts.jpeg', catergory: 'cake', price: 2, info: 'A delicious home baked product, made from the finest ingriedents and prepared fresh in-store'},
+    {name: 'Blueberry Muffin', img: 'images/blueberry-muffin.png', catergory: 'cake', price: 3, info: 'A delicious home baked product, made from the finest ingriedents and prepared fresh in-store'},
+    {name: 'Vanilla Lattice', img: 'images/vanilla-lattice.jpeg', catergory: 'cake', price: 4, info: 'A delicious home baked product, made from the finest ingriedents and prepared fresh in-store'},
+];
+
+function foodItem(name, img, catergory, price, info){
+    this.id = Math.ceil(Math.random() * 10000);
+    this.name = name;
+    this.img = img;
+    this.catergory = catergory;
+    this.price = price;
+    this.info = info;
+};
+
+foodCatalogue = _.map(foodCatalogue, function(item){
+    return new foodItem(item.name, item.img, item.catergory, item.price, item.info);
+})
+
+console.log(foodCatalogue, "main food database");         // console.log here
+
+// sub databases
+
+var cakeCatalogue = [];
+var breadCatalogue = [];
+
+foodSorter('bread', breadCatalogue);
+foodSorter('cake', cakeCatalogue);
+
+console.log(cakeCatalogue, "cake database");         // console.log here
+console.log(breadCatalogue, "bread database");         // console.log here
+
+// sub database samples
+
+var cakeSample = _.slice(cakeCatalogue, [0], [4]);
+var breadSample = _.slice(breadCatalogue, [0], [4]);
+
+console.log(cakeSample,"cake sample database");         // console.log here
+console.log(breadSample, "bread sample database");         // console.log here
+
+var itemsForSaleCategories = {
+    "cake" : cakeSample,
+    "bread" : breadSample
+}
+
+console.log(itemsForSaleCategories["cake"], "cakes for sale");         // console.log here
+console.log(itemsForSaleCategories["cake"][2]['name'], " for sale");         // console.log here
+
+// catergory catalogue
+
+var catergoryCatalogue = [
+    {name: 'Breads', catergory: 'bread', description: 'Come shop for the best breads ever! The best acompliment to soup.'},
+    {name: 'Cakes', catergory: 'cake', description: 'Satisfy your sweet tooth with our range of desserts'},
+];
+
+function foodCatergory(name, catergory, description){
+    this.id = Math.ceil(Math.random() * 10000);
+    this.name = name;
+    this.catergory = catergory;
+    this.description = description;
+}
+
+catergoryCatalogue = _.map(catergoryCatalogue, function(item){
+    return new foodCatergory(item.name, item.catergory, item.description);
+})
+
+console.log(catergoryCatalogue, "food catergory database");         // console.log here
+/*--------------------------
+
+            VIEW
+
+---------------------------*/
+//==== Selectors/Varibles=====
+
+var $asideNav = $('.aside__nav');
+var $asideNavPill = $('.aside__nav-pill');
+var $breadNavPill = $('.aside__nav-pill-bread');
+var $cakeNavPill = $('.aside__nav-pill-cake');
+
+var $midShopSection = $('.mid-section__shop');
+var $shopMenu = $('.shop__menu');
+var $menuTitle = $('.menu__title');
+var $menuText = $('.menu__text');
+var $shopItemsShelf = $('.shop__sale-items');
+
+var $itemForSaleModalbtn = $('.online-food__btn');
+
+console.log($breadNavPill.html(), $cakeNavPill.html(), "aside nav-pill links");          // console.log here
+
+//===== Templates ============
+
+function itemForSaleTemplate(foodItem){
+    return `
+        <article class="col-sm-5 online-food__container" data-id="${foodItem["name"]}" index="${foodItem["id"]}">   
+            <figure class="online-food__img" data-img="${foodItem["img"]}">
+                <img src="${foodItem["img"]}" class="img-responsive">
+            </figure>
+            <figcaption class="online-food__textbox">
+              <p class="online-food__name">${foodItem["name"]}</p>
+              <p class="online-food__price ">$${foodItem["price"]}</p>
+              <p class="online-food__info collapse">${foodItem["info"]}</p>
+            </figcaption>
+            <button name="orderFoodItemBtn"
+                    data-name="${foodItem["name"]}"
+                    data-id="${foodItem["id"]}"
+                    data-img="${foodItem["img"]}"
+                    data-info="${foodItem["info"]}"
+                    data-price="${foodItem["price"]}"
+                    class="icon-add-2 pull-right online-food__btn button--clear"
+            ></button>
+        </article>
+      `
+}
+
+function modalItemForSaleTemplate(foodItem){
+    return `
+        <figure name="modalImg" data-img="${foodItem["img"]}">
+            <img src="${foodItem['img']}" class="img-responsive">
+        </figure>
+        <figcaption class="modal-caption" name="modalFigCap">
+            <h4 class="modal__title" name="modalTitle">${foodItem['name']}</h4>
+            <p class="modal__price" name="modalPrice">$${foodItem['price']}</p>
+            <p class="modal__info" name="modalInfo">${foodItem['info']}</p>
+            <p class="modal__secondary-title lead page-header" >Special Requests?</p>
+            <p class="modal__input-link icon-add-2" name='userRequestbtn'> Add them here. We'll do our best to make it happen</p>
+            <input class="modal__input form-control form-control--custom"name="userRequestInput"></input>
+            <button name="addOrderBtn"
+                    data-id="${foodItem['name']}"
+                    data-img="${foodItem['img']}"
+                    data-info="${foodItem['info']}"
+                    data-price="${foodItem['price']}"
+                    date-hasReq="false"
+                    class="icon-add-2 modal__add-btn button--large"
+            >ADD TO MY ORDER</button>
+            <button name="cancelModalBtn" class="icon-delete-2 button--topCancel" ></button>
+        </figcaption>
+    `
+}
+
+function shoppingCartItemTemplate(listItem){
+    return `
+    <div class="my-order-item__container" name="myOrderItem" index="${listItem["index"]}">
+        <div class="my-order-item__quantity" name="quanityOfItem" data-value="1">1</div>
+        <span>x</span>
+        <div class="my-order-item__name" name="nameOfItem">${listItem["name"]}</div>
+        
+        <div class="my-order-item__price" name="priceOfItem" data-price="${listItem["price"]}"><span>$</span>${listItem["price"]}</div>
+        <button name="cancelOrderItem" index="${listItem["index"]}" class="icon-delete-2 my-order-item__btn button--cancel--small"></button>
+    </div>
+    `
+}
+
+//========= Events =============
+
+$asideNavPill.on({
+    'click' : function(event){
+        event.preventDefault();
+        var currentNavPill = $(this);
+        var categoryId = $(this).data('id');
+        activeNavUpdate(currentNavPill);
+        shopMenuUpdate(categoryId, itemsForSaleUpdate);
+    }
+})
+
+$midShopSection.on('click', 'button', function(){
+    var foodId = $(this).data('id');
+    var foundItem = _.filter(foodCatalogue,['id' , foodId]);
+    $foodOrderModalContainer.empty();
+    orderModalBuilder(modalItemForSaleTemplate(foundItem[0]));
+    $foodOrderModal.fadeIn('fast');
+})
+
+
+/*--------------------------
+
+         CONTROLLER
+
+---------------------------*/
+
+
+// Functions
+
+function foodSorter(catergory, catergoryArray){
+    // sorts out the main food database into 'sub' arrays based on catergory //
+    _.each(foodCatalogue, function(foodItem){
+        if(foodItem["catergory"] == catergory){
+            catergoryArray.push(foodItem);
+        }
+    });
+}
+
+function orderModalBuilder(callback){
+    // modal builder on order page
+    $(callback).appendTo($foodOrderModalContainer);
+}
+
+function shopMenuUpdate(categoryId, callback){
+    // left aside__nav
+    _.each(catergoryCatalogue, function(catergoryItem){
+        if(catergoryItem["catergory"] == categoryId){
+            $menuTitle.text(catergoryItem['name']);
+            $menuText.text(catergoryItem['description']);
+        }
+    })
+    callback(categoryId);
+}
+
+function itemsForSaleUpdate(categoryId){
+    // sets up the visual items for sale
+    var template = "";
+    _.each(itemsForSaleCategories[categoryId], function(catergory){
+        template += itemForSaleTemplate(catergory);
+    })
+
+    $shopItemsShelf.empty();
+    $(template).appendTo($shopItemsShelf);
+}
+
+function shopMenuInitalState(){
+    // left aside__nav
+    $menuTitle.text(catergoryCatalogue[0]['name']);
+    $menuText.text(catergoryCatalogue[0]['description']);
+}
+
+function activeNavUpdate(currentNavPill){
+    // left aside__nav
+    $asideNavPill.removeClass('nav-pill--active');
+    $(currentNavPill).addClass('nav-pill--active');
+}
+
+// function calls
+
+shopMenuInitalState();
+itemsForSaleUpdate('bread');
 });
