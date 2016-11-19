@@ -83,3 +83,10 @@
         width: 980px;
     }
 }
+
+// version 2 classes
+
+.nav-pill--active{
+    background-color: map-get($map: $color, $key: base);
+}
+

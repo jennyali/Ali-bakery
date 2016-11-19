@@ -451,6 +451,9 @@ body {
   .container {
     width: 980px; } }
 
+.nav-pill--active {
+  background-color: #9F3140; }
+
 /*
     =============   Contents   =============
 
