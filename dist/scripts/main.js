@@ -576,7 +576,7 @@ $itemsForSale.on("click", "button[name='orderFoodItemBtn']", function(event){
         $foodOrderModal.find("input").hide();
         $foodOrderModal.fadeIn('fast');
 })
-*/
+
 
 $foodOrderModal.on("click", "button[name='cancelModalBtn']", function(event){
     event.preventDefault();
@@ -594,6 +594,7 @@ $foodOrderModal.on("blur", "input", function(event){
     $foodOrderModal.find("input").toggle('fast');
     $foodOrderModal.find("p[name='userRequestbtn']").toggle('fast');
 })
+
 
 $foodOrderModal.on("click", "button[name='addOrderBtn']", function(event){
     event.preventDefault();
@@ -613,6 +614,7 @@ $foodOrderModal.on("click", "button[name='addOrderBtn']", function(event){
     $foodOrderModal.fadeOut('fast');
 })
 
+
 $breadOrderMenu.on({
     "click" : function(){
         $categoryTitle.text(breadOrder["title"]);
@@ -630,6 +632,7 @@ $cakeOrderMenu.on({
         onlineOrderFoodItemBuilder(cakeOrder["sample"], onlineOrderFoodItemTemplate);
     }
 })
+*/
 
 $formBtn.on({
     "click" : function(event){
@@ -784,6 +787,22 @@ catergoryCatalogue = _.map(catergoryCatalogue, function(item){
 })
 
 console.log(catergoryCatalogue, "food catergory database");         // console.log here
+
+// shopping basket
+
+var shoppingBasket = [];
+
+function basketItem(name, id, foodArray, price){
+    this.name = name;
+    this.id = id;
+    this.foodArray = foodArray;
+    this.price = price;
+    this.currentPrice = price;
+    this.priceUpdate = function(){
+       this.currentPrice = this.price * (this.foodArray.length);
+    }
+}
+
 /*--------------------------
 
             VIEW
@@ -804,7 +823,12 @@ var $shopItemsShelf = $('.shop__sale-items');
 
 var $itemForSaleModalbtn = $('.online-food__btn');
 
-console.log($breadNavPill.html(), $cakeNavPill.html(), "aside nav-pill links");          // console.log here
+var $myOrderAmount = $('.amount__number');
+var $basketView = $('.item-to-buy');
+var $subtotal = $('.subtotal__number');
+var $basketItemPrice = $('.my-order-item__price');
+
+//console.log($breadNavPill.html(), $cakeNavPill.html(), "aside nav-pill links");          // console.log here
 
 //===== Templates ============
 
@@ -844,11 +868,7 @@ function modalItemForSaleTemplate(foodItem){
             <p class="modal__input-link icon-add-2" name='userRequestbtn'> Add them here. We'll do our best to make it happen</p>
             <input class="modal__input form-control form-control--custom"name="userRequestInput"></input>
             <button name="addOrderBtn"
-                    data-id="${foodItem['name']}"
-                    data-img="${foodItem['img']}"
-                    data-info="${foodItem['info']}"
-                    data-price="${foodItem['price']}"
-                    date-hasReq="false"
+                    data-id="${foodItem['id']}"
                     class="icon-add-2 modal__add-btn button--large"
             >ADD TO MY ORDER</button>
             <button name="cancelModalBtn" class="icon-delete-2 button--topCancel" ></button>
@@ -865,6 +885,19 @@ function shoppingCartItemTemplate(listItem){
         
         <div class="my-order-item__price" name="priceOfItem" data-price="${listItem["price"]}"><span>$</span>${listItem["price"]}</div>
         <button name="cancelOrderItem" index="${listItem["index"]}" class="icon-delete-2 my-order-item__btn button--cancel--small"></button>
+    </div>
+    `
+}
+
+function myOrderItemTemplate(basketItem){
+    return `
+    <div class="my-order-item__container" data-id="${basketItem['id']}">
+        <div class="my-order-item__quantity">${basketItem['foodArray'].length}</div>
+        <span>x</span>
+        <div class="my-order-item__name">${basketItem['name']}</div>
+        
+        <div class="my-order-item__price" >${basketItem['currentPrice']}</div>
+        <button name="cancelOrderItem" data-id="${basketItem['id']}" class="icon-delete-2 my-order-item__btn button--cancel--small"></button>
     </div>
     `
 }
@@ -889,6 +922,19 @@ $midShopSection.on('click', 'button', function(){
     $foodOrderModal.fadeIn('fast');
 })
 
+$foodOrderModal.on("click", "button[name='cancelModalBtn']", function(event){
+    event.preventDefault();
+    $foodOrderModal.fadeOut('fast');
+})
+
+$foodOrderModal.on("click", "button[name='addOrderBtn']", function(event){
+    var foodId = $(this).data('id');
+    var foundItem = _.filter(foodCatalogue,['id' , foodId]);
+    //console.log(foundItem);
+    updateBasket(foundItem, updateBasketView);
+    $foodOrderModal.fadeOut('fast');
+})
+
 
 /*--------------------------
 
@@ -898,6 +944,78 @@ $midShopSection.on('click', 'button', function(){
 
 
 // Functions
+
+
+function updateBasket(foodItem, callback){              // modal's order item button
+
+    var notSameItem = false;
+
+    if(shoppingBasket == ''){
+        // if basket is empty do the following...
+        shoppingBasket.push(new basketItem(foodItem[0].name, foodItem[0].id, [foodItem[0]], foodItem[0].price));
+    } else {
+        // if basket does have something do the following...
+        _.each(shoppingBasket, function(item, index){
+        // check each item, if theres a matching item add to items' array...
+            if(item['id'] === foodItem[0]['id']){
+                //console.log('true');
+                item['foodArray'].push(foodItem[0]);
+                return notSameItem = false;
+            } else {
+                //console.log('false');
+                return notSameItem = true;
+            }
+        });
+
+        if(notSameItem == true){
+            shoppingBasket.push(new basketItem(foodItem[0].name, foodItem[0].id, [foodItem[0]], foodItem[0].price));
+        };
+    }
+
+    console.log(shoppingBasket, 'Shopping basket');
+    //console.log(notSameItem, 'no item matching');
+
+    callback(foodItem);
+}
+//============ shopping basket START =============
+
+function updateBasketView(foodItem){
+    //console.log('updateBasket activated');
+
+    $basketView.empty();
+    myOrderItemUpdate(myOrderItemTemplate);
+    myOrderAmountUpdate();
+}
+
+function myOrderItemUpdate(callback){
+    // puts correct amount of different food into basket
+    var template = "";
+
+    _.each(shoppingBasket, function(basketItem, index){
+
+
+        basketItem.priceUpdate();
+        
+        template += callback(basketItem)
+    });
+
+    $(template).appendTo($basketView);
+    
+}
+
+function myOrderAmountUpdate(){
+    // puts correct total amount of ALL items in basket. 
+    var template = 0;
+
+    _.each(shoppingBasket, function(basketItem, index){
+        template += basketItem['foodArray'].length;
+    });
+
+    $myOrderAmount.text(template);
+}
+
+
+//============ shopping basket END =============
 
 function foodSorter(catergory, catergoryArray){
     // sorts out the main food database into 'sub' arrays based on catergory //
@@ -951,4 +1069,6 @@ function activeNavUpdate(currentNavPill){
 
 shopMenuInitalState();
 itemsForSaleUpdate('bread');
+updateBasketView();
+
 });
