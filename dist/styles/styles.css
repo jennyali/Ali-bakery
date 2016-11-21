@@ -1181,12 +1181,14 @@ main[name="indexPageContent"] {
   overflow: hidden;
   width: 100%; }
   .my-order-item__container .button--cancel--small {
-    background-color: #9F3140;
-    color: #F2E6E8;
+    background-color: #F2E6E8;
+    color: #2B0F26;
     border: 0;
     border-radius: 50%;
     padding: 6px 8px 4px 6px;
     font-size: 8px; }
+    .my-order-item__container .button--cancel--small:hover {
+      color: #9F3140; }
 
 .my-order-item__quantity {
   display: inline; }
@@ -1194,15 +1196,37 @@ main[name="indexPageContent"] {
 .my-order-item__name {
   display: inline; }
 
+/*
+.my-order-item__price{
+    display: inline;
+    position: absolute;
+    right: 15px; 
+    transition: right 0.5s;
+}
+
+.my-order-item__btn{
+    position: absolute;
+    right: -30px;
+    transition: right 0.5s;
+}
+*/
 .my-order-item__price {
   display: inline;
   position: absolute;
-  right: 15px;
-  transition: right 0.5s; }
+  right: 80px; }
 
 .my-order-item__btn {
   position: absolute;
-  right: -30px;
-  transition: right 0.5s; }
+  right: 15px; }
+
+.my-order-item__addBtn {
+  position: absolute;
+  right: 40px; }
+
+.item-to-buy {
+  padding: 15px; }
+
+.my-order-item__container {
+  margin: 5px 0px; }
 
 /*# sourceMappingURL=styles.css.map */

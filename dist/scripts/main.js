@@ -827,6 +827,8 @@ var $myOrderAmount = $('.amount__number');
 var $basketView = $('.item-to-buy');
 var $subtotal = $('.subtotal__number');
 var $basketItemPrice = $('.my-order-item__price');
+var $basketItemCancelBtn = $('.my-order-item__btn');
+var $basketItemIncreaseBtn = $('.my-order-item__addBtn');
 
 //console.log($breadNavPill.html(), $cakeNavPill.html(), "aside nav-pill links");          // console.log here
 
@@ -898,6 +900,7 @@ function myOrderItemTemplate(basketItem){
         
         <div class="my-order-item__price" >${basketItem['currentPrice']}</div>
         <button name="cancelOrderItem" data-id="${basketItem['id']}" class="icon-delete-2 my-order-item__btn button--cancel--small"></button>
+        <button name="increaseOrderItem" data-id="${basketItem['id']}" class="icon-add-2 my-order-item__btn my-order-item__addBtn button--cancel--small"></button>
     </div>
     `
 }
@@ -935,6 +938,20 @@ $foodOrderModal.on("click", "button[name='addOrderBtn']", function(event){
     $foodOrderModal.fadeOut('fast');
 })
 
+$basketView.on('click', "button[name='cancelOrderItem']" , function(event){
+    event.preventDefault();
+    var foodId = $(this).data('id');
+    var foundItem = _.filter(foodCatalogue,['id' , foodId]);
+    removeBasketItem(foodId);
+    updateBasketView();
+})
+
+$basketView.on('click', "button[name='increaseOrderItem']" , function(event){
+    event.preventDefault();
+    var foodId = $(this).data('id');
+    var foundItem = _.filter(foodCatalogue,['id' , foodId]);
+    updateBasket(foundItem, updateBasketView);
+})
 
 /*--------------------------
 
@@ -945,7 +962,7 @@ $foodOrderModal.on("click", "button[name='addOrderBtn']", function(event){
 
 // Functions
 
-
+//============ shopping basket START =============
 function updateBasket(foodItem, callback){              // modal's order item button
 
     var notSameItem = false;
@@ -972,12 +989,23 @@ function updateBasket(foodItem, callback){              // modal's order item bu
         };
     }
 
-    console.log(shoppingBasket, 'Shopping basket');
+    console.log(shoppingBasket, 'BasketItem added');
     //console.log(notSameItem, 'no item matching');
 
     callback(foodItem);
 }
-//============ shopping basket START =============
+
+function removeBasketItem(foodId){
+    _.each(shoppingBasket, function(basketItem, index){
+        if(basketItem['id'] === foodId){
+            basketItem['foodArray'].pop();
+        }
+        if(basketItem['foodArray'].length == 0){
+            shoppingBasket.pop(basketItem);
+        }
+    })
+    console.log(shoppingBasket, 'Item removed');
+}
 
 function updateBasketView(foodItem){
     //console.log('updateBasket activated');
@@ -985,32 +1013,34 @@ function updateBasketView(foodItem){
     $basketView.empty();
     myOrderItemUpdate(myOrderItemTemplate);
     myOrderAmountUpdate();
+    basketSubtotalUpdate();
+}
+
+function basketSubtotalUpdate(){
+    // updates correct subtotal based on basketItem's current price added together
+     var value = 0;
+     _.each(shoppingBasket, function(basketItem, index){
+         value += basketItem['currentPrice'];
+     })
+     $subtotal.text(value);
 }
 
 function myOrderItemUpdate(callback){
     // puts correct amount of different food into basket
     var template = "";
-
     _.each(shoppingBasket, function(basketItem, index){
-
-
         basketItem.priceUpdate();
-        
         template += callback(basketItem)
     });
-
     $(template).appendTo($basketView);
-    
 }
 
 function myOrderAmountUpdate(){
     // puts correct total amount of ALL items in basket. 
     var template = 0;
-
     _.each(shoppingBasket, function(basketItem, index){
         template += basketItem['foodArray'].length;
     });
-
     $myOrderAmount.text(template);
 }
 

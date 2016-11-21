@@ -60,10 +60,14 @@
 
 @mixin buttonStyle--cancel--small(){
     .button--cancel--small{
-        @include colorTheme--contrast;
+        @include colorTheme--base;
         border: 0;
         border-radius: 50%;
         padding: 6px 8px 4px 6px;
         font-size: 8px;
+
+        &:hover{
+            color: map-get($map: $color, $key: base);
+        }
     }
 }
