@@ -834,6 +834,35 @@ var $basketItemIncreaseBtn = $('.my-order-item__addBtn');
 
 //===== Templates ============
 
+function menuTemplate(foodItem, index){
+    return `
+        <article class="row col-md-12 menuItem"
+                 data-id="menuItem"
+                 name="${foodItem["name"]}"
+                 index="${index}">
+            <figure class="menu-item__img visible-xs" data-img="${foodItem["img"]}" style="background-image:url('${foodItem["img"]}')">
+                <figcaption class="menu-item__textbox">
+                    <h4 class="menu-item__title">${foodItem["name"]}</h4>
+                    <p class="menu-item__price">$${foodItem["price"]}</p>
+                </figcaption>
+            </figure>
+            <p class="menu-item__info--xs visible-xs">${foodItem["info"]}<p>
+            
+            <section class="hidden-xs col-md-12 media">
+                <div class="media-left">
+                    <img src="${foodItem["img"]}" class="media-object menu-item__img--sm">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">${foodItem["name"]}</h4>
+                    <p class="inline menu-item__info--md">Delicious home baked projects, made from the finest ingriedents</p>
+                    <div class="inline menu-item__divider"></div>
+                    <p class="inline menu-item__price--md">$${foodItem["price"]}</p>
+                </div>
+            </section>
+        </article>
+    `
+}
+
 function itemForSaleTemplate(foodItem){
     return `
         <article class="col-sm-5 online-food__container" data-id="${foodItem["name"]}" index="${foodItem["id"]}">   
@@ -961,6 +990,14 @@ $basketView.on('click', "button[name='increaseOrderItem']" , function(event){
 
 
 // Functions
+
+function menuBuilder(menuList, arrayCategory, callback){
+    var template = "";
+    _.each(arrayCategory, function(foodItem, index){
+        template += callback(foodItem, index);
+    });
+    $(template).appendTo(menuList);
+}
 
 //============ shopping basket START =============
 function updateBasket(foodItem, callback){              // modal's order item button
@@ -1100,5 +1137,8 @@ function activeNavUpdate(currentNavPill){
 shopMenuInitalState();
 itemsForSaleUpdate('bread');
 updateBasketView();
+
+menuBuilder($breadList, breadCatalogue, menuTemplate);
+menuBuilder($cakeList, cakeCatalogue, menuTemplate);
 
 });

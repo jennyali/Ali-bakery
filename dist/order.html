@@ -55,6 +55,8 @@
     </nav>
   </header>
             <!-- header end -->
+
+
 <main class="container order__content">
   <section class="jumbotron text-center order__jumbo">   <!-- faux header -->
     <h3 class="page-header order__jumbo-title">Order Online</h3>
@@ -62,22 +64,30 @@
   <section class="eCommerce">
     <article class="row eCommerce-inner">
       <section name="leftAsideMenu" class="col-sm-2 left-aside__nav">   <!-- left faux aside -->
-        <ul class="nav nav-pills nav-stacked nav--custom">
+        
+        
+        <ul class="nav nav-pills nav-stacked nav--custom aside__nav">
           <li class="active"><a href="#">Cakes & Breads</a></li>
-          <li class="nav-item"><a href="#" name="cakeOrderMenu" class="nav-item__link">Cakes</a></li>
-          <li class="nav-item"><a href="#" name="breadOrderMenu" class="nav-item__link">Breads</a></li>
+          <li class="nav-item"><a href="#" class="nav-pill--active aside__nav-pill-bread aside__nav-pill nav-item__link" data-id="bread">Breads</a></li>
+          <li class="nav-item"><a href="#" class="aside__nav-pill-cake aside__nav-pill nav-item__link" data-id="cake">Cakes</a></li>
         </ul>
+
+
       </section>
       <section name="midSectionContent" class="col-sm-7 mid-section__shop">
         <div class="text-center shop__title">   
           <h3 name="orderOnlineTitle">Breads & Cakes </h3>
         </div>
-        <div class="text-center shop__category">
-          <h3 name="categoryTitle"></h3>
-          <p name="categoryInfo"></p>
+
+
+        <div class="text-center shop__menu">
+          <h3 class="menu__title"></h3>
+          <p class="menu__text"></p>
         </div>
+
         <div name="itemsForSale" class="row shop__sale-items">
         </div>
+
       </section>
       <section class="col-sm-3 right-aside__basket">   <!-- right faux aside with pricing -->
         <div name="myOrderTitle" class="basket__amount">
@@ -85,6 +95,7 @@
           <p class="amount__text inline" name="itemWord">items</p>
           <p class="amount__number inline" name="myOrderAmount">0</p>
         </div>
+        <div class="item-to-buy"></div>
         <div class="basket__subtotal-container">
           <div class="text-center"><span class="icon-basket-1"></span></div>
           <div class="basket__subtotal">
@@ -128,6 +139,9 @@
   </section>
 </main>
             <!-- content end -->
+
+
+
 
   <footer class="container text-center siteFooter" name="globalFooter">
         <section class="row">
