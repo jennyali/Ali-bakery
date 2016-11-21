@@ -211,6 +211,7 @@
     display: inline;
 }
 
+/*
 .my-order-item__price{
     display: inline;
     position: absolute;
@@ -223,4 +224,30 @@
     right: -30px;
     transition: right 0.5s;
 }
+*/
 
+.my-order-item__price{
+    display: inline;
+    position: absolute;
+    right: 80px; 
+    //transition: right 0.5s;
+}
+
+.my-order-item__btn{
+    position: absolute;
+    right: 15px;
+    //transition: right 0.5s;
+}
+
+.my-order-item__addBtn{
+    position: absolute;
+    right: 40px;
+}
+
+.item-to-buy{
+    padding: 15px;
+}
+
+.my-order-item__container{
+    margin: 5px 0px;
+}
